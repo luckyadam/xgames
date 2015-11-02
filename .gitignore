@@ -29,3 +29,5 @@ node_modules
 dist
 */dist
 app-conf.js
+.sass-cache
+*.map
