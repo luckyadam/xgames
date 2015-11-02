@@ -1,0 +1,13 @@
+/*
+ * @author: liyixin5
+ * @time: 2015-10-27
+*/
+body {
+  background: url(../images/shake_bg.png) repeat;
+  background-size: 16rem auto; }
+
+.shake {
+  position: relative;
+  overflow: hidden; }
+
+/*# sourceMappingURL=shakeit.css.map */

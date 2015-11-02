@@ -1,0 +1,22 @@
+<!--
+  @author: luckyadam
+  @name: countdown2
+  @date: gb
+  @description: 大型倒计时器
+-->
+
+<div class="countdown2">
+  <div class="countdown2_txt"></div>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('gb/widget/countdown2', function (Countdown2) {
+    var countdown2 = new Countdown2({
+      $el: $('.countdown2'),
+      bgm: __uri('../images/countdown2_bgm.mp3')
+    });
+
+  });
+</script>
+<% widget.scriptEnd() %>

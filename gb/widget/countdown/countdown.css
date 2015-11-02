@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Countdown';
+  src: url("../images/lh.eot");
+  src: url("../images/lh.woff") format("woff"), url("../images/lh.ttf") format("truetype"), url("../images/lh.svg#svgFontName") format("svg"); }
+.countdown {
+  width: 3.11467rem;
+  height: 2.944rem;
+  position: absolute;
+  top: 0.68267rem;
+  left: 0.68267rem;
+  background-image: url(../images/countdown.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-family: 'Countdown';
+  box-sizing: border-box;
+  line-height: 2.944rem;
+  text-align: center;
+  color: #38385a; }
+
+.countdown_bg {
+  position: absolute;
+  width: 2.51733rem;
+  height: 2.51733rem;
+  border-radius: 100%;
+  top: 0.128rem;
+  left: 0.128rem;
+  z-index: 1;
+  background-color: #b1ffec; }
+
+.countdown_bg_pie {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.51733rem;
+  height: 2.51733rem;
+  background-color: #fff;
+  border-radius: 50%; }
+
+.countdown_bg_left {
+  clip: rect(0px, 2.51733rem, 2.51733rem, 1.25867rem);
+  transform: rotate(0deg); }
+
+.countdown_bg_right {
+  clip: rect(0px, 1.25867rem, 2.51733rem, 0px);
+  transform: rotate(0deg); }
+
+.countdown_time {
+  position: relative;
+  z-index: 2; }
+
+.countdown_num {
+  font-size: 1.024rem; }
+
+.countdown_unit {
+  font-size: 0.68267rem; }
+
+/*# sourceMappingURL=countdown.css.map */

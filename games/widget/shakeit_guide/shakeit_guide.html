@@ -1,0 +1,21 @@
+<!--
+  @author: luckyadam
+  @name: shakeit_guide
+  @date: games
+  @description: 摇摇乐提示
+-->
+
+<div class="shake_guide shake_guide_duck">
+  <div class="sg_words"><span class="sg_words_phone"></span></div>
+  <div class="sg_p"></div>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('games/widget/shakeit_guide', function (ShakeitGuide) {
+    var shakeitGuide = new ShakeitGuide({
+      $el: $('.shake_guide')
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

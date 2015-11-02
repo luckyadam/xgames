@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";;;;AAcA,IAAI;EAAC,UAAU,EAAC,kCAAkC;EAAC,eAAe,EAAC,UAAe;;AAClF,MAAM;EAAC,QAAQ,EAAC,QAAQ;EAAC,QAAQ,EAAC,MAAM",
+"sources": ["shakeit.scss"],
+"names": [],
+"file": "shakeit.css"
+}

@@ -1,0 +1,20 @@
+.top_player {
+  position: absolute;
+  top: 0.68267rem;
+  right: 0.68267rem; }
+
+.top_player_btn {
+  display: block;
+  width: 1.536rem;
+  height: 1.536rem;
+  background-repeat: no-repeat;
+  background-size: 2.13333rem 3.41333rem;
+  background-image: url(../images/top_player.png); }
+
+.top_player_btn.on {
+  background-position: 0 0; }
+
+.top_player_btn.off {
+  background-position: 0 -1.70667rem; }
+
+/*# sourceMappingURL=top_player.css.map */

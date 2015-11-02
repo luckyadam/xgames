@@ -1,0 +1,27 @@
+$baseFontSize: 20px;
+@function pxToRem ($px) {
+  @return $px / $baseFontSize * 640 / 750 + rem;
+}
+
+.top_player {
+  position: absolute;
+  top: pxToRem(16px);
+  right: pxToRem(16px);
+}
+
+.top_player_btn {
+  display: block;
+  width: pxToRem(36px);
+  height: pxToRem(36px);
+  background-repeat: no-repeat;
+  background-size: pxToRem(50px) pxToRem(80px);
+  background-image: url(../images/top_player.png);
+}
+
+.top_player_btn.on {
+  background-position: 0 0;
+}
+
+.top_player_btn.off {
+  background-position: 0 pxToRem(-40px);
+}

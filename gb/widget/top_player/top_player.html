@@ -1,0 +1,21 @@
+<!--
+  @author: luckyadam
+  @name: top_player
+  @date: gb
+  @description: 左上角播放控制器
+-->
+
+<div class="top_player">
+  <a href="javascript:;" class="top_player_btn"></a>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('gb/widget/top_player', function (TopPlayer) {
+    var topPlayer = new TopPlayer({
+      src: __uri('../images/bgm.mp3'),
+      $el: $('.top_player')
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

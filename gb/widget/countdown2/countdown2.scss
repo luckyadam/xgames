@@ -1,0 +1,22 @@
+$baseFontSize: 40px;
+@function pxToRem ($px) {
+  @return $px / $baseFontSize * 640 / 750 + rem;
+}
+
+.countdown2 {
+  width: pxToRem(396px);
+  height: pxToRem(328px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: pxToRem(-198px);
+}
+
+.countdown2_txt {
+  width: pxToRem(396px);
+  height: pxToRem(328px);
+  background-image: url(../images/countdown2.png);
+  background-repeat: no-repeat;
+  background-size: pxToRem(400px) auto;
+  background-position: 0 0;
+}

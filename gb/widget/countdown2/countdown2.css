@@ -1,0 +1,17 @@
+.countdown2 {
+  width: 8.448rem;
+  height: 6.99733rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -4.224rem; }
+
+.countdown2_txt {
+  width: 8.448rem;
+  height: 6.99733rem;
+  background-image: url(../images/countdown2.png);
+  background-repeat: no-repeat;
+  background-size: 8.53333rem auto;
+  background-position: 0 0; }
+
+/*# sourceMappingURL=countdown2.css.map */

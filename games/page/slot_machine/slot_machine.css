@@ -1,0 +1,13 @@
+/*
+ * @author: luckyadam
+ * @time: 2015-10-27
+*/
+.slot {
+  width: 100%;
+  height: 100%;
+  background: url(../images/slot_bg.png) repeat-y 0 0;
+  background-size: contain;
+  position: relative;
+  overflow: hidden; }
+
+/*# sourceMappingURL=slot_machine.css.map */

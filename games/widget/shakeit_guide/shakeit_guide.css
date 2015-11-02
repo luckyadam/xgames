@@ -1,0 +1,45 @@
+.shake_guide.dismiss {
+  animation-name: dismiss;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both; }
+
+.sg_words {
+  width: 6.7414rem;
+  height: 7.7654rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -4.608rem;
+  margin-left: -3.3706rem;
+  background: url(../images/shake_notice.png) no-repeat top center;
+  background-size: 100% auto; }
+
+.sg_words_phone {
+  width: 2.3254rem;
+  height: 2.0267rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -90%);
+  background: url(../images/shake_notice_phone.png) no-repeat top center;
+  background-size: 100% auto; }
+
+.sg_p {
+  width: 8.2774rem;
+  height: 10.5174rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 3.2rem;
+  margin-left: 0.1067rem;
+  background: url(../images/shake_p.png) no-repeat top center;
+  background-size: 100% auto; }
+
+@keyframes dismiss {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/*# sourceMappingURL=shakeit_guide.css.map */

@@ -1,0 +1,25 @@
+<!--
+  @author: luckyadam
+  @name: countdown
+  @date: gb
+  @description: 倒计时器
+-->
+
+<div class="countdown">
+  <div class="countdown_bg">
+    <div class="countdown_bg_pie countdown_bg_left"></div>
+    <div class="countdown_bg_pie countdown_bg_right"></div>
+  </div>
+  <div class="countdown_time"><span class="countdown_num"><%= start %></span><span class="countdown_unit">s</span></div>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('gb/widget/countdown', function (Countdown) {
+    var countdown = new Countdown({
+      $el: $('.countdown'),
+      start: <%= start %>
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

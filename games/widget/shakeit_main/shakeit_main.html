@@ -1,0 +1,40 @@
+<!--
+  @author: luckyadam
+  @name: shakeit_main
+  @date: games
+  @description: 摇摇乐
+-->
+
+<!--
+开始前 shake_ini
+摇动中 shake_ing
+掉落 shake_ing shake_drop
+没中奖 shake_ing shake_fart
+中奖 shake_ing shake_win
+提示用户摇动 shake_ing shake_notice
+ -->
+<div class="shake_main shake_ini" style="display: none;">
+  <div class="sm_box"><span class="sm_box_exp"></span><span class="hands"></span></div>
+  <div class="sm_ribbons"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="sm_drop"><span class="bingbang"></span><span class="shining"></span></div>
+  <div class="sm_stars"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="sm_shadow"></div>
+
+  <div class="sm_title">
+    <span class="smt_words"></span>
+    <div class="smt_shake"><span></span><i></i><i></i></div>
+    <span class="smt_go"></span>
+    <%= widget.load('countdown2', null, 'gb') %>
+  </div>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('games/widget/shakeit_main', function (ShakeitMain) {
+    var shakeitMain = new ShakeitMain({
+      $el: $('.shake_main')
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

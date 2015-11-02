@@ -1,0 +1,26 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+.shake_guide{}
+  .shake_guide.dismiss{
+    animation-name: dismiss;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  .sg_words{width:rem(316px);height:rem(364px);position:absolute;top:50%;left:50%;margin-top:rem(-216px);margin-left:rem(-158px);background:url(../images/shake_notice.png) no-repeat top center;background-size:100% auto;}
+    .sg_words_phone{width:rem(109px);height:rem(95px);position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%, -90%);background:url(../images/shake_notice_phone.png) no-repeat top center;background-size:100% auto;}
+  .sg_p{width:rem(388px);height:rem(493px);position:absolute;top:50%;left:50%;margin-top:rem(150px);margin-left:rem(5px);background:url(../images/shake_p.png) no-repeat top center;background-size:100% auto;}
+  @keyframes dismiss {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+  }

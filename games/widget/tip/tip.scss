@@ -1,0 +1,49 @@
+$baseFontSize: 20px;
+@function pxToRem ($px) {
+  @return $px / $baseFontSize * 640 / 750 + rem;
+}
+
+
+.tip {
+
+}
+.tip_bubble {
+  position: absolute;
+  width: pxToRem(160px);
+  height: pxToRem(184px);
+  top: 50%;
+  margin-top: pxToRem(-100px);
+  left: 50%;
+  margin-left: pxToRem(-92px);
+  background-image: url(../images/slot_tip.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: pxToRem(160px) auto;
+  background-size: pxToRem(160px) auto;
+}
+
+.tip_popsicle_p {
+  position: absolute;
+  bottom: pxToRem(-15px);
+  left: pxToRem(-8px);
+  width: pxToRem(217px);
+  height: pxToRem(269px);
+  background-image: url(../images/little_p.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: pxToRem(217px) auto;
+  background-size: pxToRem(217px) auto;
+}
+
+.tip_popsicle_gas {
+  position: absolute;
+  bottom: pxToRem(60px);
+  left: pxToRem(197px);
+  width: pxToRem(86px);
+  height: pxToRem(93px);
+  background-image: url(../images/gas.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: pxToRem(86px) auto;
+  background-size: pxToRem(86px) auto;
+}

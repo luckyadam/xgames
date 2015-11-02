@@ -1,0 +1,243 @@
+.shake_ini .sm_ribbons, .shake_ini .sm_drop {
+  opacity: 0; }
+
+.sm_box {
+  width: 11.3494rem;
+  height: 8.7894rem;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -6.1866rem;
+  margin-bottom: 2.8587rem;
+  background: url(../images/box.png) no-repeat top center;
+  background-size: 100% auto;
+  z-index: 10; }
+
+.sm_box_exp {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto; }
+
+.shake_ini .sm_box {
+  background-image: url(../images/box.png); }
+
+.shake_ing .sm_box, .shake_fart .sm_box {
+  background-image: url(../images/box_open.png); }
+
+.shake_ing .sm_box_exp {
+  background-image: url(../images/box_smile.png); }
+
+.shake_fart .sm_box_exp {
+  background-image: url(../images/box_shy.png); }
+
+.shake_drop .sm_box {
+  background-image: url(../images/box_on.png); }
+
+.hands {
+  width: 10.6667rem;
+  height: 5.5254rem;
+  position: absolute;
+  left: 5.9734rem;
+  top: 1.2374rem;
+  background: url(../images/shake_hands.png) no-repeat top center;
+  background-size: 100% auto; }
+
+.sm_ribbons {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  margin-bottom: 1.4934rem;
+  z-index: 9; }
+  .sm_ribbons i {
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto; }
+  .sm_ribbons i:nth-child(1) {
+    width: 2.7307rem;
+    height: 2.5814rem;
+    background-image: url(../images/drop_ribbon1.png); }
+  .sm_ribbons i:nth-child(2) {
+    width: 2.1974rem;
+    height: 2.88rem;
+    background-image: url(../images/drop_ribbon2.png); }
+  .sm_ribbons i:nth-child(3) {
+    width: 1.6427rem;
+    height: 1.0667rem;
+    background-image: url(../images/drop_ribbon3.png); }
+  .sm_ribbons i:nth-child(4) {
+    width: 1.1947rem;
+    height: 1.4294rem;
+    background-image: url(../images/drop_ribbon4.png); }
+  .sm_ribbons i:nth-child(5) {
+    width: 1.3227rem;
+    height: 1.2587rem;
+    background-image: url(../images/drop_ribbon5.png); }
+  .sm_ribbons i:nth-child(6) {
+    width: 0.9174rem;
+    height: 1.5147rem;
+    background-image: url(../images/drop_ribbon6.png); }
+
+.sm_drop {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  margin-bottom: 1.92rem;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  z-index: 8;
+  -webkit-transform: translateX(-50%); }
+  .shake_drop.shake_ing .sm_drop {
+    width: 5.184rem;
+    height: 6.7414rem;
+    background-image: url(../images/drop_psurp.png); }
+  .shake_win .sm_drop {
+    width: 5.5467rem;
+    height: 7.7867rem;
+    background-image: none; }
+    .shake_win .sm_drop .bingbang {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 3; }
+    .shake_win .sm_drop .shining {
+      width: 14.4rem;
+      height: 15.6587rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url(../images/drop_shine.png) no-repeat top center;
+      background-size: 100% auto;
+      z-index: 1; }
+  .shake_fart .sm_drop {
+    width: 4.224rem;
+    height: 5.3334rem;
+    background-image: url(../images/drop_fart.png); }
+    .shake_fart .sm_drop i {
+      width: 1.344rem;
+      height: 1.344rem;
+      position: absolute;
+      background: url(../images/drop_stars.png) no-repeat top center;
+      background-size: 100% auto; }
+
+.shake_win .sm_stars, .shake_fart .sm_stars {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+  .shake_win .sm_stars i, .shake_fart .sm_stars i {
+    width: 1.344rem;
+    height: 1.344rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: url(../images/drop_stars.png) no-repeat top center;
+    background-size: 100% auto; }
+  .shake_win .sm_stars i:nth-child(1), .shake_fart .sm_stars i:nth-child(1) {
+    margin-top: -1.2373rem;
+    margin-left: -5.0346rem; }
+  .shake_win .sm_stars i:nth-child(2), .shake_fart .sm_stars i:nth-child(2) {
+    margin-left: -5.4613rem; }
+  .shake_win .sm_stars i:nth-child(3), .shake_fart .sm_stars i:nth-child(3) {
+    margin-top: -2.0906rem;
+    margin-left: 1.152rem; }
+  .shake_win .sm_stars i:nth-child(4), .shake_fart .sm_stars i:nth-child(4) {
+    margin-top: -0.768rem;
+    margin-left: 2.816rem; }
+  .shake_win .sm_stars i:nth-child(5), .shake_fart .sm_stars i:nth-child(5) {
+    margin-top: 7.2107rem;
+    margin-left: 1.536rem; }
+
+.sm_shadow {
+  width: 2.8587rem;
+  height: 0.512rem;
+  background: #0772D6;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -1.4293rem;
+  margin-top: 9.8134rem; }
+
+.sm_title {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0; }
+  .shake_ini .sm_title {
+    opacity: 1; }
+
+.smt_words {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto; }
+  .shake_ini .smt_words {
+    width: 13.7174rem;
+    height: 2.304rem;
+    background-image: url(../images/shake_words_title.png); }
+
+.smt_shake {
+  width: 3.5627rem;
+  height: 3.5627rem;
+  position: absolute;
+  left: 50%;
+  top: -0.64rem; }
+  .smt_shake span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url(../images/shake_words_shake.png) no-repeat top center;
+    background-size: 100% auto; }
+  .shake_ini .smt_shake {
+    margin-left: -2.6026rem; }
+    .shake_ini .smt_shake span {
+      transform: rotate(-10deg); }
+  .smt_shake i {
+    width: 1.536rem;
+    height: 1.2374rem;
+    background: url(../images/shake_words_queot.png) no-repeat top center;
+    background-size: 100% auto;
+    position: absolute; }
+  .smt_shake i:nth-of-type(1) {
+    top: -0.8106rem;
+    left: -1.7493rem; }
+  .smt_shake i:nth-of-type(2) {
+    transform: rotate(180deg);
+    bottom: -0.8533rem;
+    right: -1.408rem; }
+
+.shake_ini .countdown2 {
+  bottom: -7.8933rem;
+  top: auto; }
+
+.smt_exc {
+  width: 1.344rem;
+  height: 2.4747rem;
+  display: inline-block;
+  background: url(../images/shake_words_exc.png) no-repeat top center;
+  background-size: 100% auto; }
+  .shake_ini .smt_exc {
+    transform: translateY(0.2134rem); }
+
+.shake_ing.shake_notice .smt_words {
+  width: 6.7414rem;
+  height: 2.304rem;
+  margin-right: 4.3947rem;
+  background-image: url(../images/shake_words_again.png); }
+.shake_ing.shake_notice .smt_shake {
+  margin-left: 0.9814rem; }
+
+/*# sourceMappingURL=shakeit_main.css.map */

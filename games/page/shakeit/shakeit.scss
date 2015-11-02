@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/*
+ * @author: liyixin5
+ * @time: 2015-10-27
+*/
+
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+	@return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+body{background:url(../images/shake_bg.png) repeat;background-size:rem(750px) auto;}
+.shake{position:relative;overflow:hidden;}

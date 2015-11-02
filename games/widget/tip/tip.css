@@ -1,0 +1,39 @@
+.tip_bubble {
+  position: absolute;
+  width: 6.82667rem;
+  height: 7.85067rem;
+  top: 50%;
+  margin-top: -4.26667rem;
+  left: 50%;
+  margin-left: -3.92533rem;
+  background-image: url(../images/slot_tip.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: 6.82667rem auto;
+  background-size: 6.82667rem auto; }
+
+.tip_popsicle_p {
+  position: absolute;
+  bottom: -0.64rem;
+  left: -0.34133rem;
+  width: 9.25867rem;
+  height: 11.47733rem;
+  background-image: url(../images/little_p.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: 9.25867rem auto;
+  background-size: 9.25867rem auto; }
+
+.tip_popsicle_gas {
+  position: absolute;
+  bottom: 2.56rem;
+  left: 8.40533rem;
+  width: 3.66933rem;
+  height: 3.968rem;
+  background-image: url(../images/gas.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: 3.66933rem auto;
+  background-size: 3.66933rem auto; }
+
+/*# sourceMappingURL=tip.css.map */
