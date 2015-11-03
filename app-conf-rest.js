@@ -6,6 +6,9 @@ module.exports = {
   common: 'gb',
   moduleList: ['gb', 'games'],
   deploy: {
+    local: {
+      host: '/'
+    },
     qiang: {
       host: 'labs.qiang.it',
       user: '',
