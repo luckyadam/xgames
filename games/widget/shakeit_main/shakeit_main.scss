@@ -14,26 +14,258 @@ $baseFontSize: 40px;
     .shake_ini .sm_box{background-image:url(../images/box.png);}
     .shake_ing .sm_box, .shake_fart .sm_box{background-image:url(../images/box_open.png);}
     .shake_ing .sm_box_exp{background-image:url(../images/box_smile.png);}
+    .shake_drop .sm_box_exp{background-image:none;}
     .shake_fart .sm_box_exp{background-image:url(../images/box_shy.png);}
     .shake_drop .sm_box{background-image:url(../images/box_on.png);}
     .hands{width:rem(500px);height:rem(259px);position:absolute;left:rem(280px);top:rem(58px);background:url(../images/shake_hands.png) no-repeat top center;background-size:100% auto;}
   .sm_ribbons{position:absolute;bottom:50%;left:50%;margin-bottom:rem(70px);z-index:9;
-    i{position:absolute;bottom:0;background-repeat:no-repeat;background-position:top center;background-size:100% auto;}
-    i:nth-child(1){width:rem(128px);height:rem(121px);background-image:url(../images/drop_ribbon1.png)}
-    i:nth-child(2){width:rem(103px);height:rem(135px);background-image:url(../images/drop_ribbon2.png)}
-    i:nth-child(3){width:rem(77px);height:rem(50px);background-image:url(../images/drop_ribbon3.png)}
-    i:nth-child(4){width:rem(56px);height:rem(67px);background-image:url(../images/drop_ribbon4.png)}
-    i:nth-child(5){width:rem(62px);height:rem(59px);background-image:url(../images/drop_ribbon5.png)}
-    i:nth-child(6){width:rem(43px);height:rem(71px);background-image:url(../images/drop_ribbon6.png)}
+    i{
+      position:absolute;
+      bottom:0;
+      background-repeat:no-repeat;
+      background-position:top center;
+      background-size:100% auto;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+    i:nth-child(1){
+      width:rem(128px);
+      height:rem(121px);
+      background-image:url(../images/drop_ribbon1.png);
+    }
+    i:nth-child(1).falling {
+      animation-name: falling1;
+      animation-duration: 2s;
+    }
+    i:nth-child(2){
+      width:rem(103px);
+      height:rem(135px);
+      background-image:url(../images/drop_ribbon2.png);
+    }
+    i:nth-child(2).falling {
+      animation-name: falling2;
+      animation-duration: 2s;
+    }
+    i:nth-child(3){
+      width:rem(77px);
+      height:rem(50px);
+      background-image:url(../images/drop_ribbon3.png);
+    }
+    i:nth-child(3).falling {
+      animation-name: falling3;
+      animation-duration: 2s;
+    }
+    i:nth-child(4){
+      width:rem(56px);
+      height:rem(67px);
+      background-image:url(../images/drop_ribbon4.png);
+    }
+    i:nth-child(4).falling {
+      animation-name: falling4;
+      animation-duration: 2s;
+    }
+    i:nth-child(5){
+      width:rem(62px);
+      height:rem(59px);
+      background-image:url(../images/drop_ribbon5.png);
+    }
+    i:nth-child(5).falling {
+      animation-name: falling5;
+      animation-duration: 2s;
+    }
+    i:nth-child(6){
+      width:rem(43px);
+      height:rem(71px);
+      background-image:url(../images/drop_ribbon6.png);
+    }
+    i:nth-child(6).falling {
+      animation-name: falling6;
+      animation-duration: 2s;
+    }
+    @at-root .shake_fart &,.shake_win &{display: none;}
   }
-  .sm_drop{position:absolute;bottom:50%;left:50%;margin-bottom:rem(90px);background-repeat:no-repeat;background-position:top center;background-size:100% auto;z-index:8;-webkit-transform:translateX(-50%);
+
+  @keyframes falling1 {
+    0% {
+      transform: translateX(rem(20px)) translateY(rem(10px));
+      opacity: 1;
+    }
+    10% {
+      transform: translateX(rem(35px)) translateY(rem(30px));
+      opacity: 1;
+    }
+    20% {
+      transform: translateX(rem(50px)) translateY(rem(50px));
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(rem(65px)) translateY(rem(70px));
+      opacity: 1;
+    }
+    40% {
+      transform: translateX(rem(80px)) translateY(rem(90px));
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(rem(95px)) translateY(rem(110px));
+      opacity: 1;
+    }
+    60% {
+      transform: translateX(rem(110px)) translateY(rem(135px));
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(rem(125px)) translateY(rem(160px));
+      opacity: 1;
+    }
+    80% {
+      transform: translateX(rem(140px)) translateY(rem(185px));
+      opacity: 1;
+    }
+    90% {
+      transform: translateX(rem(155px)) translateY(rem(210px));
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(rem(170px)) translateY(rem(235px));
+      opacity: 0;
+    }
+  }
+  @keyframes falling2 {
+    0% {
+      transform: translateX(rem(-20px)) translateY(rem(30px));
+      opacity: 1;
+    }
+    10% {
+      transform: translateX(rem(-40px)) translateY(rem(60px));
+      opacity: 1;
+    }
+    20% {
+      transform: translateX(rem(-60px)) translateY(rem(95px));
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(rem(-85px)) translateY(rem(135px));
+      opacity: 1;
+    }
+    40% {
+      transform: translateX(rem(-110px)) translateY(rem(180px));
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(rem(-135px)) translateY(rem(230px));
+      opacity: 1;
+    }
+    60% {
+      transform: translateX(rem(-160px)) translateY(rem(285px));
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(rem(-185px)) translateY(rem(345px));
+      opacity: 1;
+    }
+    80% {
+      transform: translateX(rem(-210px)) translateY(rem(410px));
+      opacity: 1;
+    }
+    90% {
+      transform: translateX(rem(-235px)) translateY(rem(480px));
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(rem(-260px)) translateY(rem(555px));
+      opacity: 0;
+    }
+  }
+  @keyframes falling3 {
+    0% {
+      transform: translateX(rem(0px)) translateY(rem(0px));
+      opacity: 1;
+    }
+    10% {
+      transform: translateX(rem(0px)) translateY(rem(40px));
+      opacity: 1;
+    }
+    20% {
+      transform: translateX(rem(0px)) translateY(rem(80px));
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(rem(5px)) translateY(rem(120px));
+      opacity: 1;
+    }
+    40% {
+      transform: translateX(rem(-20px)) translateY(rem(160px));
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(rem(-45px)) translateY(rem(200px));
+      opacity: 1;
+    }
+    60% {
+      transform: translateX(rem(-70px)) translateY(rem(240px));
+      opacity: 1;
+    }
+    70% {
+      transform: translateX(rem(-95px)) translateY(rem(280px));
+      opacity: 1;
+    }
+    80% {
+      transform: translateX(rem(-110px)) translateY(rem(320px));
+      opacity: 1;
+    }
+    90% {
+      transform: translateX(rem(-135px)) translateY(rem(360px));
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(rem(-160px)) translateY(rem(400px));
+      opacity: 0;
+    }
+  }
+  .sm_drop{position:absolute;bottom:50%;left:50%;margin-bottom:rem(90px);background-repeat:no-repeat;background-position:top center;background-size:100% auto;z-index:8;-webkit-transform:translateX(-49%);
     @at-root .shake_drop.shake_ing &{width:rem(243px);height:rem(316px);background-image:url(../images/drop_psurp.png);}
-    @at-root .shake_win &{width:rem(260px);height:rem(365px);background-image:none;
+    @at-root .shake_drop.shake_ing &.falling{
+      animation-name: dropFalling;
+      animation-iteration-count: 1;
+      animation-fill-mode: both;
+      animation-duration: .8s;
+    }
+    @at-root .shake_win &{width:rem(260px);height:rem(365px);background-image:url(../images/drop_psmile.png);
       .bingbang{width:100%;height:100%;position:absolute;top:0;left:0;z-index:3;}
-      .shining{width:rem(675px);height:rem(734px);position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);background:url(../images/drop_shine.png) no-repeat top center;background-size:100% auto;z-index:1;}
+      .shining{width:rem(604px);height:rem(900px);position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);background:url(../images/drop_shine.png) no-repeat top center;background-size:100% auto;z-index:1;}
     }
     @at-root .shake_fart &{width:rem(198px);height:rem(250px);background-image:url(../images/drop_fart.png);
       i{width:rem(63px);height:rem(63px);position:absolute;background:url(../images/drop_stars.png) no-repeat top center;background-size:100% auto;}
+    }
+    @at-root .shake_fart &.falling{animation-name: fartDrop;animation-duration: .5s;animation-fill-mode: both;animation-iteration-count:1;}
+    @at-root .shake_win &.falling{animation-name: winDrop;animation-duration: .5s;animation-fill-mode: both;animation-iteration-count:1;}
+  }
+
+  @keyframes dropFalling {
+    0% {
+      transform: translateX(-49%) translateY(0px)
+    }
+    100% {
+      transform: translateX(-49%) translateY(265px)
+    }
+  }
+
+  @keyframes fartDrop {
+    0% {
+      transform: translateX(-49%) translateY(0px)
+    }
+    100% {
+      transform: translateX(-49%) translateY(96px)
+    }
+  }
+
+  @keyframes winDrop {
+    0% {
+      transform: translateX(-49%) translateY(0px)
+    }
+    100% {
+      transform: translateX(-49%) translateY(220px)
     }
   }
 
@@ -53,6 +285,7 @@ $baseFontSize: 40px;
 
   .sm_title{width:100%;position:absolute;top:50%;left:50%;transform:translateX(-50%);text-align:center;opacity:0;
     @at-root .shake_ini &{opacity:1;}
+    @at-root .shake_notice &{opacity:1;}
   }
     .smt_words{display:inline-block;background-repeat:no-repeat;background-position:top center;background-size:100% auto;
       @at-root .shake_ini &{width:rem(643px);height:rem(108px);background-image:url(../images/shake_words_title.png);}

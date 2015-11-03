@@ -45,13 +45,19 @@
 
         //create custom event
         if (typeof document.CustomEvent === 'function') {
-            this.event = new document.CustomEvent('shake', {
+            this.shakeEvent = new document.CustomEvent('shake', {
+                bubbles: true,
+                cancelable: true
+            });
+            this.unShakeEvent = new document.CustomEvent('unshake', {
                 bubbles: true,
                 cancelable: true
             });
         } else if (typeof document.createEvent === 'function') {
-            this.event = document.createEvent('Event');
-            this.event.initEvent('shake', true, true);
+            this.shakeEvent = document.createEvent('Event');
+            this.shakeEvent.initEvent('shake', true, true);
+            this.unShakeEvent = document.createEvent('Event');
+            this.unShakeEvent.initEvent('unshake', true, true);
         } else {
             return false;
         }
@@ -107,7 +113,14 @@
             timeDifference = currentTime.getTime() - this.lastTime.getTime();
 
             if (timeDifference > this.options.timeout) {
-                window.dispatchEvent(this.event);
+                window.dispatchEvent(this.shakeEvent);
+                this.lastTime = new Date();
+            }
+        } else {
+            currentTime = new Date();
+            timeDifference = currentTime.getTime() - this.lastTime.getTime();
+            if (timeDifference > 1000) {
+                window.dispatchEvent(this.unShakeEvent);
                 this.lastTime = new Date();
             }
         }

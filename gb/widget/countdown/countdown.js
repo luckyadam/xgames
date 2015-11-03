@@ -42,6 +42,7 @@ PP.define('gb/widget/countdown', function (require, exports, module) {
 
     listenEvent: function () {
       _.eventCenter.on('gb_widget_countdown:start', $.proxy(this.start, this));
+      _.eventCenter.on('gb_widget_countdown:pause', $.proxy(this.pause, this));
     },
 
     start: function () {
@@ -52,7 +53,7 @@ PP.define('gb/widget/countdown', function (require, exports, module) {
         if (this.totalTime < 0) {
           this.$timeNum.text('00');
           clearTimeout(this.timer);
-          _.eventCenter.trigger('gb_countdown:timeisup');
+          _.eventCenter.trigger('gb_widget_countdown:timeisup');
           return;
         } else {
           if (this.totalTime >= 0 && this.countMs > 0) {
@@ -65,6 +66,7 @@ PP.define('gb/widget/countdown', function (require, exports, module) {
             if (conf.start < 10) {
               conf.start = '0' + conf.start;
             }
+            _.eventCenter.trigger('gb_widget_countdown:timedown', parseInt(conf.start, 10));
           }
           this.$timeNum.text(conf.start);
           this.rotationAngle = this.rotationAngle + 360 / (this.originTime * 10);

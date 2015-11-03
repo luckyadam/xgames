@@ -25,10 +25,6 @@ PP.define('gb/widget/audio_player', function (require, exports, module) {
         preload: true
       }, opts);
 
-      if (this.conf.src === null) {
-        throw new Error('请传入音频路径');
-      }
-
       this.init();
     },
 

@@ -32,6 +32,9 @@
 .shake_ing .sm_box_exp {
   background-image: url(../images/box_smile.png); }
 
+.shake_drop .sm_box_exp {
+  background-image: none; }
+
 .shake_fart .sm_box_exp {
   background-image: url(../images/box_shy.png); }
 
@@ -58,32 +61,156 @@
     bottom: 0;
     background-repeat: no-repeat;
     background-position: top center;
-    background-size: 100% auto; }
+    background-size: 100% auto;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both; }
   .sm_ribbons i:nth-child(1) {
     width: 2.7307rem;
     height: 2.5814rem;
     background-image: url(../images/drop_ribbon1.png); }
+  .sm_ribbons i:nth-child(1).falling {
+    animation-name: falling1;
+    animation-duration: 2s; }
   .sm_ribbons i:nth-child(2) {
     width: 2.1974rem;
     height: 2.88rem;
     background-image: url(../images/drop_ribbon2.png); }
+  .sm_ribbons i:nth-child(2).falling {
+    animation-name: falling2;
+    animation-duration: 2s; }
   .sm_ribbons i:nth-child(3) {
     width: 1.6427rem;
     height: 1.0667rem;
     background-image: url(../images/drop_ribbon3.png); }
+  .sm_ribbons i:nth-child(3).falling {
+    animation-name: falling3;
+    animation-duration: 2s; }
   .sm_ribbons i:nth-child(4) {
     width: 1.1947rem;
     height: 1.4294rem;
     background-image: url(../images/drop_ribbon4.png); }
+  .sm_ribbons i:nth-child(4).falling {
+    animation-name: falling4;
+    animation-duration: 2s; }
   .sm_ribbons i:nth-child(5) {
     width: 1.3227rem;
     height: 1.2587rem;
     background-image: url(../images/drop_ribbon5.png); }
+  .sm_ribbons i:nth-child(5).falling {
+    animation-name: falling5;
+    animation-duration: 2s; }
   .sm_ribbons i:nth-child(6) {
     width: 0.9174rem;
     height: 1.5147rem;
     background-image: url(../images/drop_ribbon6.png); }
+  .sm_ribbons i:nth-child(6).falling {
+    animation-name: falling6;
+    animation-duration: 2s; }
+  .shake_fart .sm_ribbons, .shake_win .sm_ribbons {
+    display: none; }
 
+@keyframes falling1 {
+  0% {
+    transform: translateX(0.4267rem) translateY(0.2134rem);
+    opacity: 1; }
+  10% {
+    transform: translateX(0.7467rem) translateY(0.64rem);
+    opacity: 1; }
+  20% {
+    transform: translateX(1.0667rem) translateY(1.0667rem);
+    opacity: 1; }
+  30% {
+    transform: translateX(1.3867rem) translateY(1.4934rem);
+    opacity: 1; }
+  40% {
+    transform: translateX(1.7067rem) translateY(1.92rem);
+    opacity: 1; }
+  50% {
+    transform: translateX(2.0267rem) translateY(2.3467rem);
+    opacity: 1; }
+  60% {
+    transform: translateX(2.3467rem) translateY(2.88rem);
+    opacity: 1; }
+  70% {
+    transform: translateX(2.6667rem) translateY(3.4134rem);
+    opacity: 1; }
+  80% {
+    transform: translateX(2.9867rem) translateY(3.9467rem);
+    opacity: 1; }
+  90% {
+    transform: translateX(3.3067rem) translateY(4.4801rem);
+    opacity: 0.5; }
+  100% {
+    transform: translateX(3.6267rem) translateY(5.0134rem);
+    opacity: 0; } }
+@keyframes falling2 {
+  0% {
+    transform: translateX(-0.4266rem) translateY(0.64rem);
+    opacity: 1; }
+  10% {
+    transform: translateX(-0.8533rem) translateY(1.28rem);
+    opacity: 1; }
+  20% {
+    transform: translateX(-1.28rem) translateY(2.0267rem);
+    opacity: 1; }
+  30% {
+    transform: translateX(-1.8133rem) translateY(2.88rem);
+    opacity: 1; }
+  40% {
+    transform: translateX(-2.3466rem) translateY(3.84rem);
+    opacity: 1; }
+  50% {
+    transform: translateX(-2.88rem) translateY(4.9067rem);
+    opacity: 1; }
+  60% {
+    transform: translateX(-3.4133rem) translateY(6.08rem);
+    opacity: 1; }
+  70% {
+    transform: translateX(-3.9466rem) translateY(7.36rem);
+    opacity: 1; }
+  80% {
+    transform: translateX(-4.48rem) translateY(8.7467rem);
+    opacity: 1; }
+  90% {
+    transform: translateX(-5.0133rem) translateY(10.24rem);
+    opacity: 0.5; }
+  100% {
+    transform: translateX(-5.5466rem) translateY(11.84rem);
+    opacity: 0; } }
+@keyframes falling3 {
+  0% {
+    transform: translateX(0rem) translateY(0rem);
+    opacity: 1; }
+  10% {
+    transform: translateX(0rem) translateY(0.8534rem);
+    opacity: 1; }
+  20% {
+    transform: translateX(0rem) translateY(1.7067rem);
+    opacity: 1; }
+  30% {
+    transform: translateX(0.1067rem) translateY(2.56rem);
+    opacity: 1; }
+  40% {
+    transform: translateX(-0.4266rem) translateY(3.4134rem);
+    opacity: 1; }
+  50% {
+    transform: translateX(-0.96rem) translateY(4.2667rem);
+    opacity: 1; }
+  60% {
+    transform: translateX(-1.4933rem) translateY(5.12rem);
+    opacity: 1; }
+  70% {
+    transform: translateX(-2.0266rem) translateY(5.9734rem);
+    opacity: 1; }
+  80% {
+    transform: translateX(-2.3466rem) translateY(6.8267rem);
+    opacity: 1; }
+  90% {
+    transform: translateX(-2.88rem) translateY(7.68rem);
+    opacity: 0.5; }
+  100% {
+    transform: translateX(-3.4133rem) translateY(8.5334rem);
+    opacity: 0; } }
 .sm_drop {
   position: absolute;
   bottom: 50%;
@@ -93,15 +220,20 @@
   background-position: top center;
   background-size: 100% auto;
   z-index: 8;
-  -webkit-transform: translateX(-50%); }
+  -webkit-transform: translateX(-49%); }
   .shake_drop.shake_ing .sm_drop {
     width: 5.184rem;
     height: 6.7414rem;
     background-image: url(../images/drop_psurp.png); }
+  .shake_drop.shake_ing .sm_drop.falling {
+    animation-name: dropFalling;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-duration: .8s; }
   .shake_win .sm_drop {
     width: 5.5467rem;
     height: 7.7867rem;
-    background-image: none; }
+    background-image: url(../images/drop_psmile.png); }
     .shake_win .sm_drop .bingbang {
       width: 100%;
       height: 100%;
@@ -110,8 +242,8 @@
       left: 0;
       z-index: 3; }
     .shake_win .sm_drop .shining {
-      width: 14.4rem;
-      height: 15.6587rem;
+      width: 12.8854rem;
+      height: 19.2rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -129,7 +261,32 @@
       position: absolute;
       background: url(../images/drop_stars.png) no-repeat top center;
       background-size: 100% auto; }
+  .shake_fart .sm_drop.falling {
+    animation-name: fartDrop;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1; }
+  .shake_win .sm_drop.falling {
+    animation-name: winDrop;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1; }
 
+@keyframes dropFalling {
+  0% {
+    transform: translateX(-49%) translateY(0px); }
+  100% {
+    transform: translateX(-49%) translateY(265px); } }
+@keyframes fartDrop {
+  0% {
+    transform: translateX(-49%) translateY(0px); }
+  100% {
+    transform: translateX(-49%) translateY(96px); } }
+@keyframes winDrop {
+  0% {
+    transform: translateX(-49%) translateY(0px); }
+  100% {
+    transform: translateX(-49%) translateY(220px); } }
 .shake_win .sm_stars, .shake_fart .sm_stars {
   position: absolute;
   top: 50%;
@@ -177,6 +334,8 @@
   text-align: center;
   opacity: 0; }
   .shake_ini .sm_title {
+    opacity: 1; }
+  .shake_notice .sm_title {
     opacity: 1; }
 
 .smt_words {
