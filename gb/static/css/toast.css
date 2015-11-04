@@ -1,0 +1,16 @@
+.toast {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  z-index: 100000;
+  border-radius: 4px;
+  width: 270px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 18px;
+  word-break: break-all;
+  line-height: 20px;
+  padding: 18px;
+  word-wrap: break-word;
+}

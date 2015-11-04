@@ -1,0 +1,26 @@
+<!--
+  @author: luckyadam
+  @name: crane_guide
+  @date: games
+  @description: 抓一抓引导
+-->
+
+<div class="crane_page crane_guide">
+  <div class="page1_yuanqi"></div>
+  <div class="page1_yinfu1"></div>
+  <div class="page1_yinfu2"></div>
+  <div class="page1_dialog">
+    <div class="page1_dialog_push"></div>
+    <div class="page1_dialog_btn"></div>
+  </div>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('games/widget/crane_guide', function (CraneGuide) {
+    var graneGuide = new CraneGuide({
+      $el: $('.crane_guide')
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

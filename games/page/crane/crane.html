@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>大家摇摇乐</title>
+  <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -13,43 +13,36 @@
   <!-- E 预解析DNS列表 -->
 
   <!-- S 引用前端页面片 -->
-  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/games/shakeit.shtml" -->
+  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/games/crane.shtml" -->
   <!-- E 引用前端页面片 -->
 
   <!-- global:css -->
   <%= getCSS('gb.css', 'gb') %>
-  <%= getCSS('lib.css', 'gb') %>
   <!-- endglobal -->
 
   <%= getCSS() %>
-  <script>
-    !function(x){function w(){var v,u,t,tes,s=x.document,r=s.documentElement,a=r.getBoundingClientRect().width;if(!v&&!u){var n=!!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);v=x.devicePixelRatio;tes=x.devicePixelRatio;v=n?v:1,u=1/v}if(a>=640){r.style.fontSize="40px"}else{if(a<=320){r.style.fontSize="20px"}else{r.style.fontSize=a/320*20+"px"}}}x.addEventListener("resize",function(){w()});w()}(window);
-  </script>
 </head>
 <!-- 注：加ontouchstart使css：active生效 -->
 <body ontouchstart>
 
-  <div class="mod_container shake">
+  <div class="mod_container crane">
     <%= widget.load('top_player', null, 'gb') %>
     <%= widget.load('countdown', { start: 15 }, 'gb') %>
-    <!-- 向导 -->
-    <%= widget.load('shakeit_guide') %>
-
-    <!-- 主体 -->
-    <%= widget.load('shakeit_main') %>
+    <%= widget.load('crane_guide') %>
+    <%= widget.load('crane_main') %>
   </div>
 
   <!-- global:js -->
   <%= getJS('lib.js', 'gb') %>
-  <%= getJS('shake.js', 'gb') %>
   <%= getJS('gb.js', 'gb') %>
   <!-- endglobal -->
+
   <%= getJS() %>
 
   <script>
-    PP.use('games/page/shakeit', function (Shakeit) {
-      var shakeit = new Shakeit({
-        $el: $('.shake'),
+    PP.use('games/page/crane', function (Crane) {
+      var crane = new Crane({
+        $el: $('.crane'),
         actId: '5e4efc3c4d3936209bbec0aa5d8e0c87338225aa2257bf79029771f6addc41ebc8fbb51a313e6c3a',
         lotSingleCost: 3
       });

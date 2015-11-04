@@ -9,22 +9,27 @@
 PP.define('games/widget/shakeit_main', function (require, exports, module) {
 
   var AudioPlayer = require('gb/widget/audio_player');
+  var Toast = require('toast');
+  var lotteryUtil = require('lottery');
+  var LotteryDialog = require('gb/widget/lottery_dialog');
   var ShakeitMain = _.Class.extend({
     construct: function (opts) {
       this.conf = $.extend({
         $el: null
       }, opts);
-      this.init();
+      _.eventCenter.on('shake_game_init', $.proxy(this.init, this));
     },
 
-    init: function () {
+    init: function (args) {
       this.listenEvent();
       this.initEvent();
       this.isFirstShake = true;
       this.isShaking = false;
-      this.isWinner = true;
       this.isEnd = false;
       this.$falls = this.conf.$el.find('.sm_ribbons').children();
+      this.token = args.token;
+      this.actId = args.actId;
+      this.lotteryDialog = new LotteryDialog();
     },
 
     initEvent: function () {
@@ -38,10 +43,47 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
       _.eventCenter.on('gb_widget_countdown:timeisup', $.proxy(this.onTimeisup, this));
       _.eventCenter.on('gb_widget_countdown:start', $.proxy(this.onCountdownStart, this));
       _.eventCenter.on('gb_widget_countdown:timedown', $.proxy(function (time) {
-        if (parseInt(time, 10) === this.randomTime) {
+        time = parseInt(time, 10);
+        if (time === this.randomTime) {
           if (this.isShaking) {
             this.fallLittleP();
           }
+        }
+
+        if (time === 2) {
+          lotteryUtil.play({
+            token: this.token,
+            actId: this.actId
+          }, $.proxy(function (ret) {
+            this.isWinner = 'unknow';
+            if (!ret) {
+              return;
+            }
+            alert(JSON.stringify(ret));
+            this.gift = {};
+            if (this.isEnd) {
+              _.eventCenter.trigger('gb_widget_countdown:timeisup');
+            }
+            switch (ret.code) {
+              case '399': //领奖失败
+                this.isWinner = false;
+                break;
+              case '300':
+                this.isWinner = true;
+                if (ret.sysGift) {
+                  this.gift.value = ret.sysGift.giftValue;
+                  this.gift.name = ret.sysGift.giftName;
+                  this.gift.url = ret.sysGift.coupon;
+                }
+                break;
+              default:
+                var toast = new Toast({
+                  content: '网络错误，请重新再试！',
+                  duration: 2000
+                });
+                break;
+            }
+          }, this));
         }
       }, this));
     },
@@ -52,7 +94,7 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
         '-webkit-transform': 'rotate(-180deg)'
       });
       this.conf.$el.show();
-      this.randomTime = Math.floor(Math.random() * 8 + 2);
+      this.randomTime = Math.floor(Math.random() * 8 + 3);
       setTimeout(function () {
         _.eventCenter.trigger('gb_widget_countdown2:start');
       }, 500);
@@ -125,18 +167,29 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
         autoplay: false,
         loop: false
       });
-      if (this.isWinner) {
-        timeUpAudio.setSrc(__uri('../images/shake_win.mp3'));
-        timeUpAudio.play();
-        this.conf.$el.removeClass('shake_drop shake_fart shake_notice').addClass('shake_win').find('.sm_drop').addClass('falling');
-      } else {
-        timeUpAudio.setSrc(__uri('../images/shake_fart.mp3'));
-        timeUpAudio.play();
-        this.conf.$el.removeClass('shake_drop shake_win shake_notice').addClass('shake_fart').find('.sm_drop').addClass('falling');
-      }
       this.isEnd = true;
-      this.shakeEvent.stop();
-      $(window).off('shake unshake');
+      if (this.isWinner !== undefined) {
+        this.shakeEvent.stop();
+        $(window).off('shake unshake');
+        if (this.isWinner === 'unknow') {
+          return;
+        }
+        if (this.isWinner) {
+          timeUpAudio.setSrc(__uri('../images/shake_win.mp3'));
+          timeUpAudio.play();
+          this.conf.$el.removeClass('shake_drop shake_fart shake_notice').addClass('shake_win').find('.sm_drop').addClass('falling');
+          setTimeout($.proxy(function () {
+            this.lotteryDialog.win(this.gift.value, this.gift.tip, this.gift.url);
+          }, this), 200);
+        } else {
+          timeUpAudio.setSrc(__uri('../images/shake_fart.mp3'));
+          timeUpAudio.play();
+          this.conf.$el.removeClass('shake_drop shake_win shake_notice').addClass('shake_fart').find('.sm_drop').addClass('falling');
+          setTimeout($.proxy(function () {
+            this.lotteryDialog.lose();
+          }, this), 200);
+        }
+      }
     }
   });
 

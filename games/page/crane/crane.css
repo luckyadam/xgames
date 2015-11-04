@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/*
+ * @author: luckyadam
+ * @time: 2015-11-4
+*/
+
+body {
+  background: url(../images/crane_bg.png) repeat;
+  background-size: 16rem auto;
+}
+
+.crane {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.crane_page { position: relative;overflow: hidden; }

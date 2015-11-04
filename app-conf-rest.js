@@ -7,7 +7,7 @@ module.exports = {
   moduleList: ['gb', 'games'],
   deploy: {
     local: {
-      host: '/'
+      fdPath: '/'
     },
     qiang: {
       host: 'labs.qiang.it',
