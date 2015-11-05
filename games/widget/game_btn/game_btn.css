@@ -1,0 +1,2 @@
+.game_btn {z-index:5;position:absolute;bottom:-14px;left:0;width:100%;text-align:center;}
+  .game_btn_msg {display:inline-block;width:118.5px;height:33.5px;line-height:29px; color:#38385A;background:url(../images/game_btn.png);background-size:100% 100%;}

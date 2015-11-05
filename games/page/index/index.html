@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title></title>
+  <title>每日抽奖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -18,6 +18,7 @@
 
   <!-- global:css -->
   <%= getCSS('gb.css', 'gb') %>
+  <%= getCSS('lib.css', 'gb') %>
   <!-- endglobal -->
 
   <%= getCSS() %>
@@ -25,13 +26,29 @@
 <!-- 注：加ontouchstart使css：active生效 -->
 <body ontouchstart>
 
-  <div class="mod_container">
-
+  <div class="mod_container index">
+    <%= widget.load('index_header', { is_share: false }) %>
+    <%= widget.load('index_main') %>
+    <%= widget.load('check_quan') %>
+    <%= widget.load('winner_list') %>
+    <%= widget.load('index_regular') %>
   </div>
 
   <!-- global:js -->
+  <%= getJS('lib.js', 'gb') %>
+  <%= getJS('gb.js', 'gb') %>
   <!-- endglobal -->
 
   <%= getJS() %>
+
+  <script>
+    PP.use('games/page/index', function (GamesIndex) {
+      var gamesIndex = new GamesIndex({
+        $el: $('.index'),
+        actId: '5e4efc3c4d3936209bbec0aa5d8e0c87338225aa2257bf79029771f6addc41ebc8fbb51a313e6c3a',
+        lotSingleCost: 3
+      });
+    });
+  </script>
 </body>
 </html>

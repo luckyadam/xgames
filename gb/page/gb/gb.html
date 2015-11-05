@@ -13,6 +13,7 @@
   <!-- E 引用前端页面片 -->
 
   <%= getCSS() %>
+  <%= getCSS('lib.css') %>
 
 </head>
 <!-- 注：加ontouchstart使css：active生效 -->
@@ -30,8 +31,14 @@
     <%= widget.load('lottery') %>
 
     <%= widget.load('lottery_dialog') %>
+
+    <%= widget.load('login') %>
+
+    <%= widget.load('loading') %>
   </div>
 
+  <%= getJS('lib.js') %>
+  <%= getJS('shake.js') %>
   <%= getJS() %>
 </body>
 </html>

@@ -4,3 +4,32 @@
  * @author: luckyadam
  * @time: 2015-11-3
 */
+
+body {
+  background: #F5F2E2 url(../images/index_bg.png) repeat;
+  background-size: 16rem auto;
+}
+
+.index {
+  padding-bottom: 50px;
+  display: none;
+}
+.index.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+.mod_loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+@font-face {
+  font-family: 'MFLiHei';
+  src:
+    url('../images/MFLiHei_Noncommercial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

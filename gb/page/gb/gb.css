@@ -104,3 +104,12 @@ input[type="text"],textarea{
   visibility: hidden
 }
 
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

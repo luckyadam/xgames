@@ -68,6 +68,11 @@
 
 <% widget.scriptStart() %>
 <script>
+PP.use('games/widget/crane_main', function (CraneMain) {
+  var graneMain = new CraneMain({
+    $el: $('.crane_main')
+  });
+});
 
 </script>
 <% widget.scriptEnd() %>

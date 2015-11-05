@@ -1,0 +1,22 @@
+<!--
+  @author: luckyadam
+  @name: index_main
+  @date: games
+  @description: 首页重要模块
+-->
+
+<div class="main">
+  <%= widget.load('count_tip') %>
+  <%= widget.load('game_carousel') %>
+  <%= widget.load('game_btn') %>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('games/widget/index_main', function (IndexMain) {
+    var indexMain = new IndexMain({
+      $el: $('.main'),
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

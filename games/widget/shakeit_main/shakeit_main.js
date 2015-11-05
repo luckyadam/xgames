@@ -10,7 +10,7 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
 
   var AudioPlayer = require('gb/widget/audio_player');
   var Toast = require('toast');
-  var lotteryUtil = require('lottery');
+  var lotteryUtil = require('gb/widget/lottery');
   var LotteryDialog = require('gb/widget/lottery_dialog');
   var ShakeitMain = _.Class.extend({
     construct: function (opts) {
@@ -59,28 +59,40 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
             if (!ret) {
               return;
             }
-            alert(JSON.stringify(ret));
+            var retData = ret.data;
             this.gift = {};
             if (this.isEnd) {
               _.eventCenter.trigger('gb_widget_countdown:timeisup');
             }
             switch (ret.code) {
+              case "000"://活动已经结束!
+              case "001":
+                break;
+              case "111"://111次数不足
+              case "112"://112积分不足
+                break;
               case '399': //领奖失败
                 this.isWinner = false;
                 break;
               case '300':
-                this.isWinner = true;
-                if (ret.sysGift) {
-                  this.gift.value = ret.sysGift.giftValue;
-                  this.gift.name = ret.sysGift.giftName;
-                  this.gift.url = ret.sysGift.coupon;
+                if(retData && retData.sysGift && retData.sysGift.giftType === 1) { //实物奖励
+                  this.isWinner = 'unknow';
+                } else if(retData && retData.sysGift && retData.sysGift.giftType === 2) { //优惠券奖励
+                  if(retData.sysGift.giftValue && retData.sysGift.giftName){
+                    this.gift.value = retData.sysGift.giftValue;
+                    this.gift.name = retData.sysGift.giftName;
+                    // this.gift.tip = retData.sysGift.giftName;
+                    this.gift.url = retData.sysGift.coupon;
+                    this.isWinner = true;
+                  }else{
+                    showDialog("网络错误，请刷新重试");
+                  }
+
+                } else {
+                  this.isWinner = false;
                 }
                 break;
               default:
-                var toast = new Toast({
-                  content: '网络错误，请重新再试！',
-                  duration: 2000
-                });
                 break;
             }
           }, this));
@@ -167,11 +179,15 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
         autoplay: false,
         loop: false
       });
+
       this.isEnd = true;
       if (this.isWinner !== undefined) {
         this.shakeEvent.stop();
         $(window).off('shake unshake');
         if (this.isWinner === 'unknow') {
+          new Toast({
+            content: '网络错误，请重新再试！'
+          });
           return;
         }
         if (this.isWinner) {
@@ -179,15 +195,16 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
           timeUpAudio.play();
           this.conf.$el.removeClass('shake_drop shake_fart shake_notice').addClass('shake_win').find('.sm_drop').addClass('falling');
           setTimeout($.proxy(function () {
-            this.lotteryDialog.win(this.gift.value, this.gift.tip, this.gift.url);
-          }, this), 200);
+            var gift = this.gift;
+            this.lotteryDialog.win(gift.value, gift.name, gift.tip, gift.url);
+          }, this), 1000);
         } else {
           timeUpAudio.setSrc(__uri('../images/shake_fart.mp3'));
           timeUpAudio.play();
           this.conf.$el.removeClass('shake_drop shake_win shake_notice').addClass('shake_fart').find('.sm_drop').addClass('falling');
           setTimeout($.proxy(function () {
             this.lotteryDialog.lose();
-          }, this), 200);
+          }, this), 1000);
         }
       }
     }

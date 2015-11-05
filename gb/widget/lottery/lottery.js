@@ -6,7 +6,7 @@
  * @desc 通用抽奖逻辑
  */
 
-PP.define('lottery', function (require, exports, module) {
+PP.define('gb/widget/lottery', function (require, exports, module) {
   var cookie = require('cookie');
   var gCgis = {
     createActive: 'http://act.paipai.com/promotion/active/createActiveInst',//创建实例

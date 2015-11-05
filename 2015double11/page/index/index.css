@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/*
+ * @author: liyixin5
+ * @time: 2015-11-3
+*/
+
+.mod_container{overflow:hidden;position:relative;}
+.menu{overflow:hidden;position:absolute;top:0;left:0;opacity:1;transition:all ease .2s;background:#000000;z-index:11;}
+	.menu_fold{opacity:0;}
+	.menu a{color:#FFFFFF;}
+.section{overflow:hidden;position:absolute;top:0;-webkit-transition:all ease .2s;}
+.page{background-repeat:no-repeat;background-position:top center;background-size:100% auto;}
+	.page_main{position:absolute;left:0;top:0;z-index:10;-webkit-transition:all ease .2s;}
+
+.drag{transition:none;}

@@ -1,0 +1,7 @@
+.index_regular {position:relative;margin:0 auto;width:93.8666%;padding-top:80.4%;background:url(../images/regular_bg.png);background-size:100% 100%;}
+  .index_regular_wrap {position:absolute;top:0;left:0;-webkit-box-sizing:border-box;box-sizing:border-box;padding:10px 20px 20px 10px;width:100%;height:100%; overflow:scroll;}
+    .index_regular_wrap_tit {font-family:'MFLiHei';font-size:16px;line-height:1;}
+    .index_regular_wrap ul {margin-top:5.5px;color:#38385A;}
+      .index_regular_wrap ul li {overflow:hidden;}
+        .index_regular_wrap ul li div:first-child {float:left;}
+        .index_regular_wrap ul li div:last-child {margin-left:15px;word-wrap:break-word;word-break:break-all}

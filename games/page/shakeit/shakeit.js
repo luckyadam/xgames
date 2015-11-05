@@ -7,7 +7,7 @@
  */
 
 PP.define('games/page/shakeit', function (require, exports, module) {
-  var lotteryUtil = require('lottery');
+  var lotteryUtil = require('gb/widget/lottery');
   var Toast = require('toast');
   var Shakeit = _.Class.extend({
     construct: function (opts) {

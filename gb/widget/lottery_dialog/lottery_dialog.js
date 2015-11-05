@@ -18,14 +18,14 @@ PP.define('gb/widget/lottery_dialog', function (require, exports, module) {
 
     },
 
-    win: function (value, tip, url) {
+    win: function (value, name, tip, url) {
       if (!this.$win) {
         var html = '<div class="mod_popup win">';
         html += '<div class="mod_popup_body">';
         html += '<div class="mod_popup_xiu"></div>';
         html += '<div class="mod_popup_yqsex"></div>';
         html += '<div class="mod_popup_main mod_popup_win">';
-        html += '<div class="mod_popup_txt"><b>' + value + '</b>元代金券</div>';
+        html += '<div class="mod_popup_txt"><b>' + value + '</b>元的' + name + '</div>';
         if (tip) {
           html += '<div class="mod_popup_tip"><span>限<b>' + tip + '</b>使用</span></div>';
         } else {
