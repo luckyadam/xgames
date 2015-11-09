@@ -36,6 +36,8 @@ PP.define('gb/widget/countdown2', function (require, exports, module) {
 
     listenEvent: function () {
       _.eventCenter.on('gb_widget_countdown2:start', $.proxy(this.start, this));
+      _.eventCenter.on('gb_widget_countdown2:pause', $.proxy(this.pause, this));
+      _.eventCenter.on('gb_widget_countdown2:reset', $.proxy(this.reset, this));
     },
 
     start: function () {
@@ -48,6 +50,8 @@ PP.define('gb/widget/countdown2', function (require, exports, module) {
             'background-position': '0 -' + changePer * this.countChange + 'rem'
           });
           clearTimeout(this.timer);
+          this.countMs = 10;
+          this.countChange = 0;
           _.eventCenter.trigger('gb_widget_countdown2:timeisup');
           return;
         } else {
@@ -72,6 +76,17 @@ PP.define('gb/widget/countdown2', function (require, exports, module) {
 
     pause: function () {
       clearTimeout(this.timer);
+    },
+
+    reset: function () {
+      clearTimeout(this.timer);
+      this.originTime = 3;
+      this.startTime = this.originTime;
+      this.totalTime = this.originTime * 10;
+      this.timer = null;
+      this.conf.$el.find('.countdown2_txt').css({
+        'background-position': '0 0'
+      });
     }
   });
 

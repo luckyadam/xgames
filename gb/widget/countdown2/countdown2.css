@@ -4,7 +4,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -4.224rem; }
+  margin-left: -4.224rem;
+  z-index: 999; }
 
 .countdown2_txt {
   width: 8.448rem;

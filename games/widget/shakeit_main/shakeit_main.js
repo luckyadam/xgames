@@ -30,6 +30,12 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
       this.token = args.token;
       this.actId = args.actId;
       this.lotteryDialog = new LotteryDialog();
+      this.bgPlayer = new AudioPlayer({
+        src: __uri('../images/shake_bg.wav'),
+        autoplay: false,
+        loop: false,
+        type: 'audio/wav'
+      });
     },
 
     initEvent: function () {
@@ -85,7 +91,7 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
                     this.gift.url = retData.sysGift.coupon;
                     this.isWinner = true;
                   }else{
-                    showDialog("网络错误，请刷新重试");
+                    new Toast("网络错误，请刷新重试");
                   }
 
                 } else {
@@ -129,6 +135,7 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
     },
 
     shakeEventDidOccur: function (e) {
+      this.bgPlayer.play();
       if (!this.isShaking && !this.isFirstShake) {
         _.eventCenter.trigger('gb_widget_countdown:start');
       }
@@ -145,6 +152,7 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
     },
 
     unShakeEventDidOccur: function () {
+      this.bgPlayer.stop();
       if (!this.isEnd) {
         this.conf.$el.addClass('shake_notice');
         this.unfalling();
@@ -197,15 +205,21 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
           setTimeout($.proxy(function () {
             var gift = this.gift;
             this.lotteryDialog.win(gift.value, gift.name, gift.tip, gift.url);
-          }, this), 1000);
+            timeUpAudio.setSrc(__uri('../images/get_gift.mp3'));
+            timeUpAudio.play();
+          }, this), 1500);
         } else {
           timeUpAudio.setSrc(__uri('../images/shake_fart.mp3'));
           timeUpAudio.play();
           this.conf.$el.removeClass('shake_drop shake_win shake_notice').addClass('shake_fart').find('.sm_drop').addClass('falling');
           setTimeout($.proxy(function () {
             this.lotteryDialog.lose();
-          }, this), 1000);
+          }, this), 1500);
         }
+      } else {
+        new Toast({
+          content: '网络错误，请重新再试！'
+        });
       }
     }
   });

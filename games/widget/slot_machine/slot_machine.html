@@ -1,0 +1,133 @@
+<!--
+  @author: luckyadam
+  @name: slot_machine
+  @date: games
+  @description: 老虎机
+-->
+
+<div class="slot_machine">
+  <%= widget.load('countdown2', null, 'gb') %>
+  <div class="slot_machine_main display_flex horizontal">
+    <div class="slot_machine_track slot_machine_left">
+      <div class="slot_machine_track_wrapper">
+        <div class="slot_machine_element slot_machine_element1"></div>
+        <div class="slot_machine_element slot_machine_element2"></div>
+        <div class="slot_machine_element slot_machine_element3"></div>
+        <div class="slot_machine_element slot_machine_element4"></div>
+        <div class="slot_machine_element slot_machine_element5"></div>
+        <div class="slot_machine_element slot_machine_element6"></div>
+        <div class="slot_machine_element slot_machine_element1"></div>
+        <div class="slot_machine_element slot_machine_element2"></div>
+        <div class="slot_machine_element slot_machine_element3"></div>
+      </div>
+    </div>
+    <div class="slot_machine_track slot_machine_middle">
+      <div class="slot_machine_track_wrapper">
+        <div class="slot_machine_element slot_machine_element1"></div>
+        <div class="slot_machine_element slot_machine_element2"></div>
+        <div class="slot_machine_element slot_machine_element3"></div>
+        <div class="slot_machine_element slot_machine_element4"></div>
+        <div class="slot_machine_element slot_machine_element5"></div>
+        <div class="slot_machine_element slot_machine_element6"></div>
+        <div class="slot_machine_element slot_machine_element1"></div>
+        <div class="slot_machine_element slot_machine_element2"></div>
+        <div class="slot_machine_element slot_machine_element3"></div>
+      </div>
+    </div>
+    <div class="slot_machine_track slot_machine_right">
+      <div class="slot_machine_track_wrapper">
+        <div class="slot_machine_element slot_machine_element1"></div>
+        <div class="slot_machine_element slot_machine_element2"></div>
+        <div class="slot_machine_element slot_machine_element3"></div>
+        <div class="slot_machine_element slot_machine_element4"></div>
+        <div class="slot_machine_element slot_machine_element5"></div>
+        <div class="slot_machine_element slot_machine_element6"></div>
+        <div class="slot_machine_element slot_machine_element1"></div>
+        <div class="slot_machine_element slot_machine_element2"></div>
+        <div class="slot_machine_element slot_machine_element3"></div>
+      </div>
+    </div>
+  </div>
+  <div class="slot_machine_operation">
+    <div class="slot_machine_go">
+      <a class="page_btn page_btn1" href="javascript:;">
+        <div class="page_btn1_other"></div>
+        <div class="page_btn1_eyer"></div>
+      </a>
+      <a class="page_btn page_btn2" href="javascript:;">
+        <div class="page_btn2_eyel"></div>
+        <div class="page_btn2_eyer"></div>
+        <div class="page_btn2_mouth"></div>
+      </a>
+      <a class="page_btn3" href="javascript:;">
+        <div class="page_btn3_main"></div>
+        <div class="page_btn3_line"></div>
+      </a>
+      <!-- S  div.page_btn4显示时 添加类 in -->
+      <a class="page_btn page_btn4" href="javascript:;">
+        <div class="page_btn4_mouth"></div>
+        <div class="page_btn4_main"></div>
+        <div class="page_btn4_eye"></div>
+      </a>
+      <!-- E  div.page_btn4显示时 添加类 in -->
+      <!-- S  div.page_btn5显示时 添加类 in -->
+      <a class="page_btn page_btn5" href="javascript:;">
+        <div class="page_btn5_mouth"></div>
+        <div class="page_btn5_circle page_btn5_circle1"></div>
+        <div class="page_btn5_circle page_btn5_circle2"></div>
+      </a>
+      <!-- E  div.page_btn5显示时 添加类 in -->
+
+      <!-- S  div.page_btn6显示时 添加类 in -->
+      <a class="page_btn page_btn6" href="javascript:;">
+        <div class="page_btn6_main"></div>
+        <div class="page_btn6_mouth"></div>
+      </a>
+    </div>
+    <div class="slot_machine_stop">
+      <a class="page_btn page_btn1" href="javascript:;">
+        <div class="page_btn1_other"></div>
+        <div class="page_btn1_eyer"></div>
+      </a>
+      <a class="page_btn page_btn2" href="javascript:;">
+        <div class="page_btn2_eyel"></div>
+        <div class="page_btn2_eyer"></div>
+        <div class="page_btn2_mouth"></div>
+      </a>
+      <a class="page_btn3" href="javascript:;">
+        <div class="page_btn3_main"></div>
+        <div class="page_btn3_line"></div>
+      </a>
+      <!-- S  div.page_btn4显示时 添加类 in -->
+      <a class="page_btn page_btn4" href="javascript:;">
+        <div class="page_btn4_mouth"></div>
+        <div class="page_btn4_main"></div>
+        <div class="page_btn4_eye"></div>
+      </a>
+      <!-- E  div.page_btn4显示时 添加类 in -->
+      <!-- S  div.page_btn5显示时 添加类 in -->
+      <a class="page_btn page_btn5" href="javascript:;">
+        <div class="page_btn5_mouth"></div>
+        <div class="page_btn5_circle page_btn5_circle1"></div>
+        <div class="page_btn5_circle page_btn5_circle2"></div>
+      </a>
+      <!-- E  div.page_btn5显示时 添加类 in -->
+
+      <!-- S  div.page_btn6显示时 添加类 in -->
+      <a class="page_btn page_btn6" href="javascript:;">
+        <div class="page_btn6_main"></div>
+        <div class="page_btn6_mouth"></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('games/widget/slot_machine', function (SlotMachine) {
+    var slotMachine = new SlotMachine({
+      $el: $('.slot_machine')
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

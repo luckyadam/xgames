@@ -17,46 +17,6 @@ body {
   overflow: hidden;
 }
 
-/* page6 */
-@-webkit-keyframes bigMouth {
-  0% {
-    -webkit-transform: scale(1,0.4);
-  }
-  100% {
-    -webkit-transform: scale(1,1);
-  }
-}
-
-
-/* page5 */
-@-webkit-keyframes btn5Mouth {
-  0% {
-    -webkit-clip-path: polygon(15% 0, 87% 0, 87% 100%, 15% 100%);
-  }
-  100% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-
-}
-
-@-webkit-keyframes btn5circle1 {
-  0% {
-    -webkit-transform: translate(0.53333rem,0.53333rem);
-  }
-  100% {
-    -webkit-transform: translate(0,0);
-  }
-}
-
-@-webkit-keyframes btn5circle2 {
-  0% {
-    -webkit-transform: translate(-0.53333rem,0.53333rem);
-  }
-  100% {
-    -webkit-transform: translate(0,0);
-  }
-}
-
 
 /* page4 */
 @-webkit-keyframes handDown2 {
@@ -84,17 +44,6 @@ body {
     -webkit-transform: translateY(10.66667rem);
   }
 }
-
-
-@-webkit-keyframes slideRightALittle {
-  0% {
-    -webkit-transform: translateX(-0.34133rem);
-  }
-  100% {
-    -webkit-transform: translate(0);
-  }
-}
-
 
 /* page3 */
 @-webkit-keyframes handMove {
@@ -141,29 +90,6 @@ body {
   }
   100% {
     -webkit-transform: translateY(0%);
-  }
-}
-
-@-webkit-keyframes num {
-  100% { background-position: -41.17333rem 0; }
-}
-
-@-webkit-keyframes pageBtn1eyer {
-  0% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
-  }
-  40% {
-    opacity: 0.9;
-    -webkit-transform: scaleY(0.85);
-  }
-  70% {
-    opacity: 0.9;
-    -webkit-transform: scaleY(0.85);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: scaleY(1);
   }
 }
 

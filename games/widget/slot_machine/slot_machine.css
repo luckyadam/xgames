@@ -1,0 +1,129 @@
+.slot_machine {
+  width: 16rem;
+  height: 22.5707rem;
+  background: url(../images/slot_machine_bg.png) no-repeat center center;
+  background-size: 16rem auto;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: none; }
+
+.slot_machine.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both; }
+
+.slot_machine_main {
+  width: 10.4107rem;
+  height: 7.808rem;
+  position: absolute;
+  bottom: 9.1734rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100; }
+
+.slot_machine_main.hide {
+  display: none; }
+
+.slot_machine_track {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative; }
+
+.slot_machine_track_wrapper {
+  width: 100%;
+  height: 32.64rem;
+  position: absolute;
+  top: -1.7066rem; }
+
+.slot_machine_middle .slot_machine_track_wrapper {
+  top: -23.4666rem; }
+
+.slot_machine_element {
+  width: 100%;
+  height: 3.6267rem;
+  background-image: url(../images/slot_elements1.png);
+  background-repeat: no-repeat;
+  background-size: 3.2rem auto;
+  background-position: 0.128rem 0; }
+
+.slot_machine_left .slot_machine_element1 {
+  background-position-y: 0; }
+
+.slot_machine_left .slot_machine_element2 {
+  background-position-y: -3.84rem; }
+
+.slot_machine_left .slot_machine_element3 {
+  background-position-y: -7.68rem; }
+
+.slot_machine_left .slot_machine_element4 {
+  background-position-y: -11.52rem; }
+
+.slot_machine_left .slot_machine_element5 {
+  background-position-y: -15.36rem; }
+
+.slot_machine_left .slot_machine_element6 {
+  background-position-y: -19.2rem; }
+
+.slot_machine_middle .slot_machine_element1 {
+  background-position-y: -11.52rem; }
+
+.slot_machine_middle .slot_machine_element2 {
+  background-position-y: -15.36rem; }
+
+.slot_machine_middle .slot_machine_element3 {
+  background-position-y: -19.2rem; }
+
+.slot_machine_middle .slot_machine_element4 {
+  background-position-y: -3.84rem; }
+
+.slot_machine_middle .slot_machine_element5 {
+  background-position-y: 0; }
+
+.slot_machine_middle .slot_machine_element6 {
+  background-position-y: -7.68rem; }
+
+.slot_machine_right .slot_machine_element1 {
+  background-position-y: -19.2rem; }
+
+.slot_machine_right .slot_machine_element2 {
+  background-position-y: -11.52rem; }
+
+.slot_machine_right .slot_machine_element3 {
+  background-position-y: -7.68rem; }
+
+.slot_machine_right .slot_machine_element4 {
+  background-position-y: -3.84rem; }
+
+.slot_machine_right .slot_machine_element5 {
+  background-position-y: -15.36rem; }
+
+.slot_machine_right .slot_machine_element6 {
+  background-position-y: 0; }
+
+.page_btn {
+  background-image: url(../images/page_btn_body2.png); }
+
+.slot_machine_go .page_btn {
+  margin-left: -6.7413rem; }
+
+.slot_machine_go .page_btn3 {
+  margin-left: -7.68rem; }
+
+.slot_machine_stop .page_btn {
+  margin-left: 0.8534rem; }
+
+.slot_machine_stop .page_btn3 {
+  margin-left: 0; }
+
+.slot_machine_stop .page_btn2 {
+  display: block; }
+
+.countdown2 {
+  margin-top: -5.2906rem; }
+
+/*# sourceMappingURL=slot_machine.css.map */

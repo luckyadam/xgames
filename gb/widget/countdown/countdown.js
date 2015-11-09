@@ -27,13 +27,13 @@ PP.define('gb/widget/countdown', function (require, exports, module) {
       this.$timeNum = $el.find('.countdown_num');
       this.$pieLeft = $el.find('.countdown_bg_left');
       this.$pieRight = $el.find('.countdown_bg_right');
-      if (conf.start < 10) {
-        conf.start = '0' + conf.start;
-      }
       this.$timeNum.text(conf.start);
       this.rotationAngle = 0;
       this.originTime = conf.start;
       this.totalTime = conf.start * 10;
+      if (conf.start < 10) {
+        conf.start = '0' + conf.start;
+      }
       this.countMs = 10;
       this.countCircle = 0;
       this.timer = null;
@@ -43,6 +43,7 @@ PP.define('gb/widget/countdown', function (require, exports, module) {
     listenEvent: function () {
       _.eventCenter.on('gb_widget_countdown:start', $.proxy(this.start, this));
       _.eventCenter.on('gb_widget_countdown:pause', $.proxy(this.pause, this));
+      _.eventCenter.on('gb_widget_countdown:reset', $.proxy(this.reset, this));
     },
 
     start: function () {
@@ -92,16 +93,25 @@ PP.define('gb/widget/countdown', function (require, exports, module) {
     },
 
     reset: function () {
+      var conf = this.conf;
       clearTimeout(this.timer);
-      this.conf.start = this.originTime;
+      conf.start = this.originTime;
+      this.$timeNum.text(conf.start);
+      this.rotationAngle = 0;
+      this.totalTime = conf.start * 10;
+      if (conf.start < 10) {
+        conf.start = '0' + conf.start;
+      }
+      this.countMs = 10;
+      this.countCircle = 0;
+      this.timer = null;
       this.$pieLeft.css('-webkit-transform', 'rotate(0deg)');
       this.$pieLeft.css('transform', 'rotate(0deg)');
       this.$pieRight.css({
-        'background-color': 'transparent',
+        'background-color': '#fff',
         '-webkit-transform': 'rotate(0deg)',
         'transform': 'rotate(0deg)'
       });
-      this.start();
     }
   });
 

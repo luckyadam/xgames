@@ -18,6 +18,7 @@
 
   <!-- global:css -->
   <%= getCSS('gb.css', 'gb') %>
+  <%= getCSS('lib.css', 'gb') %>
   <!-- endglobal -->
 
   <%= getCSS() %>
@@ -29,8 +30,11 @@
 <body ontouchstart>
 
   <div class="mod_container slot">
+    <%= widget.load('page_btn') %>
     <%= widget.load('top_player', null, 'gb') %>
     <%= widget.load('countdown', { start: 15 }, 'gb') %>
+    <%= widget.load('tip') %>
+    <%= widget.load('slot_machine') %>
   </div>
 
   <!-- global:js -->
@@ -38,5 +42,15 @@
   <%= getJS('gb.js', 'gb') %>
   <!-- endglobal -->
   <%= getJS() %>
+
+  <script>
+    PP.use('games/page/slot_machine', function (SlotMachine) {
+      var slotMachine = new SlotMachine({
+        $el: $('.slot'),
+        actId: '5e4efc3c4d3936209bbec0aa5d8e0c87338225aa2257bf79029771f6addc41ebc8fbb51a313e6c3a',
+        lotSingleCost: 3
+      });
+    });
+  </script>
 </body>
 </html>

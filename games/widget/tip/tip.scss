@@ -5,17 +5,28 @@ $baseFontSize: 20px;
 
 
 .tip {
-
+  opacity: 1;
+  transition: all opacity .5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
+
+.tip.out {
+  opacity: 0;
+  display: none;
+}
+
 .tip_bubble {
   position: absolute;
   width: pxToRem(160px);
   height: pxToRem(184px);
   top: 50%;
-  margin-top: pxToRem(-100px);
+  margin-top: pxToRem(-110px);
   left: 50%;
-  margin-left: pxToRem(-92px);
-  background-image: url(../images/slot_tip.png);
+  margin-left: pxToRem(-80px);
+  background-image: url(../images/slot_tip_bg.png);
   background-position: 0 0;
   background-repeat: no-repeat;
   -webkit-background-size: pxToRem(160px) auto;
@@ -24,26 +35,14 @@ $baseFontSize: 20px;
 
 .tip_popsicle_p {
   position: absolute;
-  bottom: pxToRem(-15px);
-  left: pxToRem(-8px);
-  width: pxToRem(217px);
-  height: pxToRem(269px);
+  bottom: 0;
+  left: pxToRem(13px);
+  width: pxToRem(163px);
+  height: pxToRem(237px);
   background-image: url(../images/little_p.png);
   background-position: 0 0;
   background-repeat: no-repeat;
-  -webkit-background-size: pxToRem(217px) auto;
-  background-size: pxToRem(217px) auto;
+  -webkit-background-size: pxToRem(163px) auto;
+  background-size: pxToRem(163px) auto;
 }
 
-.tip_popsicle_gas {
-  position: absolute;
-  bottom: pxToRem(60px);
-  left: pxToRem(197px);
-  width: pxToRem(86px);
-  height: pxToRem(93px);
-  background-image: url(../images/gas.png);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  -webkit-background-size: pxToRem(86px) auto;
-  background-size: pxToRem(86px) auto;
-}

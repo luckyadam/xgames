@@ -10,20 +10,8 @@
   <div class="winner_list_cont">
     <div class="winner_list_cont_wrap">
       <div class="winner_list_cont_wrap_kuang">
-        <ul>
-          <li>
-            <div>12345**678</div>
-            <div>抽中100减20店铺券</div>
-          </li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
-          <li><div>12345**678</div><div>抽中100减20店铺券</div></li>
+        <ul class="winner_list_cont_list">
+
         </ul>
       </div>
     </div>
@@ -32,6 +20,10 @@
 
 <% widget.scriptStart() %>
 <script>
-
+  PP.use('games/widget/winner_list', function (WinnerList) {
+    var winnerList = new WinnerList({
+      $el: $('.winner_list')
+    });
+  });
 </script>
 <% widget.scriptEnd() %>

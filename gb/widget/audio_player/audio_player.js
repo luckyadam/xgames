@@ -75,9 +75,13 @@ PP.define('gb/widget/audio_player', function (require, exports, module) {
     },
 
     // 设置新的路径，重新开始播放
-    setSrc: function (src) {
+    setSrc: function (src, type) {
       if (this.audio) {
+        this.stop();
         this.audio.src = src;
+        if (type) {
+          this.audio.type = type
+        }
       }
     },
 

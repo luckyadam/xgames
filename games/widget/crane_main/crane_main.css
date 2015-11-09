@@ -3,39 +3,6 @@
 
 .page_machine {  position: absolute;left: -3.96800091rem;bottom: -1.856001365rem;width: 23.8506693973rem;height: 24.06400364rem;background: url(../images/page_machine.png) center center no-repeat;background-size: 100% auto; }
 .countdown2 { top: auto; left: 50%;bottom: 10.623997269rem;margin-left: -4.117331968rem;width: 8.234663936rem;height: 6.997rem;}
-.page_btn { position: absolute;left: 50%;bottom: 3.24267rem;margin-left: -2.922665rem;width: 5.84533rem;height: 5.29067rem;background: url(../images/page_btn_body.png) 0 0 no-repeat;background-size: 100% auto; }
-.page_btn2, .page_btn4, .page_btn5, .page_btn6 { display: none; }
-.page_btn4.in, .page_btn5.in, .page_btn6.in { display: block; }
-  .page_btn1_other { position: absolute;left: 1.87733697422rem;top: 0.511996359rem;width: 2.304rem;height: 2.26133rem;background: url(../images/page2_btn_expreesion.png) 0 0 no-repeat;background-size: 100% auto; }
-  .page_btn1_eyer { position: absolute;left: 3.19999908978rem;top: 0.96000045511rem;width: 0.981336064rem;height: 0.64000273rem;background: url(../images/page2_btn_eyer.png) 0 0 no-repeat;background-size: 100% auto;
-     transform-origin: left center;-webkit-animation: pageBtn1eyer .5s 1s ease infinite;animation: pageBtn1eyer .5s 1s ease infinite; }
-
-  .page_btn2_eyel { position: absolute;left: 1.536rem;top: 0.704rem;width: 1.10933rem;height: 1.36533rem;background: url(../images/page_btn2_expreesion.png) 0 0 no-repeat;background-size: 100% auto; }
-  .page_btn2_eyer { position: absolute;left: 3.2rem;top: 0.704rem;width: 1.10933rem;height: 1.36533rem;background: url(../images/page_btn2_expreesion.png) 0 0 no-repeat;background-size: 100% auto; }
-  .page_btn2_mouth { position: absolute;left: 2.66667rem;top: 1.70667rem;width: 0.512rem;height: 0.34133rem;background: url(../images/page_btn2_expreesion.png) 0 -1.6rem no-repeat;background-size: 1.10933rem auto; }
-  .page_btn2_eyel, .page_btn2_eyer { -webkit-animation: scaleALittle .5s ease infinite;animation: scaleALittle .5s ease infinite; }
-
-  .page_btn3 { display: none;position: absolute;left: 4.26667rem;bottom: 3.24267rem;width: 8.10667rem;height: 4.864rem;background: url(../images/page_btn3.png) 0.96rem bottom no-repeat;background-size: 5.84533rem 4.48rem; }
-    .page_btn3_line { position: absolute;left: 0;top: 0;width: 8.10667rem;height: 2.38933rem;background: url(../images/page_btn3_line.png) 0 0 no-repeat;background-size: 100% auto;
-     -webkit-animation: scaleALittle .5s ease infinite;animation: scaleALittle .5s ease infinite;   }
-
-  .page_btn4_main { position: absolute;left: 1.6rem;top: 1.024rem;width: 2.64533rem;height: 1.49333rem;background: url(../images/page_btn4_expreesion.png) 0 0 no-repeat;background-size: 3.75467rem auto; }
-  .page_btn4_eye { position: absolute;left: 3.072rem;top: 1.10933rem;width: 0.384rem;height: 0.384rem;background: url(../images/page_btn4_expreesion.png) -2.64533rem 0 no-repeat;background-size: 3.75467rem auto; }
-  .page_btn4.in .page_btn4_eye {-webkit-animation: slideRightALittle .5s .2s ease backwards;animation: slideRightALittle .5s .2s ease backwards; }
-  .page_btn4_mouth { position: absolute;left: 3.072rem;top: 1.92rem;width: 0.64rem;height: 0.53333rem;background: url(../images/page_btn4_expreesion.png) -3.09333rem 0 no-repeat;background-size: 3.75467rem auto; }
-  .page_btn4.in .page_btn4_mouth {-webkit-animation: slideRightALittle .5s .2s ease backwards;animation: slideRightALittle .5s .2s ease backwards; }
-
-  .page_btn5_mouth { position: absolute; left: 1.77067rem;top: 1.74933rem;width: 2.34667rem;height: 0.81067rem;background: url(../images/page_btn5_expreesion.png) 0 -0.61867rem no-repeat;background-size: 2.38933rem 1.408rem;
-    -webkit-animation: btn5Mouth .8s .2s linear backwards;animation: btn5Mouth .8s .2s linear backwards; }
-  .page_btn5_circle { position: absolute;left: 1.344rem;top: 1.344rem;width: 0.68267rem;height:  0.59733rem;background: url(../images/page_btn5_expreesion.png) 0 0 no-repeat;background-size: 2.38933rem 1.408rem; }
-  .page_btn5_circle2 { left: 3.81867rem; }
-  .page_btn5.in .page_btn5_circle1 { -webkit-animation: btn5circle1 .8s .2s linear backwards;animation: btn5circle1 .8s .2s linear backwards; }
-  .page_btn5.in .page_btn5_circle2 { -webkit-animation: btn5circle2 .8s .2s linear backwards;animation: btn5circle2 .8s .2s linear backwards; }
-
-  .page_btn6_main { position: absolute;left: 1.984rem;top: 0.576rem;width: 1.96267rem;height: 0.81067rem;background: url(../images/page_btn6_expreesion.png) 0 0 no-repeat;background-size: 1.96267rem auto; }
-  .page_btn6_mouth { position: absolute;left: 2.56rem;top: 1.42933rem;width: 0.768rem;height: 1.06667rem;background: url(../images/page_btn6_expreesion.png) -0.59733rem -0.85333rem no-repeat;background-size: 1.96267rem auto; }
-  .page_btn6.in .page_btn6_mouth { transform-origin: center center;-webkit-animation: bigMouth .2s .2s ease-in backwards;animation: bigMouth .2s .2s ease-in backwards; }
-
 
 .page_body, .page_glass { position: absolute;left: 1.66400273rem;bottom: 7.68000364rem;width: 12.88533rem;height: 13.44rem;overflow: hidden;background: #fff url(../images/page_bodybg.png) 0 0 no-repeat;background-size: 100% auto; }
 .page_body2 { background: none; }
@@ -53,8 +20,9 @@
 .page_hand { position: absolute;left: 50%;bottom: 23.872rem;margin-left: -3.562665rem;width: 7.12533rem;height: 22.4rem;background: url(../images/page_hand.png) 0 bottom no-repeat;background-size: 22.18667rem auto; }
   .crane_main.in .page_hand { animation: handDown 1s .2s linear forwards,handMove 1.8s 2s linear forwards infinite; }
   .crane_main.in .page_hand.down {animation: handDown 1s .2s linear forwards,handMove 1.8s 2s linear forwards infinite,handDown2 5s linear; }
-  .page_handwin { background: url(../images/page_hand.png) -7.552rem bottom no-repeat;background-size: 22.18667rem auto; }
-  .page_handlose { background: url(../images/page_hand.png) -15.08267rem bottom no-repeat;background-size: 22.18667rem auto; }
+  .crane_main.in .page_hand.page_handwin { background: url(../images/page_hand.png) -7.552rem bottom no-repeat;background-size: 22.18667rem auto; }
+  .crane_main.in .page_hand.page_handlose { background: url(../images/page_hand.png) -15.08267rem bottom no-repeat;background-size: 22.18667rem auto; }
+  .crane_main.in .page_hand.stop {animation-play-state: paused;}
 
 .page_craned { display: none;position: absolute;left: 1.472rem;bottom: -0.5rem;width: 2.73067rem;height: 3.62667rem;background: url(../images/yuanqi_eat.png) 0 0 no-repeat;background-size: 100% auto; }
 .page_craned.in { display: block; }

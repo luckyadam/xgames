@@ -158,6 +158,7 @@ PP.define('games/page/index', function (require, exports, module) {
 
     getShareArgs: function () {
       var args={
+        'title': '每日抽奖',
         'msg': '超级大奖天天领，就等你来拿哦',
         'links': {
           'Wechat': 'http://b.paipai.com/abc',//微信
@@ -169,7 +170,7 @@ PP.define('games/page/index', function (require, exports, module) {
           'Link': 'http://b.paipai.com/abc'//复制链接,及当找不到对应关系时的默认链接
         },
         'imgUrl': 'http://img6.paipaiimg.com/item-54588B34-4EBD121D00000000000000000BEC3CC2.0.200x200.jpg',
-        'panelTitle':'投我以木瓜，报之以琼瑶',//面板标题，传空会取默认：分享获得更多客流
+        'panelTitle':'每日抽奖分享',//面板标题，传空会取默认：分享获得更多客流
         'finishToast': '1'//分享结束的消息框  0不弹 1弹出
       };
       return args;
@@ -177,15 +178,9 @@ PP.define('games/page/index', function (require, exports, module) {
 
     doShare: function () {
       if ('WebViewJavascriptBridge' in window) {
-        var self = this;
-        WebViewJavascriptBridge.callHandler('share', JSON.stringify(self.getShareArgs()), function(response) {
-          //终端回调
-          //目前事件只有“shareSuccess”，其tag可能为以下值：Wechat、WechatMoments、QQ、QZone、SinaWeibo、ShortMessage、Link
-          //response.event   shareSuccess
-          //response.tag     Wechat、WechatMoments、QQ、QZone、SinaWeibo、ShortMessage、Link
-
-          self.shareCallback.call(self, response);
-        });
+        WebViewJavascriptBridge.callHandler('share', JSON.stringify(this.getShareArgs()), $.proxy(function(response) {
+          this.shareCallback(response);
+        }, this));
       }
     },
 
@@ -213,6 +208,7 @@ PP.define('games/page/index', function (require, exports, module) {
         }, this));
       }
     }
+
   });
 
   module.exports = GamesIndex;

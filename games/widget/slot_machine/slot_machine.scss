@@ -1,0 +1,171 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+.slot_machine {
+  width: rem(750px);
+  height: rem(1058px);
+  background: url(../images/slot_machine_bg.png) no-repeat center center;
+  background-size: rem(750px) auto;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: none;
+}
+
+.slot_machine.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.slot_machine_main {
+  width: rem(488px);
+  height: rem(366px);
+  position: absolute;
+  bottom: rem(430px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+.slot_machine_main.hide {
+  display: none;
+
+}
+
+.slot_machine_track {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slot_machine_track_wrapper {
+  width: 100%;
+  height: rem(1530px);
+  position: absolute;
+  top: rem(-80px);
+}
+
+.slot_machine_middle .slot_machine_track_wrapper {
+  top: rem(-1100px);
+}
+
+.slot_machine_element {
+  width: 100%;
+  height: rem(170px);
+  background-image: url(../images/slot_elements1.png);
+  background-repeat: no-repeat;
+  background-size: rem(150px) auto;
+  background-position: rem(6px) 0;
+}
+
+.slot_machine_left .slot_machine_element1 {
+  background-position-y: 0;
+}
+
+.slot_machine_left .slot_machine_element2 {
+  background-position-y: rem(-180px);
+}
+
+.slot_machine_left .slot_machine_element3 {
+  background-position-y: rem(-360px);
+}
+
+.slot_machine_left .slot_machine_element4 {
+  background-position-y: rem(-540px);
+}
+
+.slot_machine_left .slot_machine_element5 {
+  background-position-y: rem(-720px);
+}
+
+.slot_machine_left .slot_machine_element6 {
+  background-position-y: rem(-900px);
+}
+
+
+
+.slot_machine_middle .slot_machine_element1 {
+  background-position-y: rem(-540px);
+}
+
+.slot_machine_middle .slot_machine_element2 {
+  background-position-y: rem(-720px);
+}
+
+.slot_machine_middle .slot_machine_element3 {
+  background-position-y: rem(-900px);
+}
+
+.slot_machine_middle .slot_machine_element4 {
+
+  background-position-y: rem(-180px);
+}
+
+.slot_machine_middle .slot_machine_element5 {
+  background-position-y: 0;
+}
+
+.slot_machine_middle .slot_machine_element6 {
+  background-position-y: rem(-360px);
+}
+
+
+.slot_machine_right .slot_machine_element1 {
+  background-position-y: rem(-900px);
+}
+
+.slot_machine_right .slot_machine_element2 {
+  background-position-y: rem(-540px);
+}
+
+.slot_machine_right .slot_machine_element3 {
+  background-position-y: rem(-360px);
+}
+
+.slot_machine_right .slot_machine_element4 {
+  background-position-y: rem(-180px);
+}
+
+.slot_machine_right .slot_machine_element5 {
+  background-position-y: rem(-720px);
+}
+
+.slot_machine_right .slot_machine_element6 {
+  background-position-y: 0;
+}
+
+.page_btn {
+  background-image: url(../images/page_btn_body2.png);
+}
+
+.slot_machine_go .page_btn {
+  margin-left: rem(-316px);
+}
+
+.slot_machine_go .page_btn3 {
+  margin-left: rem(-360px);
+}
+
+.slot_machine_stop .page_btn {
+  margin-left: rem(40px);
+}
+
+.slot_machine_stop .page_btn3 {
+  margin-left: 0;
+}
+
+.slot_machine_stop .page_btn2 {
+  display: block;
+}
+
+.countdown2 {
+  margin-top: rem(-248px);
+}

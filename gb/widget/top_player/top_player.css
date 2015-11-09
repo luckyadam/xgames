@@ -1,7 +1,8 @@
 .top_player {
   position: absolute;
   top: 0.68267rem;
-  right: 0.68267rem; }
+  right: 0.68267rem;
+  z-index: 999; }
 
 .top_player_btn {
   display: block;

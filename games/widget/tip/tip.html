@@ -9,12 +9,15 @@
   <div class="tip_bubble"></div>
   <div class="tip_popsicle">
     <div class="tip_popsicle_p"></div>
-    <div class="tip_popsicle_gas"></div>
   </div>
 </div>
 
 <% widget.scriptStart() %>
 <script>
-
+  PP.use('games/widget/tip', function (Tip) {
+    var tip = new Tip({
+      $el: $('.tip')
+    });
+  });
 </script>
 <% widget.scriptEnd() %>

@@ -27,6 +27,7 @@ PP.define('games/page/crane', function (require, exports, module) {
       cont.width(width);
       cont.height(height);
       this.listenEvent();
+      this.token = null;
       this.checkValidate(false);
     },
 
@@ -94,6 +95,7 @@ PP.define('games/page/crane', function (require, exports, module) {
                   }
                 }
               }
+              this.token = ret.token;
               _.eventCenter.trigger('games_crane:init', leftTimes, leftShareTimes, isShareBack);
               break;
             case '777':
@@ -119,9 +121,9 @@ PP.define('games/page/crane', function (require, exports, module) {
 
     onAfterCheck: function (leftTimes, leftShareTimes, isShareBack) {
       if (leftTimes > 0) {
-        setTimeout(function () {
-          _.eventCenter.trigger('games_crane:start');
-        }, 2500);
+        setTimeout($.proxy(function () {
+          _.eventCenter.trigger('games_crane:start', this.conf.actId, this.token);
+        }, this), 2500);
       }
     }
   });
