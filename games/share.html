@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <title>每日抽奖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- S 预解析DNS列表 -->
+  <link rel="dns-prefetch" href="//static.paipaiimg.com">
+  <!-- E 预解析DNS列表 -->
+
+  <!-- S 引用前端页面片 -->
+  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/games/share.shtml" -->
+  <!-- E 引用前端页面片 -->
+
+  <!-- global:css -->
+  <link rel="stylesheet" type="text/css" href="/xgames/gb/css/gb_a7981760.css" combo-use="/gb/css/gb.min_31348150.css">
+  <!-- endglobal -->
+
+  <link rel="stylesheet" type="text/css" href="/xgames/games/css/share_81b154e8.css" combo-use="/games/css/share.min_2fb68bf2.css">
+  <script>
+    ! function(x) {
+      function w() {
+        var v, u, t, tes, s = x.document,
+          r = s.documentElement,
+          a = r.getBoundingClientRect().width;
+        if (!v && !u) {
+          var n = !!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);
+          v = x.devicePixelRatio;
+          tes = x.devicePixelRatio;
+          v = n ? v : 1, u = 1 / v
+        }
+        if (a >= 640) {
+          r.style.fontSize = "40px"
+        } else {
+          if (a <= 320) {
+            r.style.fontSize = "20px"
+          } else {
+            r.style.fontSize = a / 320 * 20 + "px"
+          }
+        }
+      }
+      x.addEventListener("resize", function() {
+        w()
+      });
+      w()
+    }(window);
+  </script>
+</head>
+<!-- 注：加ontouchstart使css：active生效 -->
+
+<body ontouchstart>
+
+  <div class="mod_container share">
+
+    <div class="header">
+      <div class="header_wrap index_img">
+
+        <div class="header_wrap_down index_img"></div>
+
+      </div>
+    </div>
+
+    <div class="game_carousel before">
+
+      <div class="game_carousel_card purple">
+        <div class="game_carousel_card_cont index_img2">
+
+          <div class="circle orange">分享
+            <br>再战</div>
+          <div class="circle yellow">明日
+            <br>再战</div>
+        </div>
+      </div>
+      <div class="game_carousel_card blue">
+        <div class="game_carousel_card_cont index_img2">
+
+          <div class="circle orange">分享
+            <br>再战</div>
+          <div class="circle yellow">明日
+            <br>再战</div>
+        </div>
+      </div>
+      <div class="game_carousel_card green">
+        <div class="game_carousel_card_cont index_img2">
+
+          <div class="circle orange">分享
+            <br>再战</div>
+          <div class="circle yellow">明日
+            <br>再战</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="share_download">
+      <a href="http://wd.paipai.com/newapp/ppsnsh5.html?chid=43&isrun=1&isjump=1" class="share_download_btn share_download_down"></a>
+      <a href="http://wd.paipai.com/newapp/ppsnsh5.html?chid=43&isrun=1&isjump=1" class="share_download_btn share_download_open"></a>
+    </div>
+
+    <div class="winner_list">
+      <div class="winner_list_tit index_img"></div>
+      <div class="winner_list_cont">
+        <div class="winner_list_cont_wrap">
+          <div class="winner_list_cont_wrap_kuang">
+            <ul class="winner_list_cont_list">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- global:js -->
+  <script src="/xgames/gb/js/lib_cf6c5c7f.js"></script>
+  <!-- includeScriptEndPlaceHolder -->
+  <script src="/xgames/gb/js/gb_e83bcc11.js"></script>
+  <!-- includeScriptEndPlaceHolder -->
+  <!-- endglobal -->
+
+  <script src="/xgames/games/js/share_d26ae9e4.js"></script>
+  <script>
+    PP.use('games/widget/game_carousel', function(Carousel) {
+      var carousel = new Carousel({
+        wrapper: $('.game_carousel'),
+        isAuto: true
+      });
+    });
+  </script>
+  <script>
+    PP.use('games/widget/share_download', function(ShareDownload) {
+      var shareDownload = new ShareDownload({
+        $el: $('.share_download')
+      });
+    });
+  </script>
+  <script>
+    PP.use('games/widget/winner_list', function(WinnerList) {
+      var winnerList = new WinnerList({
+        $el: $('.winner_list')
+      });
+    });
+  </script>
+
+  <script>
+    PP.use('games/page/share', function(Share) {
+      var share = new Share({
+        $el: $('.share')
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <title>公共模块组件聚合页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- S 引用前端页面片 -->
+  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/gb/gb.shtml" -->
+  <!-- E 引用前端页面片 -->
+
+  <link rel="stylesheet" type="text/css" href="/xgames/gb/css/gb_a7981760.css" combo-use="/gb/css/gb.min_31348150.css">
+  <link rel="stylesheet" type="text/css" href="/xgames/gb/css/lib_9cc657e5.css" combo-use="/gb/css/lib.min_e442a721.css">
+
+</head>
+<!-- 注：加ontouchstart使css：active生效 -->
+
+<body ontouchstart>
+
+  <div class="mod_container">
+
+    <div class="top_player">
+      <a href="javascript:;" class="top_player_btn"></a>
+    </div>
+
+    <div class="countdown">
+      <div class="countdown_bg">
+        <div class="countdown_bg_pie countdown_bg_left"></div>
+        <div class="countdown_bg_pie countdown_bg_right"></div>
+      </div>
+      <div class="countdown_time"><span class="countdown_num">15</span><span class="countdown_unit">s</span></div>
+    </div>
+
+    <div class="countdown2">
+      <div class="countdown2_txt"></div>
+    </div>
+
+    <div class="login">
+
+    </div>
+
+    <div class="loading">
+
+    </div>
+
+  </div>
+
+  <script src="/xgames/gb/js/lib_cf6c5c7f.js"></script>
+  <!-- includeScriptEndPlaceHolder -->
+  <script src="/xgames/gb/js/shake_d50684d9.js"></script>
+  <!-- includeScriptEndPlaceHolder -->
+  <script src="/xgames/gb/js/gb_e83bcc11.js"></script>
+  <script>
+    PP.use('gb/widget/top_player', function(TopPlayer) {
+      var topPlayer = new TopPlayer({
+        src: '/xgames/gb/images/bgm_fd54f6f4.mp3',
+        $el: $('.top_player')
+      });
+    });
+  </script>
+  <script>
+    PP.use('gb/widget/countdown', function(Countdown) {
+      var countdown = new Countdown({
+        $el: $('.countdown'),
+        start: 15
+      });
+    });
+  </script>
+  <script>
+    PP.use('gb/widget/countdown2', function(Countdown2) {
+      var countdown2 = new Countdown2({
+        $el: $('.countdown2'),
+        bgm: '/xgames/gb/images/countdown2_bgm_19aa8ec7.mp3'
+      });
+    });
+  </script>
+</body>
+
+</html>

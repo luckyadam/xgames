@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- S 预解析DNS列表 -->
+  <link rel="dns-prefetch" href="//static.paipaiimg.com">
+  <!-- E 预解析DNS列表 -->
+
+  <!-- S 引用前端页面片 -->
+  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/games/slot_machine.shtml" -->
+  <!-- E 引用前端页面片 -->
+
+  <!-- global:css -->
+  <link rel="stylesheet" type="text/css" href="/xgames/gb/css/gb_a7981760.css" combo-use="/gb/css/gb.min_31348150.css">
+  <link rel="stylesheet" type="text/css" href="/xgames/gb/css/lib_9cc657e5.css" combo-use="/gb/css/lib.min_e442a721.css">
+  <!-- endglobal -->
+
+  <link rel="stylesheet" type="text/css" href="/xgames/games/css/slot_machine_ea9c9976.css" combo-use="/games/css/slot_machine.min_1a858c48.css">
+  <script>
+    ! function(x) {
+      function w() {
+        var v, u, t, tes, s = x.document,
+          r = s.documentElement,
+          a = r.getBoundingClientRect().width;
+        if (!v && !u) {
+          var n = !!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);
+          v = x.devicePixelRatio;
+          tes = x.devicePixelRatio;
+          v = n ? v : 1, u = 1 / v
+        }
+        if (a >= 960) {
+          r.style.fontSize = "40px"
+        } else {
+          if (a <= 320) {
+            r.style.fontSize = "20px"
+          } else {
+            r.style.fontSize = a / 320 * 20 + "px"
+          }
+        }
+      }
+      x.addEventListener("resize", function() {
+        w()
+      });
+      w()
+    }(window);
+  </script>
+</head>
+<!-- 注：加ontouchstart使css：active生效 -->
+
+<body ontouchstart>
+
+  <div class="mod_container slot">
+
+    <div class="top_player">
+      <a href="javascript:;" class="top_player_btn"></a>
+    </div>
+
+    <div class="countdown">
+      <div class="countdown_bg">
+        <div class="countdown_bg_pie countdown_bg_left"></div>
+        <div class="countdown_bg_pie countdown_bg_right"></div>
+      </div>
+      <div class="countdown_time"><span class="countdown_num">15</span><span class="countdown_unit">s</span></div>
+    </div>
+
+    <div class="tip">
+      <div class="tip_bubble">
+        <div class="tip_bubble_btn"></div>
+      </div>
+      <div class="tip_popsicle">
+        <div class="tip_popsicle_p"></div>
+      </div>
+    </div>
+
+    <div class="slot_machine">
+
+      <div class="countdown2">
+        <div class="countdown2_txt"></div>
+      </div>
+
+      <div class="slot_machine_main display_flex horizontal">
+        <div class="slot_machine_track slot_machine_left">
+          <div class="slot_machine_track_wrapper">
+            <div class="slot_machine_element slot_machine_element1"></div>
+            <div class="slot_machine_element slot_machine_element2"></div>
+            <div class="slot_machine_element slot_machine_element3"></div>
+            <div class="slot_machine_element slot_machine_element4"></div>
+            <div class="slot_machine_element slot_machine_element5"></div>
+            <div class="slot_machine_element slot_machine_element6"></div>
+            <div class="slot_machine_element slot_machine_element1"></div>
+            <div class="slot_machine_element slot_machine_element2"></div>
+            <div class="slot_machine_element slot_machine_element3"></div>
+          </div>
+        </div>
+        <div class="slot_machine_track slot_machine_middle">
+          <div class="slot_machine_track_wrapper">
+            <div class="slot_machine_element slot_machine_element1"></div>
+            <div class="slot_machine_element slot_machine_element2"></div>
+            <div class="slot_machine_element slot_machine_element3"></div>
+            <div class="slot_machine_element slot_machine_element4"></div>
+            <div class="slot_machine_element slot_machine_element5"></div>
+            <div class="slot_machine_element slot_machine_element6"></div>
+            <div class="slot_machine_element slot_machine_element1"></div>
+            <div class="slot_machine_element slot_machine_element2"></div>
+            <div class="slot_machine_element slot_machine_element3"></div>
+          </div>
+        </div>
+        <div class="slot_machine_track slot_machine_right">
+          <div class="slot_machine_track_wrapper">
+            <div class="slot_machine_element slot_machine_element1"></div>
+            <div class="slot_machine_element slot_machine_element2"></div>
+            <div class="slot_machine_element slot_machine_element3"></div>
+            <div class="slot_machine_element slot_machine_element4"></div>
+            <div class="slot_machine_element slot_machine_element5"></div>
+            <div class="slot_machine_element slot_machine_element6"></div>
+            <div class="slot_machine_element slot_machine_element1"></div>
+            <div class="slot_machine_element slot_machine_element2"></div>
+            <div class="slot_machine_element slot_machine_element3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="slot_machine_operation">
+        <div class="slot_machine_go">
+          <a class="page_btn page_btn1" href="javascript:;">
+            <div class="page_btn1_other"></div>
+            <div class="page_btn1_eyer"></div>
+          </a>
+          <a class="page_btn page_btn2" href="javascript:;">
+            <div class="page_btn2_eyel"></div>
+            <div class="page_btn2_eyer"></div>
+            <div class="page_btn2_mouth"></div>
+          </a>
+          <a class="page_btn3" href="javascript:;">
+            <div class="page_btn3_main"></div>
+            <div class="page_btn3_line"></div>
+          </a>
+
+          <a class="page_btn page_btn4" href="javascript:;">
+            <div class="page_btn4_mouth"></div>
+            <div class="page_btn4_main"></div>
+            <div class="page_btn4_eye"></div>
+          </a>
+
+          <a class="page_btn page_btn5" href="javascript:;">
+            <div class="page_btn5_mouth"></div>
+            <div class="page_btn5_circle page_btn5_circle1"></div>
+            <div class="page_btn5_circle page_btn5_circle2"></div>
+          </a>
+
+          <a class="page_btn page_btn6" href="javascript:;">
+            <div class="page_btn6_main"></div>
+            <div class="page_btn6_mouth"></div>
+          </a>
+        </div>
+        <div class="slot_machine_stop">
+          <a class="page_btn page_btn1" href="javascript:;">
+            <div class="page_btn1_other"></div>
+            <div class="page_btn1_eyer"></div>
+          </a>
+          <a class="page_btn page_btn2" href="javascript:;">
+            <div class="page_btn2_eyel"></div>
+            <div class="page_btn2_eyer"></div>
+            <div class="page_btn2_mouth"></div>
+          </a>
+          <a class="page_btn3" href="javascript:;">
+            <div class="page_btn3_main"></div>
+            <div class="page_btn3_line"></div>
+          </a>
+
+          <a class="page_btn page_btn4" href="javascript:;">
+            <div class="page_btn4_mouth"></div>
+            <div class="page_btn4_main"></div>
+            <div class="page_btn4_eye"></div>
+          </a>
+
+          <a class="page_btn page_btn5" href="javascript:;">
+            <div class="page_btn5_mouth"></div>
+            <div class="page_btn5_circle page_btn5_circle1"></div>
+            <div class="page_btn5_circle page_btn5_circle2"></div>
+          </a>
+
+          <a class="page_btn page_btn6" href="javascript:;">
+            <div class="page_btn6_main"></div>
+            <div class="page_btn6_mouth"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- global:js -->
+  <script src="/xgames/gb/js/lib_cf6c5c7f.js"></script>
+  <!-- includeScriptEndPlaceHolder -->
+  <script src="/xgames/gb/js/gb_e83bcc11.js"></script>
+  <!-- includeScriptEndPlaceHolder -->
+  <!-- endglobal -->
+  <script src="/xgames/games/js/slot_machine_bc3a3bdb.js"></script>
+  <script>
+    PP.use('gb/widget/top_player', function(TopPlayer) {
+      var topPlayer = new TopPlayer({
+        src: '/xgames/gb/images/bgm_fd54f6f4.mp3',
+        $el: $('.top_player')
+      });
+    });
+  </script>
+  <script>
+    PP.use('gb/widget/countdown', function(Countdown) {
+      var countdown = new Countdown({
+        $el: $('.countdown'),
+        start: 15
+      });
+    });
+  </script>
+  <script>
+    PP.use('games/widget/tip', function(Tip) {
+      var tip = new Tip({
+        $el: $('.tip')
+      });
+    });
+  </script>
+  <script>
+    PP.use('games/widget/slot_machine', function(SlotMachine) {
+      var slotMachine = new SlotMachine({
+        $el: $('.slot_machine')
+      });
+    });
+  </script>
+  <script>
+    PP.use('gb/widget/countdown2', function(Countdown2) {
+      var countdown2 = new Countdown2({
+        $el: $('.countdown2'),
+        bgm: '/xgames/gb/images/countdown2_bgm_19aa8ec7.mp3'
+      });
+    });
+  </script>
+
+  <script>
+    PP.use('games/page/slot_machine', function(SlotMachine) {
+      var slotMachine = new SlotMachine({
+        $el: $('.slot'),
+        actId: '5e4efc3c4d3936209bbec0aa5d8e0c87338225aa2257bf79029771f6addc41ebc8fbb51a313e6c3a',
+        lotSingleCost: 3
+      });
+    });
+  </script>
+</body>
+
+</html>

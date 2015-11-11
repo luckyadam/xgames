@@ -1,0 +1,539 @@
+/*
+ * @author: luckyadam
+ * @time: 2015-10-27
+*/
+
+body {
+  background: url(/xgames/games/images/slot_bg_8ee639a4.png) repeat;
+  background-size: 16rem auto;
+}
+
+.slot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden; }
+
+.page_btn {
+  position: absolute;
+  left: 50%;
+  bottom: 3.24267rem;
+  margin-left: -2.922665rem;
+  width: 5.84533rem;
+  height: 5.29067rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -19.072rem -0.8533rem; }
+
+.page_btn2, .page_btn4, .page_btn5, .page_btn6 {
+  display: none; }
+
+.page_btn4.in, .page_btn5.in, .page_btn6.in {
+  display: block; }
+
+.page_btn1_other {
+  position: absolute;
+  left: 1.87733697422rem;
+  top: 0.511996359rem;
+  width: 2.304rem;
+  height: 2.26133rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -5.4613rem -0.8533rem; }
+
+.page_btn1_eyer {
+  position: absolute;
+  left: 3.19999908978rem;
+  top: 0.96000045511rem;
+  width: 0.981336064rem;
+  height: 0.64000273rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -9.472rem -0.8533rem;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-animation: pageBtn1eyer .5s 1s ease infinite;
+  animation: pageBtn1eyer .5s 1s ease infinite; }
+
+.page_btn2_eyel {
+  position: absolute;
+  left: 1.536rem;
+  top: 0.704rem;
+  width: 1.10933rem;
+  height: 1.36533rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -12.16rem -0.8533rem; }
+
+.page_btn2_eyer {
+  position: absolute;
+  left: 3.2rem;
+  top: 0.704rem;
+  width: 1.10933rem;
+  height: 1.36533rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -12.16rem -0.8533rem; }
+
+.page_btn2_mouth {
+  position: absolute;
+  left: 2.66667rem;
+  top: 1.70667rem;
+  width: 0.512rem;
+  height: 0.34133rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -13.76rem -0.8533rem; }
+
+.page_btn2_eyel, .page_btn2_eyer {
+  -webkit-animation: scaleALittle .5s ease infinite;
+  animation: scaleALittle .5s ease infinite; }
+
+.page_btn3 {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 3.24267rem;
+  margin-left: -4.053335rem;
+  width: 8.10667rem;
+  height: 4.864rem; }
+
+.page_btn3_main {
+  width: 5.8454rem;
+  height: 4.4801rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -9.472rem -4.48rem;
+  margin: 0.256rem auto 0; }
+
+.page_btn3_line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8.10667rem;
+  height: 2.38933rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -8.384rem -10.6666rem;
+  -webkit-animation: scaleALittle .5s ease infinite;
+  animation: scaleALittle .5s ease infinite; }
+
+.page_btn4_main {
+  position: absolute;
+  left: 1.6rem;
+  top: 1.024rem;
+  width: 2.64533rem;
+  height: 1.49333rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -8.384rem -14.7626rem; }
+
+.page_btn4_eye {
+  position: absolute;
+  left: 3.072rem;
+  top: 1.10933rem;
+  width: 0.384rem;
+  height: 0.384rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -11.0293rem -14.7626rem; }
+
+.page_btn4.in .page_btn4_eye {
+  -webkit-animation: slideRightALittle .5s .2s ease backwards;
+  animation: slideRightALittle .5s .2s ease backwards; }
+
+.page_btn4_mouth {
+  position: absolute;
+  left: 3.072rem;
+  top: 1.92rem;
+  width: 0.64rem;
+  height: 0.53333rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -11.4773rem -14.7626rem; }
+
+.page_btn4.in .page_btn4_mouth {
+  -webkit-animation: slideRightALittle .5s .2s ease backwards;
+  animation: slideRightALittle .5s .2s ease backwards; }
+
+.page_btn5_mouth {
+  position: absolute;
+  left: 1.77067rem;
+  top: 1.74933rem;
+  width: 2.34667rem;
+  height: 0.81067rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -14.976rem -1.472rem;
+  -webkit-animation: btn5Mouth .8s .2s linear backwards;
+  animation: btn5Mouth .8s .2s linear backwards; }
+
+.page_btn5_circle {
+  position: absolute;
+  left: 1.344rem;
+  top: 1.344rem;
+  width: 0.68267rem;
+  height: 0.59733rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -14.976rem -0.8533rem; }
+
+.page_btn5_circle2 {
+  left: 3.81867rem; }
+
+.page_btn5.in .page_btn5_circle1 {
+  -webkit-animation: btn5circle1 .8s .2s linear backwards;
+  animation: btn5circle1 .8s .2s linear backwards; }
+
+.page_btn5.in .page_btn5_circle2 {
+  -webkit-animation: btn5circle2 .8s .2s linear backwards;
+  animation: btn5circle2 .8s .2s linear backwards; }
+
+.page_btn6_main {
+  position: absolute;
+  left: 1.984rem;
+  top: 0.576rem;
+  width: 1.96267rem;
+  height: 0.81067rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -13.8453rem -14.7626rem; }
+
+.page_btn6_mouth {
+  position: absolute;
+  left: 2.56rem;
+  top: 1.42933rem;
+  width: 0.768rem;
+  height: 1.06667rem;
+  background-image: url(/xgames/games/images/page_btn_imgs_7bec1422.png);
+  background-repeat: no-repeat;
+  background-size: 25.7707rem auto;
+  background-position: -14.4426rem -15.616rem; }
+
+.page_btn6.in .page_btn6_mouth {
+  -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-animation: bigMouth .2s .2s ease-in backwards;
+  animation: bigMouth .2s .2s ease-in backwards; }
+
+/* page6 */
+@-webkit-keyframes bigMouth {
+  0% {
+    -webkit-transform: scale(1, 0.4); }
+  100% {
+    -webkit-transform: scale(1, 1); } }
+/* page5 */
+@-webkit-keyframes btn5Mouth {
+  0% {
+    -webkit-clip-path: polygon(15% 0, 87% 0, 87% 100%, 15% 100%); }
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); } }
+@-webkit-keyframes btn5circle1 {
+  0% {
+    -webkit-transform: translate(0.53333rem, 0.53333rem); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+@-webkit-keyframes btn5circle2 {
+  0% {
+    -webkit-transform: translate(-0.53333rem, 0.53333rem); }
+  100% {
+    -webkit-transform: translate(0, 0); } }
+@-webkit-keyframes slideRightALittle {
+  0% {
+    -webkit-transform: translateX(-0.34133rem); }
+  100% {
+    -webkit-transform: translate(0); } }
+@-webkit-keyframes scaleALittle {
+  0% {
+    -webkit-transform: scale(1, 1); }
+  50% {
+    -webkit-transform: scale(1.05, 1.05); }
+  100% {
+    -webkit-transform: scale(1, 1); } }
+@-webkit-keyframes pageBtn1eyer {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1); }
+  40% {
+    opacity: 0.9;
+    -webkit-transform: scaleY(0.85); }
+  70% {
+    opacity: 0.9;
+    -webkit-transform: scaleY(0.85); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1); } }
+
+.tip {
+  opacity: 1;
+  -webkit-transition: opacity .5s ease-in-out;
+          transition: opacity .5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden; }
+
+.tip.out {
+  opacity: 0;
+  display: none; }
+
+.tip_bubble {
+  position: absolute;
+  width: 6.82667rem;
+  height: 7.85067rem;
+  top: 50%;
+  margin-top: -4.69333rem;
+  left: 50%;
+  margin-left: -3.41333rem;
+  background-image: url(/xgames/games/images/slot_tip_bg_08b8329e.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 6.82667rem auto;
+  -webkit-animation: slideALittle 1s .6s ease backwards;
+          animation: slideALittle 1s .6s ease backwards; }
+
+.tip_popsicle_p {
+  position: absolute;
+  bottom: 0;
+  left: 0.55467rem;
+  width: 6.95467rem;
+  height: 10.112rem;
+  background-image: url(/xgames/games/images/little_p_3dca8a3f.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 6.95467rem auto;
+  -webkit-animation: slideTop .5s ease;
+          animation: slideTop .5s ease; }
+
+.tip_bubble_btn {
+  position: absolute;
+  width: 2.90133rem;
+  height: 2.56rem;
+  background-image: url(/xgames/games/images/slot_guide_btn_4177d2b4.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 2.90133rem auto;
+  top: 1.28rem;
+  left: 50%;
+  margin-left: -1.45067rem;
+  -webkit-animation: scale .5s .9s ease-in infinite;
+          animation: scale .5s .9s ease-in infinite;
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom; }
+
+@-webkit-keyframes slideTop {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes slideTop {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+@-webkit-keyframes slideALittle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-5%, 5%);
+            transform: translate(-5%, 5%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%); } }
+@keyframes slideALittle {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-5%, 5%);
+            transform: translate(-5%, 5%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%); } }
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1); }
+  50% {
+    -webkit-transform: scale3D(1.02, 0.85, 1);
+            transform: scale3D(1.02, 0.85, 1); }
+  70% {
+    -webkit-transform: scale3D(1.1, 0.85, 1.1);
+            transform: scale3D(1.1, 0.85, 1.1); }
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1); } }
+@keyframes scale {
+  0% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1); }
+  50% {
+    -webkit-transform: scale3D(1.02, 0.85, 1);
+            transform: scale3D(1.02, 0.85, 1); }
+  70% {
+    -webkit-transform: scale3D(1.1, 0.85, 1.1);
+            transform: scale3D(1.1, 0.85, 1.1); }
+  100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1); } }
+
+.slot_machine {
+  width: 16rem;
+  height: 22.5707rem;
+  background: url(/xgames/games/images/slot_machine_bg_fed4195a.png) no-repeat center center;
+  background-size: 16rem auto;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: none; }
+
+.slot_machine.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.slot_machine_main {
+  width: 10.4107rem;
+  height: 7.808rem;
+  position: absolute;
+  bottom: 9.1734rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 100; }
+
+.slot_machine_main.hide {
+  display: none; }
+
+.slot_machine_track {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative; }
+
+.slot_machine_track_wrapper {
+  width: 100%;
+  height: 32.64rem;
+  position: absolute;
+  top: -1.7066rem; }
+
+.slot_machine_middle .slot_machine_track_wrapper {
+  top: -23.4666rem; }
+
+.slot_machine_element {
+  width: 100%;
+  height: 3.6267rem;
+  background-image: url(/xgames/games/images/slot_elements1_ab95bcc9.png);
+  background-repeat: no-repeat;
+  background-size: 3.2rem auto;
+  background-position: 0.128rem 0; }
+
+.slot_machine_left .slot_machine_element1 {
+  background-position-y: 0; }
+
+.slot_machine_left .slot_machine_element2 {
+  background-position-y: -3.84rem; }
+
+.slot_machine_left .slot_machine_element3 {
+  background-position-y: -7.68rem; }
+
+.slot_machine_left .slot_machine_element4 {
+  background-position-y: -11.52rem; }
+
+.slot_machine_left .slot_machine_element5 {
+  background-position-y: -15.36rem; }
+
+.slot_machine_left .slot_machine_element6 {
+  background-position-y: -19.2rem; }
+
+.slot_machine_middle .slot_machine_element1 {
+  background-position-y: -11.52rem; }
+
+.slot_machine_middle .slot_machine_element2 {
+  background-position-y: -15.36rem; }
+
+.slot_machine_middle .slot_machine_element3 {
+  background-position-y: -19.2rem; }
+
+.slot_machine_middle .slot_machine_element4 {
+  background-position-y: -3.84rem; }
+
+.slot_machine_middle .slot_machine_element5 {
+  background-position-y: 0; }
+
+.slot_machine_middle .slot_machine_element6 {
+  background-position-y: -7.68rem; }
+
+.slot_machine_right .slot_machine_element1 {
+  background-position-y: -19.2rem; }
+
+.slot_machine_right .slot_machine_element2 {
+  background-position-y: -11.52rem; }
+
+.slot_machine_right .slot_machine_element3 {
+  background-position-y: -7.68rem; }
+
+.slot_machine_right .slot_machine_element4 {
+  background-position-y: -3.84rem; }
+
+.slot_machine_right .slot_machine_element5 {
+  background-position-y: -15.36rem; }
+
+.slot_machine_right .slot_machine_element6 {
+  background-position-y: 0; }
+
+.page_btn {
+  background-position: -18.1973rem -7.8506rem; }
+
+.slot_machine_go .page_btn {
+  margin-left: -6.7413rem; }
+
+.slot_machine_go .page_btn3 {
+  margin-left: -7.68rem; }
+
+.slot_machine_stop .page_btn {
+  margin-left: 0.8534rem; }
+
+.slot_machine_stop .page_btn3 {
+  margin-left: 0; }
+
+.slot_machine_stop .page_btn2 {
+  display: block; }
+
+.countdown2 {
+  margin-top: -5.2906rem; }
+
+.page_btn3_main {
+  background-position: -0.8533rem -10.6666rem; }
