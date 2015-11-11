@@ -2,12 +2,13 @@
 
 /**
  * @author luckyadam
- * @date 2015-11-5
+ * @date 2015-11-5 changed
  * @desc 轮播
  */
 
 PP.define('games/widget/game_carousel', function (require, exports, module) {
   var Carousel = _.Class.extend({
+    canSlide: true,
     construct: function (opts) {
       this.conf = $.extend({
         wrapper: $('body'),
@@ -36,6 +37,21 @@ PP.define('games/widget/game_carousel', function (require, exports, module) {
         .on('touchend', $.proxy(this.onEnd, this));
     },
 
+    classArr: ['prev', 'before', 'next'],
+    classIdx: 1,
+    changeIndex: function(step) {
+      var prev = this.classIdx;
+      this.classIdx = this.classIdx+step;
+      if(this.classIdx > 2) {
+        this.classIdx = 0;
+      }
+      if(this.classIdx < 0) {
+        this.classIdx = 2;
+      }
+      _.eventCenter.trigger('games_widget_game_carousel:change', this.classIdx);
+      this.conf.wrapper.removeClass('prev').removeClass('before').removeClass('next').addClass(this.classArr[this.classIdx]);
+    },
+
     onStart: function (event) {
       var initial = this.initial;
       var wrapper = this.conf.wrapper;
@@ -46,60 +62,36 @@ PP.define('games/widget/game_carousel', function (require, exports, module) {
       initial.sy = event.targetTouches[0].pageY;
       initial.ex = initial.sx;
       initial.ey = initial.sy;
-      this.$before = wrapper.find('.before');
-      this.$prev = wrapper.find('.prev');
-      this.$next = wrapper.find('.next');
       if (this.conf.isAuto) {
         clearInterval(this.autoInterval);
       }
     },
 
     onMove: function (event) {
-      var initial = this.initial;
-      var wrapper = this.conf.wrapper;
-      var wrapperWidth = this.wrapperWidth;
-      initial.ex = event.targetTouches[0].pageX;
-      initial.ey = event.targetTouches[0].pageY;
-      var changeX = initial.sx - initial.ex;
-      var changeY = initial.sy - initial.ey;
-      var progress = changeX / wrapperWidth;
-      if(Math.abs(changeX) < wrapperWidth) {
-          this.$before.css('transform', 'translate('+ (-changeX / 3) +'px,0) scale('+ ((1-0.85)*(1-Math.abs(progress))+0.85) +')');
-          this.$before.css('-webkit-transform', 'translate('+ (-changeX / 3) +'px,0) scale('+ ((1-0.85)*(1-Math.abs(progress))+0.85) +')');
-          if(changeX>0) {
-              this.$prev.css('transform', 'translate('+ (-wrapperWidth/3+wrapperWidth*2/3*progress) +'px,0) scale('+ 0.85 +')');
-              this.$next.css('transform', 'translate('+ (wrapperWidth/3)*(1-progress) +'px,0) scale('+ (Math.abs(progress)*0.15+0.85) +')');
-              this.$prev.css('-webkit-transform', 'translate('+ (-wrapperWidth/3+wrapperWidth*2/3*progress) +'px,0) scale('+ 0.85 +')');
-              this.$next.css('-webkit-transform', 'translate('+ (wrapperWidth/3)*(1-progress) +'px,0) scale('+ (Math.abs(progress)*0.15+0.85) +')');
-          } else {
-              this.$prev.css('transform', 'translate('+ (-wrapperWidth/3)*(1+progress) +'px,0) scale('+ (Math.abs(progress)*0.15+0.85) +')');
-              this.$next.css('transform', 'translate('+ (wrapperWidth/3+wrapperWidth*2/3*progress) +'px,0) scale('+ 0.85 +')');
-              this.$prev.css('-webkit-transform', 'translate('+ (-wrapperWidth/3)*(1+progress) +'px,0) scale('+ (Math.abs(progress)*0.15+0.85) +')');
-              this.$next.css('-webkit-transform', 'translate('+ (wrapperWidth/3+wrapperWidth*2/3*progress) +'px,0) scale('+ 0.85 +')');
-          }
+      if(this.canSlide) {
+        this.canSlide = false;
+        var initial = this.initial;
+        initial.ex = event.targetTouches[0].pageX;
+        initial.ey = event.targetTouches[0].pageY;
+        setTimeout(function() {
+          this.canSlide = true;
+        }.bind(this),200);
       }
     },
 
     onEnd: function (event) {
       var initial = this.initial;
-      var wrapper = this.conf.wrapper;
       var changeX = initial.sx - initial.ex;
       var changeY = initial.sy - initial.ey;
-      var currentIndex = -1;
-      this.$before = wrapper.find('.before');
-      this.$prev = wrapper.find('.prev');
-      this.$next = wrapper.find('.next');
-      if(changeX > 0) {
-        this.$prev.removeClass('prev').addClass('next').removeAttr('style');
-        this.$before.removeClass('before').addClass('prev').removeAttr('style');
-        this.$next.removeClass('next').addClass('before').removeAttr('style');
-      } else {
-        this.$prev.removeClass('prev').addClass('before').removeAttr('style');
-        this.$before.removeClass('before').addClass('next').removeAttr('style');
-        this.$next.removeClass('next').addClass('prev').removeAttr('style');
+      if (Math.abs(changeY) < Math.abs(changeX)) {
+        event.preventDefault();
+        if(changeX > 0) {
+          this.changeIndex(1);
+        } else {
+          this.changeIndex(-1);
+        }
       }
-      currentIndex = wrapper.find('.before').index();
-      _.eventCenter.trigger('games_widget_game_carousel:change', currentIndex);
+
       if (this.conf.isAuto) {
         clearInterval(this.autoInterval);
         this.auto();
@@ -107,17 +99,8 @@ PP.define('games/widget/game_carousel', function (require, exports, module) {
     },
 
     auto: function () {
-      var wrapper = this.conf.wrapper;
-      var currentIndex = -1;
       this.autoInterval = setInterval($.proxy(function() {
-        this.$before = wrapper.find('.before');
-        this.$prev = wrapper.find('.prev');
-        this.$next = wrapper.find('.next');
-        this.$prev.removeClass('prev').addClass('next');
-        this.$before.removeClass('before').addClass('prev');
-        this.$next.removeClass('next').addClass('before');
-        currentIndex = wrapper.find('.before').index();
-        _.eventCenter.trigger('games_widget_game_carousel:change', currentIndex);
+        this.changeIndex(1);
       }, this), 3000);
     }
   });

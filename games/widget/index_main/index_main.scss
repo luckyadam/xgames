@@ -1,0 +1,11 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.main {
+  position:relative;margin:0 auto rem(72px);width:94.6666%;
+}

@@ -34,7 +34,9 @@ PP.define('gb/widget/audio_player', function (require, exports, module) {
       if (!this.audio) {
         this.audio = new Audio();
       }
-      this.audio.src = conf.src;
+      if (conf.src) {
+        this.audio.src = conf.src;
+      }
       this.audio.loop = conf.loop;
       this.audio.type = conf.type;
       this.audio.autoplay = conf.autoplay;

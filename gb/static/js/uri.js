@@ -40,7 +40,6 @@ PP.define('uri', function () {
    * @constructor Uri
    * @desc 处理、匹配url中的各个参数
    * @param {String} str 待处理的url
-   * @example var Uri=F.require("uri"); new Uri("http://www.xxxxx")
    * @constructor
    */
   var Uri = function (str) {

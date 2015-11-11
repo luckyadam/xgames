@@ -1,0 +1,31 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.share_download {
+  width: rem(706px);
+  height: rem(352px);
+  background: url(../images/share_download.png) no-repeat 0 0;
+  background-size: 100% auto;
+  margin: rem(72px) auto rem(36px);
+  position: relative;
+}
+
+.share_download_btn {
+  position: absolute;
+  display: block;
+  width: rem(226px);
+  height: rem(58px);
+  top: rem(246px);
+}
+.share_download_down {
+  left: rem(98px);
+}
+
+.share_download_open {
+  left: rem(388px);
+}

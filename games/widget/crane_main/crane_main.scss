@@ -1,0 +1,38 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.crane_main { opacity: 0;transition: opacity .5s ease-in-out; }
+.crane_main.in { opacity: 1; }
+
+.page_machine {  position: absolute;left: -3.96800091rem;bottom: -1.856001365rem;width: 23.8506693973rem;height: 24.06400364rem;background-position: rem(-2344px) rem(-40px); }
+.countdown2 { top: auto; left: 50%;bottom: 10.623997269rem;margin-left: -4.117331968rem;width: 8.234663936rem;height: 6.997rem;}
+
+.page_body, .page_glass { position: absolute;left: 1.66400273rem;bottom: 7.68000364rem;width: 12.88533rem;height: 13.44rem;overflow: hidden;background-position: rem(-1660px) rem(-40px);background-color: #fff; }
+.page_body2 { background: none; }
+
+  .yuanqis { position: absolute;left: -0.34133rem;bottom: -1.42933rem;width: 13.824rem;height: 8.61867rem;background-position: rem(-2456px) rem(-1248px); }
+  .yuanqis1 { position: absolute;left: -0.512rem;bottom: 3.17867rem;width: 13.39733rem;height: 8.192rem;background-position: rem(-1844px) rem(-1732px); }
+  .yuanqis2 { position: absolute;left: 0.02133rem;bottom: 4.69333rem;width: 13.39733rem;height: 8.192rem;background-position: rem(-2552px) rem(-1732px);}
+
+  .crane_main.in .yuanqis { -webkit-animation: slidetoTop .5s .2s ease-out both;animation: slidetoTop .5s .2s ease-out both; }
+  .crane_main.in .yuanqis1 { -webkit-animation: slidetoTop .5s .5s ease-out both;animation: slidetoTop .5s .5s ease-out both; }
+  .crane_main.in .yuanqis2 { -webkit-animation: slidetoTop .7s 1s ease-out both;animation: slidetoTop .7s 1s ease-out both; }
+
+.page_glass { background-position: rem(-40px) rem(-750px); background-color: transparent; }
+
+.page_hand { position: absolute;left: 50%;bottom: 23.872rem;margin-left: -3.562665rem;width: 7.12533rem;height: 22.4rem;background-position: rem(-724px) rem(-750px);}
+  .crane_main.in .page_hand { animation: handDown 1s .2s linear forwards,handMove 1.8s 2s linear forwards infinite; }
+  .crane_main.in .page_hand.down {animation: handDown 1s .2s linear forwards,handMove 1.8s 2s linear forwards infinite,handDown2 5s linear; }
+  .crane_main.in .page_hand.page_handwin { background-position: rem(-724px) rem(-750px); }
+  .crane_main.in .page_hand.page_handlose { background-position: rem(-724px) rem(-750px); }
+  .crane_main.in .page_hand.stop {animation-play-state: paused;}
+
+.page_craned { display: none;position: absolute;left: 1.472rem;bottom: -0.5rem;width: 2.73067rem;height: 3.62667rem;background-position: rem(-2034px) rem(-1248px); }
+.page_craned.in { display: block; }
+.page_craned2  { left: 1.1rem;bottom: -0.5rem;width: 2.85867rem;height: 3.62667rem;background-position: rem(-2242px) rem(-1248px); }
+.page_craned.down { -webkit-animation: cranedDown .7s .2s ease-in forwards;animation: cranedDown .7s .2s ease-in forwards; }

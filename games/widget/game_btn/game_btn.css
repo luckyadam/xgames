@@ -1,2 +1,17 @@
-.game_btn {z-index:5;position:absolute;bottom:-14px;left:0;width:100%;text-align:center;}
-  .game_btn_msg {display:inline-block;width:118.5px;height:33.5px;line-height:29px; color:#38385A;background:url(../images/game_btn.png);background-size:100% 100%;}
+.game_btn {
+  z-index: 5;
+  position: absolute;
+  bottom: -1.1946rem;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+.game_btn_msg {
+  display: inline-block;
+  width: 5.056rem;
+  height: 1.4294rem;
+  line-height: 29px;
+  color: #38385A;
+  background-position: -10.2613rem -4.672rem; }
+
+/*# sourceMappingURL=game_btn.css.map */

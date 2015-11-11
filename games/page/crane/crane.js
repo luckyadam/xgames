@@ -7,6 +7,7 @@
  */
 
 PP.define('games/page/crane', function (require, exports, module) {
+  var LoginUtil = require('gb/widget/login');
   var LotteryUtil = require('gb/widget/lottery');
   var Toast = require('toast');
   var Crane = _.Class.extend({
@@ -103,6 +104,7 @@ PP.define('games/page/crane', function (require, exports, module) {
               setTimeout(function () {
                 new Toast('请先登录!', 5000);
               }, 800);
+              LoginUtil.gotoLogin();
               break;
             default :
               _.eventCenter.trigger('games_crane:init', 0, 0, isShareBack);

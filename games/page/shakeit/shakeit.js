@@ -7,6 +7,7 @@
  */
 
 PP.define('games/page/shakeit', function (require, exports, module) {
+  var LoginUtil = require('gb/widget/login');
   var lotteryUtil = require('gb/widget/lottery');
   var Toast = require('toast');
   var Shakeit = _.Class.extend({
@@ -75,10 +76,13 @@ PP.define('games/page/shakeit', function (require, exports, module) {
               break;
             case '777':
               new Toast('请登录');
+              LoginUtil.gotoLogin();
               break;
             default :
               new Toast('网络错误，请刷新重试!!');
           }
+        } else {
+          new Toast('网络错误，请刷新重试!!');
         }
       }, this));
     },

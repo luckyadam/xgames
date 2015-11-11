@@ -1,0 +1,9 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+.game_btn {z-index:5;position:absolute;bottom:rem(-56px);left:0;width:100%;text-align:center;}
+  .game_btn_msg {display:inline-block;width:rem(237px);height:rem(67px);line-height:29px; color:#38385A;background-position: rem(-481px) rem(-219px);}

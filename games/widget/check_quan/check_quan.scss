@@ -1,0 +1,9 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.check_quan {display:block;margin:0 auto rem(27px);width:rem(710px);height: rem(90px);background-position: rem(-40px) rem(-40px);}

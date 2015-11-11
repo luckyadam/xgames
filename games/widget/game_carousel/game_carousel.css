@@ -1,19 +1,29 @@
-.game_carousel {position:relative;margin:0 auto;width:206px;height:306px;}
-  .game_carousel_card {position:absolute;top:0;left:0;-webkit-box-sizing:border-box;box-sizing:border-box;padding:7px;width:100%;height:100%;border:3px solid #38385A;border-radius:15px; -webkit-transform-origin:center center;transform-origin:center center; -webkit-transition:0.3s ease;transition:0.3s ease;}
+.game_carousel {z-index:5; position:relative;margin:0 auto;width:206px;height:306px;  -webkit-tansform-style:preserve-3d; -webkit-perspective: 1000;}
+  .game_carousel_card {-webkit-transform-style:flat;transform-style:flat;position:absolute;top:0;left:0;-webkit-box-sizing:border-box;box-sizing:border-box;padding:7px;width:100%;height:100%;border:3px solid #38385A;border-radius:15px; -webkit-transform-origin:center center;transform-origin:center center; -webkit-transition:0.3s ease;transition:0.3s ease;}
   .game_carousel_card.blue {background:#0D9CDF; }
   .game_carousel_card.purple {background:#9069F5; }
   .game_carousel_card.green {background:#A1DD00; }
   .game_carousel_card.sfight, .game_carousel_card.tfight {background:#BCBCBC;}
-  .game_carousel_card.prev { -webkit-transform:translateX(-67px) scale(0.85);transform:translateX(-67px) scale(0.85);}
-  .game_carousel_card.before {z-index:4; -webkit-transform:translateX(0) scale(1);transform:translateX(0) scale(1);}
-  .game_carousel_card.next { -webkit-transform:translateX(67px) scale(0.85);transform:translateX(67px) scale(0.85);}
+
+  .game_carousel.prev .game_carousel_card:nth-child(1) {z-index:4; -webkit-transform:translate3d(0, 0px, 100px) scale(1);transform:translate3d(0, 0px, 100px) scale(1);}
+    .game_carousel.prev .game_carousel_card:nth-child(1) .game_carousel_card_cont {-webkit-animation:card_p 0.9s steps(1, end) infinite;animation:card_p 0.9s steps(1, end) infinite;}
+  .game_carousel.prev .game_carousel_card:nth-child(2) {-webkit-transform:translate3d(67px, 0px, 0px) scale(0.85);transform:translate3d(67px, 0px, 0px) scale(0.85);}
+  .game_carousel.prev .game_carousel_card:nth-child(3) {-webkit-transform:translate3d(-67px, 0px, 0px) scale(0.85);transform:translate3d(-67px, 0px, 0px) scale(0.85);}
+  .game_carousel.before .game_carousel_card:nth-child(1) {-webkit-transform:translate3d(-67px, 0px, 0px) scale(0.85);transform:translate3d(-67px, 0px, 0px) scale(0.85);}
+  .game_carousel.before .game_carousel_card:nth-child(2) {z-index:4; -webkit-transform:translate3d(0, 0px, 100px) scale(1);transform:translate3d(0, 0px, 100px) scale(1);}
+    .game_carousel.before .game_carousel_card:nth-child(2) .game_carousel_card_cont {-webkit-animation:card_b 0.9s steps(1, end) infinite;animation:card_b 0.9s steps(1, end) infinite;}
+  .game_carousel.before .game_carousel_card:nth-child(3) {webkit-transform:translate3d(67px, 0px, 0px) scale(0.85);transform:translate3d(67px, 0px, 0px) scale(0.85);}
+  .game_carousel.next .game_carousel_card:nth-child(1) {webkit-transform:translate3d(67px, 0px, 0px) scale(0.85);transform:translate3d(67px, 0px, 0px) scale(0.85);}
+  .game_carousel.next .game_carousel_card:nth-child(2) {-webkit-transform:translate3d(-67px, 0px, 0px) scale(0.85);transform:translate3d(-67px, 0px, 0px) scale(0.85);}
+  .game_carousel.next .game_carousel_card:nth-child(3) {z-index:4; -webkit-transform:translate3d(0, 0px, 100px) scale(1);transform:translate3d(0, 0px, 100px) scale(1);}
+    .game_carousel.next .game_carousel_card:nth-child(3) .game_carousel_card_cont {-webkit-animation:card_g 0.9s steps(1, end) infinite;animation:card_g 0.9s steps(1, end) infinite;}
+
     .game_carousel_card_cont {position:relative;-webkit-box-sizing:border-box;box-sizing:border-box;width:100%;height:100%;border:6px solid #ccc;border-radius:15px;}
     .game_carousel_card.blue .game_carousel_card_cont {border-color:#0B88CF;background:#13B0EB;background-image:url(../images/card_b1.png);background-size:100% 100%; }
     .game_carousel_card.purple .game_carousel_card_cont {border-color:#8258FB;background:#9C76FF;background-image:url(../images/card_p1.png);background-size:100% 100%; }
     .game_carousel_card.green .game_carousel_card_cont {border-color:#94CC00;background:#A8E602;background-image:url(../images/card_g1.png);background-size:100% 100%; }
-    .game_carousel_card.blue.before .game_carousel_card_cont {-webkit-animation:card_b 0.9s steps(1, end) infinite;animation:card_b 0.9s steps(1, end) infinite;}
-    .game_carousel_card.purple.before .game_carousel_card_cont {-webkit-animation:card_p 0.9s steps(1, end) infinite;animation:card_p 0.9s steps(1, end) infinite;}
-    .game_carousel_card.green.before .game_carousel_card_cont {-webkit-animation:card_g 0.9s steps(1, end) infinite;animation:card_g 0.9s steps(1, end) infinite;}
+
+    .game_carousel .game_carousel_card.sfight .game_carousel_card_cont, .game_carousel_card.tfight .game_carousel_card_cont { -webkit-animation:none !important;animation:none !important;}
     .game_carousel_card.blue.sfight .game_carousel_card_cont, .game_carousel_card.blue.tfight .game_carousel_card_cont {border-color:#AAAAAA;background:#D2D2D2; background-image:url(../images/card_b3.png);background-size:100% 100%; -webkit-animation:none;animation:none;}
     .game_carousel_card.purple.sfight .game_carousel_card_cont, .game_carousel_card.purple.tfight .game_carousel_card_cont {border-color:#AAAAAA;background:#D2D2D2; background-image:url(../images/card_p3.png);background-size:100% 100%; -webkit-animation:none;animation:none;}
     .game_carousel_card.green.sfight .game_carousel_card_cont, .game_carousel_card.green.tfight .game_carousel_card_cont {border-color:#AAAAAA;background:#D2D2D2; background-image:url(../images/card_g3.png);background-size:100% 100%; -webkit-animation:none;animation:none;}

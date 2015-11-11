@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'lh';
+  src: url("../images/lh.eot");
+  src: url("../images/lh.woff") format("woff"), url("../images/lh.ttf") format("truetype"), url("../images/lh.svg#svgFontName") format("svg"); }
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f2f3e3;
+  background-image: url(../images/page_bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%;
+  z-index: 100;
+  font-family: "lh";
+  font-size: 0.6827rem;
+  color: #000000;
+  transition: all ease .2s; }
+
+.loading_fold {
+  transform: translateY(-100%); }
+
+.chrym {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+.chrym_head, .chrym_petal, .logo {
+  background-image: url(../images/loading_sp.png);
+  background-repeat: no-repeat;
+  background-size: 4.6934rem auto; }
+
+.chrym_head {
+  width: 2.56rem;
+  height: 2.3467rem;
+  display: block;
+  background-position: 0 0;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 1.408rem; }
+
+.chrym_petal {
+  width: 4.6934rem;
+  height: 4.4801rem;
+  background-position: 0 -2.3466rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -2.3466rem;
+  margin-top: -2.24rem;
+  animation: chrymrotate linear 2s infinite; }
+
+.logo {
+  width: 4.2667rem;
+  height: 1.0667rem;
+  background-position: 0 -6.8266rem;
+  position: absolute;
+  bottom: 1.1947rem;
+  left: 50%;
+  margin-left: -2.1333rem;
+  font: 0/0 a; }
+
+@keyframes chrymrotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/*# sourceMappingURL=loading.css.map */

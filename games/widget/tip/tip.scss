@@ -6,7 +6,7 @@ $baseFontSize: 20px;
 
 .tip {
   opacity: 1;
-  transition: all opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
   width: 100%;
   height: 100%;
   position: relative;
@@ -31,6 +31,7 @@ $baseFontSize: 20px;
   background-repeat: no-repeat;
   -webkit-background-size: pxToRem(160px) auto;
   background-size: pxToRem(160px) auto;
+  animation: slideALittle 1s .6s ease backwards;
 }
 
 .tip_popsicle_p {
@@ -44,5 +45,41 @@ $baseFontSize: 20px;
   background-repeat: no-repeat;
   -webkit-background-size: pxToRem(163px) auto;
   background-size: pxToRem(163px) auto;
+  animation: slideTop .5s ease;
+}
+
+.tip_bubble_btn {
+  position: absolute;
+  width: pxToRem(68px);
+  height: pxToRem(60px);
+  background-image: url(../images/slot_guide_btn.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: pxToRem(68px) auto;
+  background-size: pxToRem(68px) auto;
+  top: pxToRem(30px);
+  left: 50%;
+  margin-left: pxToRem(-34px);
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideALittle {
+  0% {
+    opacity: 0;
+    transform: translate(-5%, 5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
 }
 

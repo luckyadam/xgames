@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title></title>
+  <title>每日抽奖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -21,18 +21,33 @@
   <!-- endglobal -->
 
   <%= getCSS() %>
+  <script>
+    !function(x){function w(){var v,u,t,tes,s=x.document,r=s.documentElement,a=r.getBoundingClientRect().width;if(!v&&!u){var n=!!x.navigator.appVersion.match(/AppleWebKit.*Mobile.*/);v=x.devicePixelRatio;tes=x.devicePixelRatio;v=n?v:1,u=1/v}if(a>=640){r.style.fontSize="40px"}else{if(a<=320){r.style.fontSize="20px"}else{r.style.fontSize=a/320*20+"px"}}}x.addEventListener("resize",function(){w()});w()}(window);
+  </script>
 </head>
 <!-- 注：加ontouchstart使css：active生效 -->
 <body ontouchstart>
 
-  <div class="mod_container">
+  <div class="mod_container share">
     <%= widget.load('index_header', { is_share: true }) %>
-
+    <%= widget.load('game_carousel') %>
+    <%= widget.load('share_download') %>
+    <%= widget.load('winner_list') %>
   </div>
 
   <!-- global:js -->
+  <%= getJS('lib.js', 'gb') %>
+  <%= getJS('gb.js', 'gb') %>
   <!-- endglobal -->
 
   <%= getJS() %>
+
+  <script>
+    PP.use('games/page/share', function (Share) {
+      var share = new Share({
+        $el: $('.share')
+      });
+    });
+  </script>
 </body>
 </html>

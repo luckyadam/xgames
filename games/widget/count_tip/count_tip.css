@@ -1,3 +1,25 @@
-.main_tip {z-index:5;position:absolute;top:-22.5px;left:0;width:100%;text-align:center;}
-    .main_tip_msg {display:inline-block;padding:0 10px;height:26px;line-height:26px;border:2px solid #38385A;border-radius: 15px;background:#FCED4A;color:#38385A;}
-      .main_tip_msg .highlight {;margin: 0 3px;font-size: 16px;font-weight: bold;color:#FE7624;}
+.main_tip {
+  z-index: 7;
+  position: absolute;
+  top: -1.024rem;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+.main_tip_msg {
+  display: inline-block;
+  padding: 0 10px;
+  height: 26px;
+  line-height: 26px;
+  border: 2px solid #38385A;
+  border-radius: 15px;
+  background: #FCED4A;
+  color: #38385A; }
+
+.main_tip_msg .highlight {
+  margin: 0 3px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FE7624; }
+
+/*# sourceMappingURL=count_tip.css.map */

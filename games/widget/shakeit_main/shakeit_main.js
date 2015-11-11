@@ -56,7 +56,7 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
           }
         }
 
-        if (time === 2) {
+        if (time === 1) {
           lotteryUtil.play({
             token: this.token,
             actId: this.actId
@@ -157,7 +157,6 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
         this.conf.$el.addClass('shake_notice');
         this.unfalling();
         this.isShaking = false;
-        _.eventCenter.trigger('gb_widget_countdown:pause');
       }
     },
 

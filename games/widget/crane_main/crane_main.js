@@ -212,8 +212,8 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
         if (this.isWinner) {
           var gift = this.gift;
           this.lotteryDialog.win(gift.value, gift.name, gift.tip, gift.url);
-          self.player.setSrc(__uri('../images/get_gift.mp3'), 'audio/mpeg');
-          self.player.play();
+          this.player.setSrc(__uri('../images/get_gift.mp3'), 'audio/mpeg');
+          this.player.play();
         } else {
           this.lotteryDialog.lose();
         }

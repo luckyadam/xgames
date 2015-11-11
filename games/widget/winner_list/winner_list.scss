@@ -1,0 +1,24 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.winner_list {margin:0 auto 15px;width:94.6666%;}
+  .winner_list_tit {margin:0 auto 5px;width: rem(710px);
+    height: rem(47px);
+    background-position: rem(-40px) rem(-381px);}
+  .winner_list_cont {position:relative;margin:0 auto;padding-top:45.4929%;background:url(../images/ss1.png);background-size:100% 100%;animation:flicker 1.5s steps(1, end) infinite;}
+    .winner_list_cont_wrap {position:absolute;top:0;left:0;box-sizing:border-box;padding:10% 10%;width:100%;height:100%;}
+      .winner_list_cont_wrap_kuang {width:100%;height:100%;overflow:hidden;}
+        .winner_list_cont_wrap_kuang ul {}
+          .winner_list_cont_wrap_kuang ul li {color:#F9E826;overflow:hidden;}
+            .winner_list_cont_wrap_kuang ul li div:first-child {float:left;}
+            .winner_list_cont_wrap_kuang ul li div:last-child {margin-left:100px;text-align:right;}
+
+@keyframes flicker {
+  0% {background:url(../images/ss1.png);background-size:100% 100%;}
+  50% {background:url(../images/ss2.png);background-size:100% 100%;}
+}

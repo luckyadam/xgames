@@ -101,6 +101,7 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
     init: function () {
       this.getElements();
       this.listenEvent();
+      this.isPlayed = false;
       this.lotteryDialog = new LotteryDialog();
       this.player = new AudioPlayer({
         autoplay: false,
@@ -152,7 +153,7 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
             setTimeout(function () {
               clearInterval(self.rightInterval);
               self.scrollRightTrack(1, right, 1500, makeEaseOut(back), false, function () {
-                if (left === -1020) {
+                if (self.isWinner === true) {
                   $('.slot_machine_go .page_btn5').show();
                   $('.slot_machine_stop .page_btn5').show();
                   var gift = self.gift;
@@ -163,19 +164,19 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
                   $('.slot_machine_go .page_btn6').show();
                   $('.slot_machine_stop .page_btn6').show();
                   _.eventCenter.trigger('gb_widget_countdown:stop');
-                  self.lotteryDialog.lose();
-                  // self.lotteryDialog.lose(true, function () {
-                  //   self.conf.$el.find('.countdown2').show();
-                  //   self.conf.$el.find('.slot_machine_main').addClass('hide');
-                  //   self.conf.$el.off('click');
-                  //   $($('.slot_machine_go .page_btn').hide().get(0)).show();
-                  //   $($('.slot_machine_stop .page_btn').hide().get(1)).show();
-                  //   _.eventCenter.trigger('gb_widget_countdown:reset');
-                  //   _.eventCenter.trigger('gb_widget_countdown2:reset');
-                  //   setTimeout(function () {
-                  //     _.eventCenter.trigger('gb_widget_countdown2:start');
-                  //   }, 600);
-                  // });
+                  self.lotteryDialog.lose(true, function () {
+                    self.isPlayed = false;
+                    self.conf.$el.find('.countdown2').show();
+                    self.conf.$el.find('.slot_machine_main').addClass('hide');
+                    self.conf.$el.off('click');
+                    $($('.slot_machine_go .page_btn').hide().get(0)).show();
+                    $($('.slot_machine_stop .page_btn').hide().get(1)).show();
+                    _.eventCenter.trigger('gb_widget_countdown:reset');
+                    _.eventCenter.trigger('gb_widget_countdown2:reset');
+                    setTimeout(function () {
+                      _.eventCenter.trigger('gb_widget_countdown2:start');
+                    }, 600);
+                  });
                 }
               });
             }, 1500);
@@ -203,6 +204,7 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
       }, $.proxy(function (ret) {
         this.isWinner = 'unknow';
         if (!ret) {
+          cb && cb();
           return;
         }
         var retData = ret.data;
@@ -265,34 +267,36 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
 
     stop: function () {
       // this.player.stop();
-      this.btnPlayer.setSrc(__uri('../images/crane_press_btn.mp3'));
-      this.btnPlayer.play();
-      _.eventCenter.trigger('gb_widget_countdown:pause');
-      $('.slot_machine_stop .page_btn1').hide();
-      $('.slot_machine_stop .page_btn3').show();
-      setTimeout(function () {
-        $('.slot_machine_stop .page_btn3').hide();
-        $('.slot_machine_stop .page_btn2').show();
-      }, 200);
-      this.checkGift($.proxy(function () {
-        var leftRandomNum = Math.floor(Math.random() * 6 + 1);
-        var rightRandomNum = Math.floor(Math.random() * 6 + 1);
-        var middleRandomNum = Math.floor(Math.random() * 6 + 1);
-        if (this.isWinner === 'unknow') {
-          new Toast({
-            content: '网络错误，请重新再试！'
-          });
-          return;
-        }
-        if (this.isWinner) {
-          leftRandomNum = 6;
-        }
-        if (leftRandomNum === 6) {
-          rightRandomNum = 2;
-          middleRandomNum = 4;
-        }
-        _.eventCenter.trigger('slot_machine:stop', -leftRandomNum * 170, middleRandomNum * 170, -rightRandomNum * 170);
-      }, this));
+      if (!this.isPlayed) {
+        this.isPlayed = true;
+        this.btnPlayer.setSrc(__uri('../images/crane_press_btn.mp3'));
+        this.btnPlayer.play();
+        _.eventCenter.trigger('gb_widget_countdown:pause');
+        $('.slot_machine_stop .page_btn1').hide();
+        $('.slot_machine_stop .page_btn3').show();
+        setTimeout(function () {
+          $('.slot_machine_stop .page_btn3').hide();
+          $('.slot_machine_stop .page_btn2').show();
+        }, 200);
+        this.checkGift($.proxy(function () {
+          var leftRandomNum = Math.floor(Math.random() * 5 + 1);
+          var rightRandomNum = Math.floor(Math.random() * 6 + 1);
+          var middleRandomNum = Math.floor(Math.random() * 6 + 1);
+          if (this.isWinner === 'unknow') {
+            new Toast({
+              content: '网络错误，请重新再试！'
+            });
+            _.eventCenter.trigger('slot_machine:stop', -1 * 170, 1 * 170, -1 * 170);
+            return;
+          }
+          if (this.isWinner) {
+            leftRandomNum = 6;
+            rightRandomNum = 2;
+            middleRandomNum = 4;
+          }
+          _.eventCenter.trigger('slot_machine:stop', -leftRandomNum * 170, middleRandomNum * 170, -rightRandomNum * 170);
+        }, this));
+      }
     },
 
     scrollLeftTrack: function (times, to, duration, delta, loop, cb) {

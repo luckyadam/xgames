@@ -1,16 +1,166 @@
-@charset "UTF-8";
-
 /*
  * @author: liyixin5
  * @time: 2015-11-3
 */
+.mod_container {
+  overflow: hidden;
+  position: relative; }
 
-.mod_container{overflow:hidden;position:relative;}
-.menu{overflow:hidden;position:absolute;top:0;left:0;opacity:1;transition:all ease .2s;background:#000000;z-index:11;}
-	.menu_fold{opacity:0;}
-	.menu a{color:#FFFFFF;}
-.section{overflow:hidden;position:absolute;top:0;-webkit-transition:all ease .2s;}
-.page{background-repeat:no-repeat;background-position:top center;background-size:100% auto;}
-	.page_main{position:absolute;left:0;top:0;z-index:10;-webkit-transition:all ease .2s;}
+.section {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all ease .2s; }
 
-.drag{transition:none;}
+.page {
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%;
+  position: relative; }
+
+.page_main {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  -webkit-transition: all ease .2s;
+  overflow: hidden; }
+
+.drag {
+  transition: none; }
+
+.share {
+  background-color: #f2f3e3;
+  background-image: url(../images/page_bg.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%;
+  position: relative; }
+
+.share_man {
+  width: 10.9227rem;
+  height: 16.256rem;
+  background-image: url(../images/share_man.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  position: absolute;
+  top: 0.256rem;
+  left: 50%;
+  margin-left: -5.1626rem; }
+
+.page_bg, .page_bg_bd {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% 100%; }
+
+.page0 .page_bg {
+  background-image: url(../images/page_bg_bd.png); }
+
+.sub_page .page_bg_bd {
+  background-image: url(../images/subpage_bg_bd.png); }
+
+.page3 .mall_link .double11, .select .arrow, .next_letters .arrow, .next_arrow {
+  background-image: url(../images/gb_sp.png);
+  background-repeat: no-repeat;
+  background-size: 11.7974rem auto; }
+
+.page3 .promote_words {
+  width: 14.7414rem;
+  height: 4.3307rem;
+  background-image: url(../images/promote_words.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1.536rem;
+  margin-left: -7.7866rem; }
+.page3 .mall_link, .page3 .back_btn {
+  width: 11.7974rem;
+  height: 2.7307rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: url(../images/gb_sp.png) no-repeat top center;
+  background-size: 100% auto;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #000000;
+  font-size: 0.8107rem;
+  line-height: 1.92rem; }
+.page3 .mall_link {
+  margin-top: 3.4987rem; }
+  .page3 .mall_link .double11 {
+    width: 2.56rem;
+    height: 1.92rem;
+    display: inline-block;
+    background-position: 0 -2.7733rem;
+    color: transparent;
+    margin: 0 0.064rem; }
+.page3 .back_btn {
+  margin-top: 6.6987rem; }
+
+.select {
+  position: absolute; }
+  .select:after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    opacity: 0;
+    transition: all ease .1s; }
+  .select .arrow {
+    width: 2.9867rem;
+    height: 2.1334rem;
+    background-position: -2.56rem -2.7733rem;
+    position: absolute;
+    opacity: 0;
+    z-index: 2; }
+
+.select_on:after {
+  opacity: 1; }
+.select_on .arrow {
+  opacity: 1; }
+
+.next_btn {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all ease .2s; }
+  .next_btn .next_letters {
+    position: absolute;
+    left: 50%;
+    top: 0.9387rem;
+    font: 0/0 a; }
+    .next_btn .next_letters .arrow {
+      top: 0;
+      left: -1.92rem; }
+  .next_btn .next_letters .arrow, .next_btn .next_arrow {
+    width: 1.92rem;
+    height: 1.4934rem;
+    background-position: -5.5466rem -2.7733rem;
+    position: absolute; }
+  .next_btn .next_arrow {
+    top: 0.9814rem;
+    left: 50%;
+    margin-left: -0.96rem; }
+
+.next {
+  z-index: 1; }
+  .next .next_btn {
+    opacity: 1;
+    z-index: 22; }
+
+/*# sourceMappingURL=index.css.map */

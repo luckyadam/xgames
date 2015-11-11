@@ -1,0 +1,12 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.header {position:relative;margin-bottom:12.5px;width:rem(750px);height: rem(486px);}
+  .header_wrap {position:absolute;top:0;left:0;width:100%;height:100%;background-position: rem(-40px) rem(-508px);}
+    .header_wrap_coin {position:absolute;top:5%;left:25%;width:13.3333%;padding-top:13.3333%;background-position: rem(-830px) rem(-40px);}
+    .header_wrap_down {position:absolute;top:3%;left:3%;width:48.1333%;padding-top:12.1333%;background-position: rem(-40px) rem(-210px);}

@@ -7,6 +7,100 @@
  */
 
 PP.define('games/page/index', function (require, exports, module) {
+  Array.prototype.each = function (cb, onDone){
+    var length = this.length,
+      cnt = 0,
+      i,
+      finish = function (){
+        if(++cnt === length){
+          onDone && onDone.call(this);
+        }
+      };
+
+    for(i=0; i<length; i++){
+      cb.call(this, this[i], i, finish);
+    }
+  }
+
+  var loadImg = function (srcArr, progress, done){
+    var total = srcArr.length,
+      count = 0,
+      imgArr = [],
+      done = done? done: function(){};
+
+    srcArr.each(function (val, idx, finish){
+      var img, state = false;
+      img = new Image();
+      img.src = val;
+      if (img.complete){
+        imgArr[idx] = img;
+        count++;
+        progress && progress((count / total * 100).toString().split('.')[0]);
+        finish();
+      } else {
+        img.onerror = img.onload = function (){
+          imgArr[idx] = img;
+          count++;
+          progress && progress((count / total * 100).toString().split('.')[0]);
+          finish();
+        };
+      }
+    }, done.bind(this, imgArr));
+  }
+
+  var allSrcs = [
+    __uri('images/card_b1.png'),
+    __uri('images/card_b2.png'),
+    __uri('images/card_b3.png'),
+    __uri('images/card_g1.png'),
+    __uri('images/card_g2.png'),
+    __uri('images/card_g3.png'),
+    __uri('images/card_p1.png'),
+    __uri('images/card_p2.png'),
+    __uri('images/card_p3.png'),
+    __uri('images/crane_bg.png'),
+    __uri('images/crane_catch.wav'),
+    __uri('images/crane_catch_up.mp3'),
+    __uri('images/crane_drop.mp3'),
+    __uri('images/crane_press_btn.mp3'),
+    __uri('images/get_gift.mp3'),
+    __uri('images/index_bg.png'),
+    __uri('images/little_p.png'),
+    __uri('images/MFLiHei_Noncommercial-Regular.ttf'),
+    __uri('images/page1_dialog_btn.png'),
+    __uri('images/page2_btn_expreesion.png'),
+    __uri('images/page2_btn_eyer.png'),
+    __uri('images/page_btn2_expreesion.png'),
+    __uri('images/page_btn3.png'),
+    __uri('images/page_btn3_line.png'),
+    __uri('images/page_btn4_expreesion.png'),
+    __uri('images/page_btn5_expreesion.png'),
+    __uri('images/page_btn6_expreesion.png'),
+    __uri('images/page_btn_body.png'),
+    __uri('images/page_btn_body2.png'),
+    __uri('images/shake_bg.png'),
+    __uri('images/shake_bg.wav'),
+    __uri('images/shake_fart.mp3'),
+    __uri('images/shake_little_p.mp3'),
+    __uri('images/shake_win.mp3'),
+    __uri('images/slot_bg.png'),
+    __uri('images/slot_elements1.png'),
+    __uri('images/slot_end.wav'),
+    __uri('images/slot_light_off.png'),
+    __uri('images/slot_machine_bg.png'),
+    __uri('images/slot_scroll.mp3'),
+    __uri('images/slot_tip_bg.png'),
+    __uri('images/ss1.png'),
+    __uri('images/ss2.png'),
+    __uri('images/time_over.mp3'),
+    __uri('images/bgm.mp3'),
+    __uri('images/countdown.png'),
+    __uri('images/countdown2.png'),
+    __uri('images/lh.ttf'),
+    __uri('images/top_player.png'),
+    __uri('images/lottery_dialog_imgs.png'),
+    __uri('images/popup_yellow.png')
+  ];
 
   var Loading = require('gb/widget/loading');
   var LotteryUtil = require('gb/widget/lottery');
@@ -25,6 +119,11 @@ PP.define('games/page/index', function (require, exports, module) {
     init: function () {
       this.loading = new Loading();
       this.loading.show();
+      loadImg(allSrcs, function (percent) {
+        console.log(percent);
+      }, $.proxy(function () {
+        this.checkValidate(false);
+      }, this));
       // var isPaiSns = Util.isPaiSns();
       // if (!isPaiSns) {
       //   // 跳分享页
@@ -33,7 +132,7 @@ PP.define('games/page/index', function (require, exports, module) {
       this.connectWebViewJavascriptBridge($.proxy(function(bridge) {
         bridge.init(function(message, responseCallback) {
           if (responseCallback) {
-            responseCallback("0");
+            responseCallback('0');
           }
         });
         this.setShareBtn();
@@ -44,7 +143,6 @@ PP.define('games/page/index', function (require, exports, module) {
         this.getElements();
         this.initEvent();
         this.listenEvent();
-        this.checkValidate(false);
       // } else {
       //   LoginUtil.gotoLogin();
       // }
@@ -126,6 +224,7 @@ PP.define('games/page/index', function (require, exports, module) {
               setTimeout(function () {
                 new Toast('请先登录!', 5000);
               }, 800);
+              LoginUtil.gotoLogin();
               break;
             default :
               _.eventCenter.trigger('games_index:init', 0, 0, isShareBack);
@@ -158,7 +257,7 @@ PP.define('games/page/index', function (require, exports, module) {
 
     getShareArgs: function () {
       var args={
-        'title': '每日抽奖',
+        'title': '我在京东拍拍玩游戏，不小心中奖了！来试试？？',
         'msg': '超级大奖天天领，就等你来拿哦',
         'links': {
           'Wechat': 'http://b.paipai.com/abc',//微信
@@ -169,7 +268,7 @@ PP.define('games/page/index', function (require, exports, module) {
           'ShortMessage': 'http://b.paipai.com/abc',//短信
           'Link': 'http://b.paipai.com/abc'//复制链接,及当找不到对应关系时的默认链接
         },
-        'imgUrl': 'http://img6.paipaiimg.com/item-54588B34-4EBD121D00000000000000000BEC3CC2.0.200x200.jpg',
+        'imgUrl': 'http://static.paipaiimg.com/fd/h5/xgames/gb/images/cover.png',
         'panelTitle':'每日抽奖分享',//面板标题，传空会取默认：分享获得更多客流
         'finishToast': '1'//分享结束的消息框  0不弹 1弹出
       };

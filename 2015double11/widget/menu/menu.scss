@@ -1,0 +1,62 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+	@return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+.menu {overflow:hidden;position:absolute;top:0;left:0;opacity:1;transition:transform ease .2s;z-index:11;}
+	.menu_fold{opacity:0;transition:opacity ease .2s .3s;}
+	.menu_bg{width:100%;height:100%;position:absolute;top:0;left:0;background:url(../images/menu_bg.png) no-repeat top center;background-size:100% 100%;z-index:0;transition:all ease .2s;}
+	.menu a{color:#FFFFFF;}
+
+	.enter{width:50%;height:50%;position:absolute;z-index:10;}
+	.enter_aunt{top:0;left:0;}
+	.enter_beauty{top:0;right:0;}
+	.enter_cat{bottom:0;left:0;}
+	.enter_deliver{bottom:0;right:0;}
+	.enter span{position:absolute;background-image:url(../images/menu_words.png);background-repeat:no-repeat;background-size:rem(360px) auto;font:0/0 a;transition:all ease .1s;}
+		.enter_aunt span{width:rem(350px);height:rem(188px);background-position:0 0;bottom:rem(198px);right:rem(28px);transition-delay:.1s;}
+		.enter_beauty span{width:rem(360px);height:rem(270px);background-position:0 rem(-190px);bottom:rem(298px);left:rem(0px);}
+		.enter_cat span{width:rem(340px);height:rem(200px);background-position:0 rem(-460px);right:rem(-96px);bottom:rem(300px);transition-delay:.15s;}
+		.enter_deliver span{width:rem(360px);height:rem(180px);background-position:0 rem(-660px);left:0;bottom:rem(34px);transition-delay:.2s;}
+
+.title{width:rem(734px);height:rem(400px);position:absolute;top:50%;left:50%;margin-left:rem(-367px);margin-top:rem(-220px);z-index:9;transition:all ease .2s;}
+	.aunt, .beauty, .cat, .deliver{
+		.title{transform:scale(0);}
+		.enter span{transform:scale(0);}
+		.menu_bg{opacity:0;transition:ease .2s .2s;}
+	}
+	.title h1, .title h2{font:0/0 a;}
+	.title h1, .title h2 i, .title h2 strong{background-image:url(../images/menu_title.png);background-repeat:no-repeat;background-size:rem(734px) auto;}
+	.title h1{width:100%;height:100%;position:absolute;top:0;left:0;background-position:0 0;}
+	.title h2{width:rem(370px);position:absolute;top:rem(244px);left:50%;margin-left:rem(-185px);text-align:center;}
+		.title h2 i{width:rem(370px);height:rem(50px);position:absolute;top:rem(-18px);left:0;background-position:0 rem(-400px);}
+		.title h2 strong{width:rem(364px);height:rem(70px);display:inline-block;background-position:rem(-370px) rem(-400px);}
+
+.chars{width:100%;height:100%;position:absolute;top:0;left:0;z-index:1;}
+	.chars span{position:absolute;background-repeat:no-repeat;background-position:top center;background-size:100% auto;transition:all ease .3s;}
+		.chars_aunt{width:rem(430px);height:rem(854px);top:50%;left:50%;background-image:url(../images/aunt_auntie.png);margin-top:rem(-588px);margin-left:rem(-302px);transform-origin:0 0;transform:scale(0.63) translate(0,0);}
+		.chars_beauty{width:rem(462px);height:rem(574px);left:50%;bottom:50%;margin-left:rem(12px);margin-bottom:rem(126px);background-image:url(../images/page0_boy.png);transform-origin:0% 100%;transform:scale(0.5) translate(0,0);
+			&:after{width:rem(206px);height:rem(128px);position:absolute;content:"";top:rem(150px);left:rem(160px);background:url(../images/page0_boy_eye.png) no-repeat top center;background-size:100% auto;}
+		}
+		.chars_cat{width:rem(494px);height:rem(652px);background-image:url(../images/cat_page0_cat.png);bottom:rem(52px);left:rem(16px);transform-origin:0% 100%;transform:scale(0.5) translate(0,0);
+			&:after{width:rem(220px);height:rem(134px);background:url(../images/bowl.png) no-repeat top center;background-size:100% auto;position:absolute;content:"";top:rem(572px);right:rem(-14px);}
+		}
+		.chars_deliver{width:rem(548px);height:rem(502px);background-image:url(../images/deliver_girl.png);bottom:rem(102px);right:rem(11px);transform-origin:100% 100%;transform:scale(0.8) translate(0,0);}
+	.aunt{
+		.chars_aunt{transform:scale(1) translate(rem(-90px), rem(368px));}
+		.chars_beauty, .chars_cat, .chars_deliver{transform:scale(0) translate(0,0);}
+	}
+	.beauty{
+		.chars_beauty, .chars_cat, .chars_deliver, .chars_aunt{transform:scale(0) translate(0,0);}
+	}
+
+	.cat{
+		.chars_cat{transform:scale(1) translate(0,0);}
+		.chars_beauty, .chars_deliver, .chars_aunt{transform:scale(0) translate(0,0);}
+	}
+	.deliver{
+		.chars_deliver{transform:scale(1) translate(rem(-131px), rem(-482px));}
+		.chars_beauty, .chars_cat, .chars_aunt{transform:scale(0) translate(0,0);}
+	}

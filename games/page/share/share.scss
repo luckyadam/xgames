@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/*
+ * @author: luckyadam
+ * @time: 2015-11-6
+*/
+
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+body {
+  background: #F5F2E2 url(../images/index_bg.png) repeat;
+  background-size: 16rem auto;
+}
+
+.index_img {
+  background-image: url(../images/index_imgs.png);
+  background-repeat: no-repeat;
+  background-size: rem(1754px) auto;
+}
+@font-face {
+  font-family: 'MFLiHei';
+  src:
+    url('../images/MFLiHei_Noncommercial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

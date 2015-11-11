@@ -1,6 +1,20 @@
-@charset "UTF-8";
-
 /*
  * @author: luckyadam
  * @time: 2015-11-6
 */
+body {
+  background: #F5F2E2 url(../images/index_bg.png) repeat;
+  background-size: 16rem auto; }
+
+.index_img {
+  background-image: url(../images/index_imgs.png);
+  background-repeat: no-repeat;
+  background-size: 37.4187rem auto; }
+
+@font-face {
+  font-family: 'MFLiHei';
+  src: url("../images/MFLiHei_Noncommercial-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+/*# sourceMappingURL=share.css.map */

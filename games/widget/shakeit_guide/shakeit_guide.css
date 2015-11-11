@@ -12,18 +12,24 @@
   left: 50%;
   margin-top: -4.608rem;
   margin-left: -3.3706rem;
-  background: url(../images/shake_notice.png) no-repeat top center;
-  background-size: 100% auto; }
+  background-position: -4.7573rem -28.992rem;
+  animation: slideALittle 1s .6s ease backwards; }
 
 .sg_words_phone {
-  width: 2.3254rem;
+  width: 2.368rem;
   height: 2.0267rem;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -90%);
-  background: url(../images/shake_notice_phone.png) no-repeat top center;
-  background-size: 100% auto; }
+  margin-left: -1.184rem;
+  margin-top: -1.8773rem;
+  animation-name: rotatePhone;
+  background-position: -13.2053rem -28.992rem;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: .6s;
+  animation-fill-mode: both;
+  animation-direction: alternate; }
 
 .sg_p {
   width: 8.2774rem;
@@ -33,9 +39,28 @@
   left: 50%;
   margin-top: 3.2rem;
   margin-left: 0.1067rem;
-  background: url(../images/shake_p.png) no-repeat top center;
-  background-size: 100% auto; }
+  background-position: -33.856rem -28.992rem;
+  animation: slideTopLeft .5s ease; }
 
+@keyframes slideALittle {
+  0% {
+    opacity: 0;
+    transform: translate(5%, 5%); }
+  100% {
+    opacity: 1;
+    transform: translate(0%, 0%); } }
+@keyframes slideTopLeft {
+  0% {
+    opacity: 0;
+    transform: translate(100%, 100%); }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0); } }
+@keyframes rotatePhone {
+  0% {
+    transform: rotate(-45deg); }
+  100% {
+    transform: rotate(45deg); } }
 @keyframes dismiss {
   0% {
     opacity: 1; }

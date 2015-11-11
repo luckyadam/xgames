@@ -1,0 +1,25 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+	@return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+@font-face {
+  font-family: 'lh';
+  src: url("../images/lh.eot");
+  src: url("../images/lh.woff") format("woff"), url("../images/lh.ttf") format("truetype"), url("../images/lh.svg#svgFontName") format("svg"); }
+
+
+.loading{position:absolute;top:0;left:0;background-color:#f2f3e3;background-image:url(../images/page_bg.png);background-repeat:no-repeat;background-position:top center;background-size:100% 100%;z-index:100;font-family:"lh";font-size:rem(32px);color:#000000;transition:all ease .2s;}
+	.loading_fold{transform:translateY(-100%);}
+	.chrym{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);text-align:center;}
+		.chrym_head, .chrym_petal, .logo{background-image:url(../images/loading_sp.png);background-repeat:no-repeat;background-size:rem(220px) auto;}
+		.chrym_head{width:rem(120px);height:rem(110px);display:block;background-position:0 0;margin:0 auto;position:relative;margin-bottom:rem(66px);}
+		.chrym_petal{width:rem(220px);height:rem(210px);background-position:0 rem(-110px);position:absolute;top:50%;left:50%;margin-left:rem(-110px);margin-top:rem(-105px);animation:chrymrotate linear 2s infinite;}
+	.logo{width:rem(200px);height:rem(50px);background-position:0 rem(-320px);position:absolute;bottom:rem(56px);left:50%;margin-left:rem(-100px);font:0/0 a;}
+
+@keyframes chrymrotate{
+	0%{transform:rotate(0deg);}
+	100%{transform:rotate(360deg);}
+}

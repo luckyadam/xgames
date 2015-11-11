@@ -8,6 +8,10 @@ $baseFontSize: 20px;
   top: pxToRem(16px);
   right: pxToRem(16px);
   z-index: 999;
+  animation-name: rotationForever;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 1s;
 }
 
 .top_player_btn {
@@ -25,4 +29,13 @@ $baseFontSize: 20px;
 
 .top_player_btn.off {
   background-position: 0 pxToRem(-40px);
+}
+
+@keyframes rotationForever {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,0 +1,21 @@
+<!--
+  @author: luckyadam
+  @name: share_download
+  @date: games
+  @description: 下载
+-->
+
+<div class="share_download">
+  <a href="http://wd.paipai.com/newapp/ppsnsh5.html?chid=43&isrun=1&isjump=1" class="share_download_btn share_download_down"></a>
+  <a href="http://wd.paipai.com/newapp/ppsnsh5.html?chid=43&isrun=1&isjump=1" class="share_download_btn share_download_open"></a>
+</div>
+
+<% widget.scriptStart() %>
+<script>
+  PP.use('games/widget/share_download', function (ShareDownload) {
+    var shareDownload = new ShareDownload({
+      $el: $('.share_download')
+    });
+  });
+</script>
+<% widget.scriptEnd() %>

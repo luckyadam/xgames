@@ -19,6 +19,7 @@ PP.define('games/widget/shakeit_guide', function (require, exports, module) {
     init: function () {
       this.initEvent();
       this.listenEvent();
+      this.isOnInvert = false;
     },
 
     initEvent: function () {
@@ -30,14 +31,18 @@ PP.define('games/widget/shakeit_guide', function (require, exports, module) {
     },
 
     onInvert: function () {
-      this.conf.$el.addClass('dismiss');
+      if (!this.isOnInvert) {
+        this.conf.$el.addClass('dismiss');
+      }
     },
 
-    onAnimationEnd: function (e) {
-      this.conf.$el.hide();
-      _.eventCenter.trigger('games_widget_shakeit_guide:start');
+    onAnimationEnd: function () {
+      var $el = this.conf.$el;
+      if (($el.css('opacity') - 0) === 0) {
+        $el.hide();
+        _.eventCenter.trigger('games_widget_shakeit_guide:start');
+      }
     }
-
   });
 
   module.exports = ShakeitGuide;

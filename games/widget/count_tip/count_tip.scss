@@ -1,0 +1,11 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+  @return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+
+.main_tip {z-index:7;position:absolute;top: rem(-48px);left:0;width:100%;text-align:center;}
+    .main_tip_msg {display:inline-block;padding:0 10px;height:26px;line-height:26px;border:2px solid #38385A;border-radius: 15px;background:#FCED4A;color:#38385A;}
+      .main_tip_msg .highlight {;margin: 0 3px;font-size: 16px;font-weight: bold;color:#FE7624;}

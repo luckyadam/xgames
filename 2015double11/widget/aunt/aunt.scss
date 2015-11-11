@@ -1,0 +1,65 @@
+$baseFontSize: 40px;
+
+// pxToRem
+@function rem($px){
+	@return ceil(($px/$baseFontSize * 640/750)*10000)/10000+rem;
+}
+
+.aunt{
+	.page0 .select, .page0 .select:after, .page0 .char .star, .next_icon, .next_letters{background-image:url(../images/aunt_page1_sp.png);background-repeat:no-repeat;background-size:rem(760px) auto;}
+	.select .arrow, .next_letters .arrow, .next_arrow{background-image:url(../images/gb_sp.png);background-repeat:no-repeat;background-size:rem(553px) auto;}
+	.page_title, .words{background-image:url(../images/aunt_letters.png);background-repeat:no-repeat;background-size:rem(718px) auto;position:absolute;top:50%;left:50%;z-index:21;}
+	.page_bg{width:100%;height:100%;position:absolute;top:0;left:0;background-repeat:no-repeat;background-position:top center;background-size:100% 100%;}
+		.sub_page .page_bg{background-image:url(../images/subpage_bg.png);}
+
+	.next_btn{width:100%;height:60px;position:absolute;top:0;left:0;opacity:0;transition:all ease .2s;
+		.next_icon{width:rem(380px);position:absolute;left:50%;top:rem(-90px);margin-left:rem(-332px);transform-origin:0% 0%;transform:scale(0.6);}
+		.next_letters{width:rem(290px);height:rem(70px);position:absolute;left:50%;top:rem(44px);margin-left:rem(-28px);background-position:rem(-90px) rem(-1070px);font:0/0 a;
+			.arrow{top:0;left:rem(-90px);}
+		}
+		.next_letters .arrow, .next_arrow{width:rem(90px);height:rem(70px);background-position:rem(-260px) rem(-130px);position:absolute;}
+		.next_arrow{top:rem(46px);left:50%;margin-left:rem(-45px);}
+	}
+	.next .next_btn{opacity:1;}
+	.page0{background-image:url(../images/aunt_page1_bg.png);
+		.page_bg{background-image:url(../images/page_bg.png);}
+		.select{width:rem(380px);position:absolute;font:0/0 a;top:50%;left:50%;
+			&:after{width:100%;height:100%;position:absolute;top:0;left:0;content:"";opacity:0;transition:all ease .1s;}
+			.arrow{width:rem(140px);height:rem(100px);background-position:rem(-120px) rem(-130px);position:absolute;opacity:0;transform:rotate(20deg);left:rem(-110px);top:rem(130px);}
+		}
+		.select_on{
+			&:after{opacity:1;}
+			.arrow{opacity:1;}
+		}
+			.option1{height:rem(560px);background-position:0 0;margin-top:rem(-424px);z-index:11;
+				&:after{background-position:rem(-380px) 0;}
+			}
+			.option2{height:rem(510px);background-position:0 rem(-560px);margin-top:rem(76px);z-index:10;
+				&:after{background-position:rem(-380px) rem(-560px);}
+			}
+
+		.page_title{width:rem(718px);height:rem(290px);background-position:0 0;margin-top:rem(-580px);transform:translateX(-50%);font:0/0 a;}
+		.char{width:rem(430px);height:rem(854px);background:url(../images/aunt_auntie.png) no-repeat top center;background-size:100% auto;position:absolute;top:50%;left:50%;margin-top:rem(-220px);margin-left:rem(-392px);
+			.star{width:rem(90px);height:rem(140px);background-position:0 rem(-1070px);position:absolute;}
+			.star_1{top:rem(-70px);left:rem(54px);transform:scale(0.9);}
+			.star_2{top:rem(171px);right:rem(-58px);transform:rotate(10deg);}
+		}
+	}
+	.page1{background-color:#776f6a;background-image:url(../images/aunt_page2_bg.png);
+		.words{width:rem(700px);height:rem(300px);background-position:0 rem(-290px);margin-top:rem(-526px);transform:translateX(-50%);}
+		.char{width:rem(696px);height:rem(832px);background:url(../images/aunt_page2_char.png) no-repeat top center;background-size:100% auto;position:absolute;top:50%;left:50%;margin-top:rem(-384px);margin-left:rem(-324px);}
+		.next_btn{
+			.next_icon{height:rem(560px);}
+		}
+	}
+	.page2{background-color:#f7ec75;background-image:url(../images/aunt_page3_bg.png);
+		.words{width:rem(502px);height:rem(250px);background-position:0 rem(-590px);top:rem(56px);left:rem(88px);}
+		.char{width:rem(730px);height:rem(1040px);background:url(../images/aunt_page3_char.png) no-repeat top center;background-size:100% auto;position:absolute;bottom:rem(10px);right:rem(6px);}
+		.next_btn{
+			.next_icon{height:rem(510px);top:rem(-120px);}
+		}
+	}
+	.page3{background-color:#87c9ec;
+		.char{width:rem(704px);height:rem(1026px);background:url(../images/aunt_page4_char.png) no-repeat top center;background-size:100% auto;position:absolute;bottom:rem(10px);left:50%;margin-left:rem(-365px);}
+	}
+}

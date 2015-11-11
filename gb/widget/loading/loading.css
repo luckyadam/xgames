@@ -2,3 +2,8 @@
     /*.mod_loading:before{content:'';display:block;width:16px;height:16px;margin:0 auto;background-image:url(http://static.paipaiimg.com/fd/qqpai/base/img/loading.gif);background-repeat:no-repeat;background-position:center;-webkit-background-size:16px;background-size:16px;margin-bottom:10px;}*/
     .mod_loading_inner {margin:0 auto;text-align: center; position: relative; width: 140px; border-radius: 6px; font-size: 14px; padding: 45px 0 10px 0;color:#000; }
     .mod_loading_icon { position: absolute; top: 15px; left: 50%; margin-left: -10px; width: 18px; height: 18px; border: 1px solid #FF5A54; -webkit-border-radius: 20px;border-radius: 20px; -webkit-animation: gif 1s infinite linear; animation: gif 1s infinite linear; clip: rect(0 auto 17px 0) }
+
+@keyframes gif {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

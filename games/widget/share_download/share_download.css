@@ -1,0 +1,22 @@
+.share_download {
+  width: 15.0614rem;
+  height: 7.5094rem;
+  background: url(../images/share_download.png) no-repeat 0 0;
+  background-size: 100% auto;
+  margin: 1.536rem auto 0.768rem;
+  position: relative; }
+
+.share_download_btn {
+  position: absolute;
+  display: block;
+  width: 4.8214rem;
+  height: 1.2374rem;
+  top: 5.248rem; }
+
+.share_download_down {
+  left: 2.0907rem; }
+
+.share_download_open {
+  left: 8.2774rem; }
+
+/*# sourceMappingURL=share_download.css.map */

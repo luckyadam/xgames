@@ -13,4 +13,13 @@ $baseFontSize: 40px;
 }
 
 body{background:url(../images/shake_bg.png) repeat;background-size:rem(750px) auto;}
-.shake{position:relative;overflow:hidden;}
+.shake{width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;}
+
+.shake_img {
+  background-image: url(../images/shakeit.png);
+  background-repeat: no-repeat;
+  background-size:rem(2592px) auto;
+}

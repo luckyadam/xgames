@@ -7,6 +7,7 @@
  */
 
 PP.define('games/page/slot_machine', function (require, exports,module) {
+  var LoginUtil = require('gb/widget/login');
   var LotteryUtil = require('gb/widget/lottery');
   var Toast = require('toast');
   var SlotMachine = _.Class.extend({
@@ -103,6 +104,7 @@ PP.define('games/page/slot_machine', function (require, exports,module) {
               setTimeout(function () {
                 new Toast('请先登录!', 5000);
               }, 800);
+              LoginUtil.gotoLogin();
               break;
             default :
               _.eventCenter.trigger('games_slot:init', 0, 0, isShareBack);
@@ -123,7 +125,7 @@ PP.define('games/page/slot_machine', function (require, exports,module) {
       if (leftTimes > 0) {
         setTimeout($.proxy(function () {
           _.eventCenter.trigger('games_slot:start', this.conf.actId, this.token);
-        }, this), 2500);
+        }, this), 2000);
       }
     }
   });

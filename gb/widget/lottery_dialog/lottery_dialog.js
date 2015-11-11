@@ -21,10 +21,10 @@ PP.define('gb/widget/lottery_dialog', function (require, exports, module) {
     win: function (value, name, tip, url) {
       if (!this.$win) {
         var html = '<div class="mod_popup win">';
-        html += '<div class="mod_popup_body">';
-        html += '<div class="mod_popup_xiu"></div>';
-        html += '<div class="mod_popup_yqsex"></div>';
-        html += '<div class="mod_popup_main mod_popup_win">';
+        html += '<div class="mod_popup_body mod_popup_imgs">';
+        html += '<div class="mod_popup_xiu mod_popup_imgs"></div>';
+        html += '<div class="mod_popup_yqsex mod_popup_imgs"></div>';
+        html += '<div class="mod_popup_main mod_popup_win mod_popup_imgs">';
         html += '<div class="mod_popup_txt"><b>' + value + '</b>元的' + name + '</div>';
         if (tip) {
           html += '<div class="mod_popup_tip"><span>限<b>' + tip + '</b>使用</span></div>';
@@ -32,8 +32,8 @@ PP.define('gb/widget/lottery_dialog', function (require, exports, module) {
           html += '<div class="mod_popup_tip"><span>全平台通用</span></div>';
         }
         html += '</div>';
-        html += '<div class="mod_popup_btn"><a href="javascript:;"><span>到' + (tip ? '店铺' : '首页') + '找好货</span></a></div>';
-        html += '<div class="mod_popup_star"></div>';
+        html += '<div class="mod_popup_btn"><a href="javascript:;" class="mod_popup_imgs"><span>到' + (tip ? '店铺' : '首页') + '找好货</span></a></div>';
+        html += '<div class="mod_popup_star mod_popup_imgs"></div>';
         html += '<a href="javascript:;" class="mod_popup_close"></a>';
         html += '</div>';
         html += '</div>';
@@ -55,17 +55,17 @@ PP.define('gb/widget/lottery_dialog', function (require, exports, module) {
           loseTip = '什么？没有中！？';
         }
         var html = '<div class="mod_popup lose">';
-        html += '<div class="mod_popup_body">';
-        html += '<div class="mod_popup_main mod_popup_lose">';
+        html += '<div class="mod_popup_body mod_popup_imgs">';
+        html += '<div class="mod_popup_main mod_popup_lose mod_popup_imgs">';
         html += '<div class="mod_popup_lose_inner">';
-        html += '<div class="mod_popup_leaf mod_popup_leaf1"></div>';
-        html += '<div class="mod_popup_leaf mod_popup_leaf2"></div>';
-        html += '<div class="mod_popup_line"></div>';
-        html += '<div class="mod_popup_cry"></div>';
+        html += '<div class="mod_popup_leaf mod_popup_leaf1 mod_popup_imgs"></div>';
+        html += '<div class="mod_popup_leaf mod_popup_leaf2 mod_popup_imgs"></div>';
+        html += '<div class="mod_popup_line mod_popup_imgs"></div>';
+        html += '<div class="mod_popup_cry mod_popup_imgs"></div>';
         html += '<div class="mod_popup_losetip">' + loseTip + '</div>';
         html += '</div>';
         html += '</div>';
-        html += '<div class="mod_popup_btn"><a href="javascript:;"><span>换个姿势再来一次</span></a></div>';
+        html += '<div class="mod_popup_btn"><a href="javascript:;" class="mod_popup_imgs"><span>换个姿势再来一次</span></a></div>';
         html += '<a href="javascript:;" class="mod_popup_close"></a>';
         html += '</div>';
         html += '</div>';

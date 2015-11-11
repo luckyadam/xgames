@@ -1,0 +1,30 @@
+.music, .music .cross {
+  background-image: url(../images/music.png);
+  background-repeat: no-repeat;
+  background-size: 1.536rem auto; }
+
+.music {
+  width: 1.536rem;
+  height: 1.536rem;
+  background-position: 0 0;
+  position: absolute;
+  top: 0.64rem;
+  right: 0.64rem;
+  z-index: 101; }
+
+.music .cross {
+  width: 1.152rem;
+  height: 1.152rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-position: 0 -1.6213rem;
+  margin-left: -0.576rem;
+  margin-top: -0.576rem;
+  opacity: 0;
+  transition: all ease .2s; }
+
+.music_off .cross {
+  opacity: 1; }
+
+/*# sourceMappingURL=music.css.map */

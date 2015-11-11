@@ -13,7 +13,7 @@
   <!-- E 预解析DNS列表 -->
 
   <!-- S 引用前端页面片 -->
-  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/2015Double11/index.shtml" -->
+  <!--#include virtual="/sinclude/cssi/fd/h5/xgames/2015double11/index.shtml" -->
   <!-- E 引用前端页面片 -->
 
   <!-- global:css -->
@@ -29,8 +29,13 @@
 <body ontouchstart>
 
   <div class="mod_container">
+    <%= widget.load('music') %>
+    <%= widget.load('loading') %>
     <%= widget.load('menu') %>
     <%= widget.load('aunt') %>
+    <%= widget.load('beauty') %>
+    <%= widget.load('cat') %>
+    <%= widget.load('deliver') %>
   </div>
 
   <!-- global:js -->
