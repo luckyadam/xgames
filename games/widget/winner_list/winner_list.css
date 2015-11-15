@@ -12,7 +12,8 @@
   position: relative;
   margin: 0 auto;
   padding-top: 45.4929%;
-  background: url(../images/ss1.png);
+  background-image: url(../images/ss1.png);
+  background-position: 0 0;
   background-size: 100% 100%;
   animation: flicker 1.5s steps(1, end) infinite; }
 
@@ -43,10 +44,8 @@
 
 @keyframes flicker {
   0% {
-    background: url(../images/ss1.png);
-    background-size: 100% 100%; }
+    background-image: url(../images/ss1.png); }
   50% {
-    background: url(../images/ss2.png);
-    background-size: 100% 100%; } }
+    background-image: url(../images/ss2.png); } }
 
 /*# sourceMappingURL=winner_list.css.map */

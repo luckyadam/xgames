@@ -60,6 +60,8 @@ $baseFontSize: 20px;
   top: pxToRem(30px);
   left: 50%;
   margin-left: pxToRem(-34px);
+  animation: scale .5s .9s ease-in infinite;
+  transform-origin: center bottom;
 }
 
 @keyframes slideTop {
@@ -83,3 +85,12 @@ $baseFontSize: 20px;
   }
 }
 
+@keyframes scale {
+  0% {
+    transform: scale3D(1, 1, 1); }
+  50% {
+    transform: scale3D(1.02, 0.85, 1); }
+  70% {
+    transform: scale3D(1.1, 0.85, 1.1); }
+  100% {
+    transform: scale3D(1, 1, 1); } }

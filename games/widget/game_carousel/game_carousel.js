@@ -32,9 +32,13 @@ PP.define('games/widget/game_carousel', function (require, exports, module) {
     },
 
     initEvent: function () {
-      this.conf.wrapper.on('touchstart', $.proxy(this.onStart, this))
-        .on('touchmove', $.proxy(this.onMove, this))
-        .on('touchend', $.proxy(this.onEnd, this));
+      this.conf.wrapper.on('touchend', $.proxy(function () {
+        this.changeIndex(1);
+        if (this.conf.isAuto) {
+          clearInterval(this.autoInterval);
+          this.auto();
+        }
+      }, this));
     },
 
     classArr: ['prev', 'before', 'next'],
@@ -50,52 +54,6 @@ PP.define('games/widget/game_carousel', function (require, exports, module) {
       }
       _.eventCenter.trigger('games_widget_game_carousel:change', this.classIdx);
       this.conf.wrapper.removeClass('prev').removeClass('before').removeClass('next').addClass(this.classArr[this.classIdx]);
-    },
-
-    onStart: function (event) {
-      var initial = this.initial;
-      var wrapper = this.conf.wrapper;
-      if (this.wrapperWidth === 0) {
-        this.wrapperWidth = wrapper.width();
-      }
-      initial.sx = event.targetTouches[0].pageX;
-      initial.sy = event.targetTouches[0].pageY;
-      initial.ex = initial.sx;
-      initial.ey = initial.sy;
-      if (this.conf.isAuto) {
-        clearInterval(this.autoInterval);
-      }
-    },
-
-    onMove: function (event) {
-      if(this.canSlide) {
-        this.canSlide = false;
-        var initial = this.initial;
-        initial.ex = event.targetTouches[0].pageX;
-        initial.ey = event.targetTouches[0].pageY;
-        setTimeout(function() {
-          this.canSlide = true;
-        }.bind(this),200);
-      }
-    },
-
-    onEnd: function (event) {
-      var initial = this.initial;
-      var changeX = initial.sx - initial.ex;
-      var changeY = initial.sy - initial.ey;
-      if (Math.abs(changeY) < Math.abs(changeX)) {
-        event.preventDefault();
-        if(changeX > 0) {
-          this.changeIndex(1);
-        } else {
-          this.changeIndex(-1);
-        }
-      }
-
-      if (this.conf.isAuto) {
-        clearInterval(this.autoInterval);
-        this.auto();
-      }
     },
 
     auto: function () {

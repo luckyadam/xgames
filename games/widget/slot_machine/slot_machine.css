@@ -106,7 +106,7 @@
   background-position-y: 0; }
 
 .page_btn {
-  background-image: url(../images/page_btn_body2.png); }
+  background-position: -18.1973rem -7.8506rem; }
 
 .slot_machine_go .page_btn {
   margin-left: -6.7413rem; }
@@ -125,5 +125,8 @@
 
 .countdown2 {
   margin-top: -5.2906rem; }
+
+.page_btn3_main {
+  background-position: -0.8533rem -10.6666rem; }
 
 /*# sourceMappingURL=slot_machine.css.map */

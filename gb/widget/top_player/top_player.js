@@ -40,11 +40,12 @@ PP.define('gb/widget/top_player', function (require, exports, module) {
     },
 
     initEvent: function () {
-      this.conf.$el.on('click', '.top_player_btn', $.proxy(this.togglePlay, this));
+      this.conf.$el.on('touchend', '.top_player_btn', $.proxy(this.togglePlay, this));
     },
 
     togglePlay: function () {
       this.player.togglePlay();
+      this.conf.$el.toggleClass('stop');
       this.setStyle();
     }
   });

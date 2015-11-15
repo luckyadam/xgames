@@ -34,6 +34,28 @@ PP.define('games/widget/winner_list', function (require, exports,module) {
     return Math.ceil((px / 40 * 640 / 750) * 10000) / 10000;
   }
 
+  function loadUrl(o) {
+    var el = document.createElement('script');
+    el.charset = o.charset || 'utf-8';
+    el.onload = el.onreadystatechange = function() {
+        if(/loaded|complete/i.test(this.readyState) || navigator.userAgent.toLowerCase().indexOf("msie") == -1) {
+            o.onLoad && o.onLoad();
+            clear();
+        }
+    };
+    el.onerror = function(){
+        clear();
+    };
+    el.src = o.url;
+    document.getElementsByTagName('head')[0].appendChild(el);
+    function clear(){
+        if(!el){return ;}
+        el.onload = el.onreadystatechange = el.onerror = null;
+        el.parentNode && (el.parentNode.removeChild(el));
+        el = null;
+    }
+  }
+
   var _tool = {
     support3d: ('WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()),
     setTranslateY: function (y) {
@@ -59,34 +81,30 @@ PP.define('games/widget/winner_list', function (require, exports,module) {
 
     getWinnerList: function (cb) {
       var self = this;
-      $.ajax({
-        url: 'http://static.paipaiimg.com/js/data/ppms.page17474.js',
-        data: {},
-        type: 'GET',
-        dataType: 'jsonp',
-        timeout: 5000,
-        jsonpCallback: 'showPageData17474',
-        success: function(obj){
-          if(obj && obj.data){
-            var data = obj.data;
-            if (typeof data.sort === 'function') {
-              var listhtml = '';
-              for (var i = 0; i < data.length; i ++) {
-                var li = '<li><div>' + data[i].num + '</div><div>抽中' + data[i].award + '</div></li>';
-                listhtml += li;
-              }
-              for (var i = 0; i < data.length; i ++) {
-                var li = '<li><div>' + data[i].num + '</div><div>抽中' + data[i].award + '</div></li>';
-                listhtml += li;
-              }
-              self.$ul.append(listhtml);
-              self.ulHeight = self.$ul.height();
-              self.autoScroll();
+      window.showPageData17474 = function (obj) {
+        if(obj && obj.data){
+          var data = obj.data;
+          if (typeof data.sort === 'function') {
+            var listhtml = '';
+            for (var i = 0; i < data.length; i ++) {
+              var li = '<li><div>' + data[i].num + '</div><div>' + data[i].award + '</div></li>';
+              listhtml += li;
             }
+            for (var i = 0; i < data.length; i ++) {
+              var li = '<li><div>' + data[i].num + '</div><div>' + data[i].award + '</div></li>';
+              listhtml += li;
+            }
+            self.$ul.append(listhtml);
+            self.ulHeight = self.$ul.height();
+            self.autoScroll();
           }
-        },
-        error: function(xhr,status,err){
-          cb && cb();
+        }
+      }
+      loadUrl({
+        url: 'http://static.paipaiimg.com/js/data/ppms.page17474.js',
+        charset: 'gbk',
+        onLoad: function () {
+          delete window.showPageData17474;
         }
       });
     },

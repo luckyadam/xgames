@@ -120,7 +120,7 @@
   white-space: nowrap; }
 
 .mod_popup_tip::before, .mod_popup_tip::after {
-  content: "ooo";
+  content: "——————";
   display: inline-block;
   vertical-align: top;
   width: 1.664rem;
@@ -150,7 +150,7 @@
   animation: slideTopALittle .5s ease-out backwards; }
 
 .mod_popup_close {
-  display: block;
+  display: none;
   position: absolute;
   left: 11.28533rem;
   top: 2.176rem;

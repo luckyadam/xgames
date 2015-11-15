@@ -38,6 +38,7 @@ PP.define('toast', function (require) {
       if (instance) {
         instance.setTimer.call(instance);
         instance.content(this.conf.content);
+        instance.show();
         return instance;
       }
       this.$dom = $('<div class="toast"></div>');

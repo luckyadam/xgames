@@ -49,7 +49,9 @@
   background-size: 2.90133rem auto;
   top: 1.28rem;
   left: 50%;
-  margin-left: -1.45067rem; }
+  margin-left: -1.45067rem;
+  animation: scale .5s .9s ease-in infinite;
+  transform-origin: center bottom; }
 
 @keyframes slideTop {
   0% {
@@ -63,5 +65,14 @@
   100% {
     opacity: 1;
     transform: translate(0%, 0%); } }
+@keyframes scale {
+  0% {
+    transform: scale3D(1, 1, 1); }
+  50% {
+    transform: scale3D(1.02, 0.85, 1); }
+  70% {
+    transform: scale3D(1.1, 0.85, 1.1); }
+  100% {
+    transform: scale3D(1, 1, 1); } }
 
 /*# sourceMappingURL=tip.css.map */

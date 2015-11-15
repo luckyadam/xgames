@@ -67,27 +67,43 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
             }
             var retData = ret.data;
             this.gift = {};
-            if (this.isEnd) {
-              _.eventCenter.trigger('gb_widget_countdown:timeisup');
-            }
+
             switch (ret.code) {
               case "000"://活动已经结束!
               case "001":
                 break;
               case "111"://111次数不足
               case "112"://112积分不足
+                this.isWinner = 'limit';
+                if(retData.limit){
+                  var leftShareTimes = 0;
+                  if(!isNaN(retData.limit.share_dateMax) && !isNaN(retData.limit.share_date)){
+                    leftShareTimes = retData.limit.share_dateMax - retData.limit.share_date;
+                    if(leftShareTimes > 0){//提示可以分享获得
+                      new Toast({
+                        content: '请分享后刷新页面再试',
+                        duration: 5000
+                      });
+                    } else {//分享机会也用完
+                      new Toast({
+                        content: '今日次数已经用完，请明日再来！',
+                        duration: 5000
+                      });
+                    }
+                  }
+                }
                 break;
               case '399': //领奖失败
                 this.isWinner = false;
                 break;
               case '300':
                 if(retData && retData.sysGift && retData.sysGift.giftType === 1) { //实物奖励
-                  this.isWinner = 'unknow';
+                  this.isWinner = false;
                 } else if(retData && retData.sysGift && retData.sysGift.giftType === 2) { //优惠券奖励
                   if(retData.sysGift.giftValue && retData.sysGift.giftName){
                     this.gift.value = retData.sysGift.giftValue;
                     this.gift.name = retData.sysGift.giftName;
-                    // this.gift.tip = retData.sysGift.giftName;
+                    this.gift.tip = retData.sysGift.sysGiftCode;
                     this.gift.url = retData.sysGift.coupon;
                     this.isWinner = true;
                   }else{
@@ -100,6 +116,9 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
                 break;
               default:
                 break;
+            }
+            if (this.isEnd) {
+              _.eventCenter.trigger('gb_widget_countdown:timeisup');
             }
           }, this));
         }
@@ -136,12 +155,9 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
 
     shakeEventDidOccur: function (e) {
       this.bgPlayer.play();
-      if (!this.isShaking && !this.isFirstShake) {
-        _.eventCenter.trigger('gb_widget_countdown:start');
-      }
       if (this.isFirstShake) {
-        this.conf.$el.removeClass('shake_ini').addClass('shake_ing');
         _.eventCenter.trigger('gb_widget_countdown:start');
+        this.conf.$el.removeClass('shake_ini').addClass('shake_ing');
         this.conf.$el.find('.countdown2').hide();
         this.isFirstShake = false;
       }
@@ -191,6 +207,9 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
       if (this.isWinner !== undefined) {
         this.shakeEvent.stop();
         $(window).off('shake unshake');
+        if (this.isWinner === 'limit') {
+          return;
+        }
         if (this.isWinner === 'unknow') {
           new Toast({
             content: '网络错误，请重新再试！'
@@ -215,10 +234,6 @@ PP.define('games/widget/shakeit_main', function (require, exports, module) {
             this.lotteryDialog.lose();
           }, this), 1500);
         }
-      } else {
-        new Toast({
-          content: '网络错误，请重新再试！'
-        });
       }
     }
   });

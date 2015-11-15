@@ -49,15 +49,6 @@ PP.define('games/page/index', function (require, exports, module) {
   }
 
   var allSrcs = [
-    __uri('images/card_b1.png'),
-    __uri('images/card_b2.png'),
-    __uri('images/card_b3.png'),
-    __uri('images/card_g1.png'),
-    __uri('images/card_g2.png'),
-    __uri('images/card_g3.png'),
-    __uri('images/card_p1.png'),
-    __uri('images/card_p2.png'),
-    __uri('images/card_p3.png'),
     __uri('images/crane_bg.png'),
     __uri('images/crane_catch.wav'),
     __uri('images/crane_catch_up.mp3'),
@@ -67,17 +58,7 @@ PP.define('games/page/index', function (require, exports, module) {
     __uri('images/index_bg.png'),
     __uri('images/little_p.png'),
     __uri('images/MFLiHei_Noncommercial-Regular.ttf'),
-    __uri('images/page1_dialog_btn.png'),
-    __uri('images/page2_btn_expreesion.png'),
-    __uri('images/page2_btn_eyer.png'),
-    __uri('images/page_btn2_expreesion.png'),
-    __uri('images/page_btn3.png'),
-    __uri('images/page_btn3_line.png'),
-    __uri('images/page_btn4_expreesion.png'),
-    __uri('images/page_btn5_expreesion.png'),
-    __uri('images/page_btn6_expreesion.png'),
-    __uri('images/page_btn_body.png'),
-    __uri('images/page_btn_body2.png'),
+    __uri('images/page_btn_imgs.png'),
     __uri('images/shake_bg.png'),
     __uri('images/shake_bg.wav'),
     __uri('images/shake_fart.mp3'),
@@ -135,7 +116,10 @@ PP.define('games/page/index', function (require, exports, module) {
             responseCallback('0');
           }
         });
-        this.setShareBtn();
+        bridge.registerHandler && bridge.registerHandler('PPSNScallback', function (data, responseCallback) {
+            //console.log(data);
+        });
+        this.setShareBtn(bridge);
 
       }, this));
       // 检测登录
@@ -256,17 +240,18 @@ PP.define('games/page/index', function (require, exports, module) {
     },
 
     getShareArgs: function () {
+      var shareLink = 'http://www.paipai.com/act/games/share.html';
       var args={
         'title': '我在京东拍拍玩游戏，不小心中奖了！来试试？？',
         'msg': '超级大奖天天领，就等你来拿哦',
         'links': {
-          'Wechat': 'http://b.paipai.com/abc',//微信
-          'WechatMoments': 'http://b.paipai.com/abc',//朋友圈
-          'QQ': 'http://b.paipai.com/abc',//qq
-          'QZone': 'http://b.paipai.com/abc',//qq空间
-          'SinaWeibo': 'http://b.paipai.com/abc',//新浪微博
-          'ShortMessage': 'http://b.paipai.com/abc',//短信
-          'Link': 'http://b.paipai.com/abc'//复制链接,及当找不到对应关系时的默认链接
+          'Wechat': shareLink,//微信
+          'WechatMoments': shareLink,//朋友圈
+          'QQ': shareLink,//qq
+          'QZone': shareLink,//qq空间
+          'SinaWeibo': shareLink,//新浪微博
+          'ShortMessage': shareLink,//短信
+          'Link': shareLink//复制链接,及当找不到对应关系时的默认链接
         },
         'imgUrl': 'http://static.paipaiimg.com/fd/h5/xgames/gb/images/cover.png',
         'panelTitle':'每日抽奖分享',//面板标题，传空会取默认：分享获得更多客流
@@ -276,20 +261,17 @@ PP.define('games/page/index', function (require, exports, module) {
     },
 
     doShare: function () {
-      if ('WebViewJavascriptBridge' in window) {
-        WebViewJavascriptBridge.callHandler('share', JSON.stringify(this.getShareArgs()), $.proxy(function(response) {
+      this.connectWebViewJavascriptBridge($.proxy(function (bridge) {
+        bridge.callHandler('share', JSON.stringify(this.getShareArgs()), $.proxy(function(response) {
           this.shareCallback(response);
         }, this));
-      }
+      }, this));
     },
 
-    setShareBtn: function () {
-      if ('WebViewJavascriptBridge' in window) {
-        var self = this;
-        WebViewJavascriptBridge.callHandler('setShareButton', JSON.stringify(self.getShareArgs()), function(response) {
-          self.shareCallback.call(self, response);
-        });
-      }
+    setShareBtn: function (bridge) {
+      bridge.callHandler('setShareButton', JSON.stringify(this.getShareArgs()), $.proxy(function(response) {
+        this.shareCallback.call(self, response);
+      }, this));
     },
 
     shareCallback: function (response) {

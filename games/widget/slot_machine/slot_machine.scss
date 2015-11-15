@@ -143,7 +143,7 @@ $baseFontSize: 40px;
 }
 
 .page_btn {
-  background-image: url(../images/page_btn_body2.png);
+  background-position: rem(-853px) rem(-368px);
 }
 
 .slot_machine_go .page_btn {
@@ -168,4 +168,8 @@ $baseFontSize: 40px;
 
 .countdown2 {
   margin-top: rem(-248px);
+}
+
+.page_btn3_main {
+  background-position: rem(-40px) rem(-500px);
 }

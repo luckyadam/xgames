@@ -8,6 +8,9 @@
   animation-timing-function: linear;
   animation-duration: 1s; }
 
+.top_player.stop {
+  animation: none; }
+
 .top_player_btn {
   display: block;
   width: 1.536rem;

@@ -14,6 +14,10 @@ $baseFontSize: 20px;
   animation-duration: 1s;
 }
 
+.top_player.stop {
+  animation: none;
+}
+
 .top_player_btn {
   display: block;
   width: pxToRem(36px);

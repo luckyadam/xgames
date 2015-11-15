@@ -77,20 +77,33 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
         self.$pageBtn5.hide();
         self.$pageBtn6.hide();
         self.$pageCraned.removeClass('in');
-        self.conf.$el.on('click', '.page_btn2', function () {
+        self.conf.$el.off('tap').on('tap', '.page_btn2', function () {
           $(this).hide();
-          self.player.setSrc(__uri('../images/crane_press_btn.mp3'));
-          self.player.play();
+          var player = new AudioPlayer({
+            autoplay: false,
+            loop: false,
+            src: __uri('../images/crane_press_btn.mp3')
+          });
+          player.play();
           self.$pageBtn3.show();
           self.$pageHand.addClass('down');
-          self.$pageCraned.addClass('page_craned2');
+          if (Math.random() > 0.5) {
+            self.$pageCraned.addClass('page_craned2');
+          } else {
+            self.$pageCraned.removeClass('page_craned2');
+          }
           setTimeout(function () {
             self.$pageBtn3.hide();
             self.$pageBtn1.show();
           }, 200);
           self.timer2 = setTimeout(function () {
-            self.player.setSrc(__uri('../images/crane_catch.wav'), 'audio/wav');
-            self.player.play();
+            var player = new AudioPlayer({
+              autoplay: false,
+              loop: false,
+              src: __uri('../images/crane_catch.wav'),
+              type: 'audio/wav'
+            });
+            player.play();
             setTimeout($.proxy(function () {
               self.upPlayer = new AudioPlayer({
                 autoplay: false,
@@ -108,6 +121,7 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
                 self.$pageHand.addClass('page_handlose').removeClass('down');
                 self.$pageCraned.addClass('down');
                 self.$pageBtn6.show();
+                self.upPlayer && self.upPlayer.stop();
                 self.timer4 = setTimeout(function () {
                   self.$pageBtn6.hide();
                   self.$pageBtn2.show();
@@ -119,6 +133,7 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
                 self.$pageHand.addClass('page_handwin');
                 self.$pageCraned.removeClass('down').addClass('in');
                 self.$pageBtn5.show();
+
                 self.onTimeisup();
               }
             }, 1500);
@@ -138,8 +153,9 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
         this.$pageHand.addClass('stop').removeClass('down');
         this.$pageBtn6.show();
         this.$pageHand.addClass('page_handlose');
-        this.lotteryDialog.lose(true, $.proxy(function () {
-          this.$pageHand.removeClass('stop')
+        this.$pageCraned.removeClass('down').removeClass('in');
+        this.lotteryDialog.lose(true, '没有抓到娃娃嘞，运气真差！', $.proxy(function () {
+          this.$pageHand.removeClass('stop');
           this.$pageBtn1.show();
           this.$pageBtn2.hide();
           this.$pageBtn6.hide();
@@ -160,6 +176,7 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
         }, $.proxy(function (ret) {
           this.isWinner = 'unknow';
           if (!ret) {
+            this.checkWinner();
             return;
           }
           var retData = ret.data;
@@ -170,6 +187,24 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
               break;
             case "111"://111次数不足
             case "112"://112积分不足
+              this.isWinner = 'limit';
+              if(retData.limit){
+                var leftShareTimes = 0;
+                if(!isNaN(retData.limit.share_dateMax) && !isNaN(retData.limit.share_date)){
+                  leftShareTimes = retData.limit.share_dateMax - retData.limit.share_date;
+                  if(leftShareTimes > 0){//提示可以分享获得
+                    new Toast({
+                      content: '请分享后刷新页面再试',
+                      duration: 5000
+                    });
+                  } else {//分享机会也用完
+                    new Toast({
+                      content: '今日次数已经用完，请明日再来！',
+                      duration: 5000
+                    });
+                  }
+                }
+              }
               break;
             case '399': //领奖失败
               this.isWinner = false;
@@ -181,7 +216,7 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
                 if(retData.sysGift.giftValue && retData.sysGift.giftName){
                   this.gift.value = retData.sysGift.giftValue;
                   this.gift.name = retData.sysGift.giftName;
-                  // this.gift.tip = retData.sysGift.giftName;
+                  this.gift.tip = retData.sysGift.sysGiftCode;
                   this.gift.url = retData.sysGift.coupon;
                   this.isWinner = true;
                 }else{
@@ -202,7 +237,11 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
 
     checkWinner: function () {
       if (this.isWinner !== undefined) {
+        if (this.isWinner === 'limit') {
+          return;
+        }
         if (this.isWinner === 'unknow') {
+          console.log('unknow');
           new Toast({
             content: '网络错误，请重新再试！'
           });
@@ -212,8 +251,12 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
         if (this.isWinner) {
           var gift = this.gift;
           this.lotteryDialog.win(gift.value, gift.name, gift.tip, gift.url);
-          this.player.setSrc(__uri('../images/get_gift.mp3'), 'audio/mpeg');
-          this.player.play();
+          var player = new AudioPlayer({
+            autoplay: false,
+            loop: false,
+            src: __uri('../images/get_gift.mp3')
+          });
+          player.play();
         } else {
           this.lotteryDialog.lose();
         }

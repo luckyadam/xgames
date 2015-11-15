@@ -103,14 +103,6 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
       this.listenEvent();
       this.isPlayed = false;
       this.lotteryDialog = new LotteryDialog();
-      this.player = new AudioPlayer({
-        autoplay: false,
-        loop: false
-      });
-      this.btnPlayer = new AudioPlayer({
-        autoplay: false,
-        loop: false
-      });
     },
 
     getElements: function () {
@@ -123,9 +115,13 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
 
     initEvent: function () {
       var self = this;
-      this.conf.$el.on('click', '.slot_machine_go .page_btn1', function () {
-        self.btnPlayer.setSrc(__uri('../images/crane_press_btn.mp3'));
-        self.btnPlayer.play();
+      this.conf.$el.on('tap', '.slot_machine_go .page_btn1', function () {
+        var player = new AudioPlayer({
+          autoplay: false,
+          loop: false,
+          src: __uri('../images/crane_press_btn.mp3')
+        });
+        player.play();
         var $this = $(this);
         $('.slot_machine_go .page_btn3').show();
         _.eventCenter.trigger('gb_widget_countdown:start');
@@ -138,7 +134,7 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
           self.scroll();
         }, 200);
 
-      }).on('click', '.slot_machine_stop .page_btn1', $.proxy(this.stop, this));
+      }).on('tap', '.slot_machine_stop .page_btn1', $.proxy(this.stop, this));
     },
 
     listenEvent: function () {
@@ -153,22 +149,32 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
             setTimeout(function () {
               clearInterval(self.rightInterval);
               self.scrollRightTrack(1, right, 1500, makeEaseOut(back), false, function () {
+                if (self.isWinner === 'limit') {
+                  $('.slot_machine_go .page_btn6').show();
+                  $('.slot_machine_stop .page_btn6').show();
+                  _.eventCenter.trigger('gb_widget_countdown:stop');
+                  return;
+                }
                 if (self.isWinner === true) {
                   $('.slot_machine_go .page_btn5').show();
                   $('.slot_machine_stop .page_btn5').show();
                   var gift = self.gift;
                   self.lotteryDialog.win(gift.value, gift.name, gift.tip, gift.url);
-                  self.player.setSrc(__uri('../images/get_gift.mp3'), 'audio/mpeg');
-                  self.player.play();
+                  var player = new AudioPlayer({
+                    autoplay: false,
+                    loop: false,
+                    src: __uri('../images/get_gift.mp3')
+                  });
+                  player.play();
                 } else {
                   $('.slot_machine_go .page_btn6').show();
                   $('.slot_machine_stop .page_btn6').show();
                   _.eventCenter.trigger('gb_widget_countdown:stop');
-                  self.lotteryDialog.lose(true, function () {
+                  self.lotteryDialog.lose(true, '没有摇中嘞，运气真差！', function () {
                     self.isPlayed = false;
                     self.conf.$el.find('.countdown2').show();
                     self.conf.$el.find('.slot_machine_main').addClass('hide');
-                    self.conf.$el.off('click');
+                    self.conf.$el.off('tap');
                     $($('.slot_machine_go .page_btn').hide().get(0)).show();
                     $($('.slot_machine_stop .page_btn').hide().get(1)).show();
                     _.eventCenter.trigger('gb_widget_countdown:reset');
@@ -215,6 +221,24 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
             break;
           case "111"://111次数不足
           case "112"://112积分不足
+            this.isWinner = 'limit';
+            if(retData.limit){
+              var leftShareTimes = 0;
+              if(!isNaN(retData.limit.share_dateMax) && !isNaN(retData.limit.share_date)){
+                leftShareTimes = retData.limit.share_dateMax - retData.limit.share_date;
+                if(leftShareTimes > 0){//提示可以分享获得
+                  new Toast({
+                    content: '请分享后刷新页面再试',
+                    duration: 5000
+                  });
+                } else {//分享机会也用完
+                  new Toast({
+                    content: '今日次数已经用完，请明日再来！',
+                    duration: 5000
+                  });
+                }
+              }
+            }
             break;
           case '399': //领奖失败
             this.isWinner = false;
@@ -226,7 +250,7 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
               if(retData.sysGift.giftValue && retData.sysGift.giftName){
                 this.gift.value = retData.sysGift.giftValue;
                 this.gift.name = retData.sysGift.giftName;
-                // this.gift.tip = retData.sysGift.giftName;
+                this.gift.tip = retData.sysGift.sysGiftCode;
                 this.gift.url = retData.sysGift.coupon;
                 this.isWinner = true;
               }else{
@@ -269,8 +293,12 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
       // this.player.stop();
       if (!this.isPlayed) {
         this.isPlayed = true;
-        this.btnPlayer.setSrc(__uri('../images/crane_press_btn.mp3'));
-        this.btnPlayer.play();
+        var player = new AudioPlayer({
+          autoplay: false,
+          loop: false,
+          src: __uri('../images/crane_press_btn.mp3')
+        });
+        player.play();
         _.eventCenter.trigger('gb_widget_countdown:pause');
         $('.slot_machine_stop .page_btn1').hide();
         $('.slot_machine_stop .page_btn3').show();
@@ -287,6 +315,10 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
               content: '网络错误，请重新再试！'
             });
             _.eventCenter.trigger('slot_machine:stop', -1 * 170, 1 * 170, -1 * 170);
+            return;
+          }
+          if (this.isWinner === 'limit') {
+            _.eventCenter.trigger('slot_machine:stop', -2 * 170, 2 * 170, -2 * 170);
             return;
           }
           if (this.isWinner) {
