@@ -39,7 +39,7 @@ PP.define('gb/widget/lottery_dialog', function (require, exports, module) {
           html += '<div class="mod_popup_tip"><span>限店铺使用</span></div>';
         }
         html += '</div>';
-        html += '<div class="mod_popup_btn"><a href="javascript:;" class="mod_popup_imgs"><span>' + btnTxt + '</span></a></div>';
+        html += '<div class="mod_popup_btn"><a href="' + url + '" class="mod_popup_imgs"><span>' + btnTxt + '</span></a></div>';
         html += '<div class="mod_popup_star mod_popup_imgs"></div>';
         html += '<a href="javascript:;" class="mod_popup_close"></a>';
         html += '</div>';
@@ -56,12 +56,8 @@ PP.define('gb/widget/lottery_dialog', function (require, exports, module) {
 
     lose: function (replay, tip, cb) {
       if (!this.$lose) {
-        var loseTip = '';
-        if (replay) { // 重新再来
-          loseTip = tip;
-        } else {
-          loseTip = '什么？没有中！？';
-        }
+        var loseTip = tip ? tip : '什么？没有中！？';
+
         var html = '<div class="mod_popup lose">';
         html += '<div class="mod_popup_body mod_popup_imgs">';
         html += '<div class="mod_popup_main mod_popup_lose mod_popup_imgs">';

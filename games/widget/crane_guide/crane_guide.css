@@ -1,10 +1,12 @@
 .crane_guide {
   opacity: 1;
-  transition: all opacity .5s ease-in-out; }
+  transition: all opacity .5s ease-in-out;
+}
 
 .crane_guide.out {
   opacity: 0;
-  display: none; }
+  display: none;
+}
 
 .page1_yuanqi {
   position: absolute;
@@ -13,7 +15,8 @@
   width: 8.533333rem;
   height: 9.98400182rem;
   background-position: -25.1733rem -0.8533rem;
-  animation: slideTopRight .5s ease; }
+  animation: slideTopRight .5s ease;
+}
 
 .page1_yinfu1 {
   position: absolute;
@@ -22,7 +25,8 @@
   width: 2.048rem;
   height: 2.6453315rem;
   background-position: -17.4933rem -0.8533rem;
-  animation: slideTopRight .6s ease backwards; }
+  animation: slideTopRight .6s ease backwards;
+}
 
 .page1_yinfu2 {
   position: absolute;
@@ -31,7 +35,8 @@
   width: 2.2186703rem;
   height: 2.730666667rem;
   background-position: -21.248rem -0.8533rem;
-  animation: slideTopRight .6s ease backwards; }
+  animation: slideTopRight .6s ease backwards;
+}
 
 .page1_dialog {
   position: absolute;
@@ -40,7 +45,8 @@
   width: 6.698667576888889rem;
   height: 7.80800273rem;
   background-position: -0.8533rem -0.8533rem;
-  animation: slideALittle 1s .6s ease backwards; }
+  animation: slideALittle 1s .6s ease backwards;
+}
 
 .page1_dialog_push {
   position: absolute;
@@ -51,7 +57,8 @@
   width: 1.8773369742rem;
   height: 0.55466757689rem;
   background-position: -13.9093rem -0.8533rem;
-  animation: slideDown .5s .9s ease-in infinite; }
+  animation: slideDown .5s .9s ease-in infinite;
+}
 
 .page1_dialog_btn {
   position: absolute;
@@ -62,6 +69,5 @@
   height: 2.5599963591rem;
   background-position: -9.3013rem -0.8533rem;
   transform-origin: center bottom;
-  animation: scale .5s .9s ease-in infinite; }
-
-/*# sourceMappingURL=crane_guide.css.map */
+  animation: scale .5s .9s ease-in infinite;
+}

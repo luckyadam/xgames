@@ -154,20 +154,7 @@ PP.define('games/widget/crane_main', function (require, exports, module) {
         this.$pageBtn6.show();
         this.$pageHand.addClass('page_handlose');
         this.$pageCraned.removeClass('down').removeClass('in');
-        this.lotteryDialog.lose(true, '没有抓到娃娃嘞，运气真差！', $.proxy(function () {
-          this.$pageHand.removeClass('stop');
-          this.$pageBtn1.show();
-          this.$pageBtn2.hide();
-          this.$pageBtn6.hide();
-          this.$pageHand.removeClass('page_handlose');
-          this.conf.$el.removeClass('in').addClass('in');
-          setTimeout($.proxy(function () {
-            this.$countdown2.show();
-            _.eventCenter.trigger('gb_widget_countdown:reset');
-            _.eventCenter.trigger('gb_widget_countdown2:reset');
-            _.eventCenter.trigger('gb_widget_countdown2:start');
-          }, this), 500);
-        }, this));
+        this.lotteryDialog.lose(false, '没有抓到娃娃嘞，运气真差！');
       } else {
         _.eventCenter.trigger('gb_widget_countdown:pause');
         lotteryUtil.play({

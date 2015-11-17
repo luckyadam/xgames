@@ -6,10 +6,12 @@
   animation-name: rotationForever;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-duration: 1s; }
+  animation-duration: 1s;
+}
 
 .top_player.stop {
-  animation: none; }
+  animation: none;
+}
 
 .top_player_btn {
   display: block;
@@ -17,18 +19,22 @@
   height: 1.536rem;
   background-repeat: no-repeat;
   background-size: 2.13333rem 3.41333rem;
-  background-image: url(../images/top_player.png); }
+  background-image: url(../images/top_player.png);
+}
 
 .top_player_btn.on {
-  background-position: 0 0; }
+  background-position: 0 0;
+}
 
 .top_player_btn.off {
-  background-position: 0 -1.70667rem; }
+  background-position: 0 -1.70667rem;
+}
 
 @keyframes rotationForever {
   0% {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   100% {
-    transform: rotate(360deg); } }
-
-/*# sourceMappingURL=top_player.css.map */
+    transform: rotate(360deg);
+  }
+}

@@ -170,19 +170,7 @@ PP.define('games/widget/slot_machine', function (require, exports,module) {
                   $('.slot_machine_go .page_btn6').show();
                   $('.slot_machine_stop .page_btn6').show();
                   _.eventCenter.trigger('gb_widget_countdown:stop');
-                  self.lotteryDialog.lose(true, '没有摇中嘞，运气真差！', function () {
-                    self.isPlayed = false;
-                    self.conf.$el.find('.countdown2').show();
-                    self.conf.$el.find('.slot_machine_main').addClass('hide');
-                    self.conf.$el.off('tap');
-                    $($('.slot_machine_go .page_btn').hide().get(0)).show();
-                    $($('.slot_machine_stop .page_btn').hide().get(1)).show();
-                    _.eventCenter.trigger('gb_widget_countdown:reset');
-                    _.eventCenter.trigger('gb_widget_countdown2:reset');
-                    setTimeout(function () {
-                      _.eventCenter.trigger('gb_widget_countdown2:start');
-                    }, 600);
-                  });
+                  self.lotteryDialog.lose(false, '没有摇中嘞，运气真差！');
                 }
               });
             }, 1500);
