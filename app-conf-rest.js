@@ -4,7 +4,7 @@ module.exports = {
   app: 'xgames',
   appId: '70075e10-7c7f-11e5-9c20-895499e552c7',
   common: 'gb',
-  moduleList: ['gb', 'games'],
+  moduleList: ['gb', 'games', '2015double11'],
   deploy: {
     local: {
       fdPath: '/'
