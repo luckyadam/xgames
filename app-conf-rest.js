@@ -9,11 +9,13 @@ module.exports = {
     local: {
       fdPath: '/'
     },
-    qiang: {
+    preview: {
       host: 'labs.qiang.it',
       user: '',
       pass: '',
       port: 21,
+      fdPath: '/h5/',
+      domain: 'labs.qiang.it',
       remotePath: '/labs.qiang.it/h5/xgames'
     },
     jdTest: {
