@@ -8,8 +8,8 @@
 athena serve
 ```
 
-部署
+发布
 
 ```
-athena deploy
+athena publish
 ```
